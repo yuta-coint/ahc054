@@ -1,0 +1,197 @@
+===== TURN 0 =====
+Adventurer at (0,11)
+Output: 0
+Tree is on bfsProv start (0,11)
+Goal from q: (10,11)12
+  Check move to (1,11) distProv=11
+0T0
+Move to (1,11)
+===== TURN 1 =====
+Adventurer at (1,11)
+Output: 0
+Tree is on bfsProv start (1,11)
+Goal from q: (10,11)11
+  Check move to (0,11) distProv=12
+0T0
+  Check move to (2,11) distProv=10
+0T0
+Move to (2,11)
+===== TURN 2 =====
+Adventurer at (2,11)
+Output: 0
+Tree is on bfsProv start (2,11)
+Goal from q: (10,11)10
+  Check move to (1,11) distProv=11
+0T0
+  Check move to (2,12) distProv=9
+0T0
+Move to (2,12)
+===== TURN 3 =====
+Adventurer at (2,12)
+Output: 0
+Tree is on bfsProv start (2,12)
+Goal from q: (10,11)11
+  Check move to (1,12) distProv=12
+0T0
+  Check move to (3,12) distProv=10
+0T0
+Move to (3,12)
+===== TURN 4 =====
+Adventurer at (3,12)
+Output: 0
+Tree is on bfsProv start (3,12)
+Goal from q: (10,11)10
+  Check move to (2,12) distProv=11
+0T0
+  Check move to (3,13) distProv=9
+0T0
+Move to (3,13)
+===== TURN 5 =====
+Adventurer at (3,13)
+Output: 0
+Tree is on bfsProv start (3,13)
+Goal from q: (10,11)9
+  Check move to (2,13) distProv=10
+0T0
+  Check move to (4,13) distProv=8
+0T0
+Move to (4,13)
+===== TURN 6 =====
+Adventurer at (4,13)
+Output: 0
+Tree is on bfsProv start (4,13)
+Goal from q: (10,11)8
+  Check move to (3,13) distProv=9
+0T0
+  Check move to (5,13) distProv=7
+0T0
+Move to (5,13)
+===== TURN 7 =====
+Adventurer at (5,13)
+Output: 0
+Tree is on bfsProv start (5,13)
+Goal from q: (10,11)7
+  Check move to (4,13) distProv=8
+0T0
+  Check move to (6,13) distProv=6
+0T0
+Move to (6,13)
+===== TURN 8 =====
+Adventurer at (6,13)
+Output: 0
+Tree is on bfsProv start (6,13)
+Goal from q: (10,11)6
+  Check move to (5,13) distProv=7
+0T0
+  Check move to (7,13) distProv=5
+0T0
+Move to (7,13)
+===== TURN 9 =====
+Adventurer at (7,13)
+Output: 0
+Tree is on bfsProv start (7,13)
+Goal from q: (10,11)5
+  Check move to (6,13) distProv=6
+1T0
+  Check move to (7,12) distProv=4
+1T0
+Move to (7,12)
+===== TURN 10 =====
+Adventurer at (7,12)
+Output: 0
+Tree is on bfsProv start (7,12)
+Goal from q: (10,11)4
+  Check move to (8,12) distProv=3
+1T0
+Move to (8,12)
+===== TURN 11 =====
+Adventurer at (8,12)
+Output: 0
+Tree is on bfsProv start (8,12)
+Goal from q: (10,11)3
+  Check move to (7,12) distProv=4
+1T0
+  Check move to (9,12) distProv=2
+1T0
+Move to (9,12)
+===== TURN 12 =====
+Adventurer at (9,12)
+Output: 0
+Tree is on bfsProv start (9,12)
+Goal from q: (10,11)2
+  Check move to (8,12) distProv=3
+1T0
+  Check move to (10,12) distProv=1
+1T0
+Move to (10,12)
+===== TURN 13 =====
+Adventurer at (10,12)
+Output: 0
+Tree is on bfsProv start (10,12)
+Goal from q: (13,9)6
+  Check move to (9,12) distProv=7
+1T0
+  Check move to (11,12) distProv=5
+1T0
+Move to (11,12)
+===== TURN 14 =====
+Adventurer at (11,12)
+Output: 0
+Tree is on bfsProv start (11,12)
+Goal from q: (13,9)5
+  Check move to (10,12) distProv=6
+1T0
+  Check move to (12,12) distProv=4
+1T0
+Move to (12,12)
+===== TURN 15 =====
+Adventurer at (12,12)
+Output: 0
+Tree is on bfsProv start (12,12)
+Goal from q: (13,9)4
+  Check move to (11,12) distProv=5
+1T0
+  Check move to (13,12) distProv=3
+1T0
+Move to (13,12)
+===== TURN 16 =====
+Adventurer at (13,12)
+Output: 0
+Tree is on bfsProv start (13,12)
+Goal from q: (14,14)3
+  Check move to (12,12) distProv=4
+1T0
+  Check move to (14,12) distProv=2
+1T0
+Move to (14,12)
+===== TURN 17 =====
+Adventurer at (14,12)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (14,14)
+  Check move to (13,12) distProv=3
+1T0
+  Check move to (15,12) distProv=3
+1T0
+  Check move to (14,11) distProv=3
+1T0
+  Check move to (14,13) distProv=1
+1T0
+Move to (14,13)
+===== TURN 18 =====
+Adventurer at (14,13)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (14,14)
+  Check move to (13,13) distProv=2
+1T0
+  Check move to (15,13) distProv=2
+1T0
+  Check move to (14,12) distProv=2
+1T0
+  Check move to (14,14) distProv=0
+1T0
+Move to (14,14)
+===== TURN 19 =====
+Adventurer at (14,14)
+Reached flower -> finish

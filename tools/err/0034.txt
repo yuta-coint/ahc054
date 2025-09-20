@@ -1,0 +1,105 @@
+===== TURN 0 =====
+Adventurer at (0,10)
+Output: 0
+Tree is on bfsProv start (0,10)
+Goal from q: (13,3)20
+  Check move to (1,10) distProv=19
+1.0
+Move to (1,10)
+===== TURN 1 =====
+Adventurer at (1,10)
+Output: 0
+Tree is on bfsProv start (1,10)
+Goal from q: (13,3)19
+  Check move to (0,10) distProv=20
+1.0
+  Check move to (2,10) distProv=18
+1.0
+Move to (2,10)
+===== TURN 2 =====
+Adventurer at (2,10)
+Output: 0
+Tree is on bfsProv start (2,10)
+Goal from q: (13,3)18
+  Check move to (1,10) distProv=19
+1.0
+  Check move to (3,10) distProv=17
+1.0
+Move to (3,10)
+===== TURN 3 =====
+Adventurer at (3,10)
+Output: 0
+Tree is on bfsProv start (3,10)
+Goal from q: (13,3)17
+  Check move to (2,10) distProv=18
+1.0
+  Check move to (4,10) distProv=16
+1.0
+Move to (4,10)
+===== TURN 4 =====
+Adventurer at (4,10)
+Output: 0
+Tree is on bfsProv start (4,10)
+Goal from q: (13,3)16
+  Check move to (3,10) distProv=17
+1.0
+  Check move to (5,10) distProv=15
+1.0
+Move to (5,10)
+===== TURN 5 =====
+Adventurer at (5,10)
+Output: 0
+Tree is on bfsProv start (5,10)
+Goal from q: (13,3)15
+  Check move to (4,10) distProv=16
+1.0
+  Check move to (6,10) distProv=14
+1.0
+Move to (6,10)
+===== TURN 6 =====
+Adventurer at (6,10)
+Output: 0
+Tree is on bfsProv start (6,10)
+Goal from q: (13,3)14
+  Check move to (5,10) distProv=15
+1.0
+  Check move to (7,10) distProv=13
+1.0
+Move to (7,10)
+===== TURN 7 =====
+Adventurer at (7,10)
+Output: 0
+Tree is on bfsProv start (7,10)
+Goal from q: (13,3)13
+  Check move to (6,10) distProv=14
+1.0
+  Check move to (8,10) distProv=12
+1.0
+Move to (8,10)
+===== TURN 8 =====
+Adventurer at (8,10)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (8,8)
+  Check move to (7,10) distProv=3
+1.0
+  Check move to (9,10) distProv=3
+1.0
+  Check move to (8,9) distProv=1
+1.0
+Move to (8,9)
+===== TURN 9 =====
+Adventurer at (8,9)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (8,8)
+  Check move to (7,9) distProv=2
+1.0
+  Check move to (9,9) distProv=2
+1.0
+  Check move to (8,8) distProv=0
+1.0
+Move to (8,8)
+===== TURN 10 =====
+Adventurer at (8,8)
+Reached flower -> finish

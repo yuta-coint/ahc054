@@ -1,0 +1,63 @@
+===== TURN 0 =====
+Adventurer at (0,10)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (0,15)
+  Check move to (1,10) distProv=6
+1.0
+  Check move to (0,9) distProv=6
+1.0
+  Check move to (0,11) distProv=4
+1.0
+Move to (0,11)
+===== TURN 1 =====
+Adventurer at (0,11)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (0,15)
+  Check move to (1,11) distProv=5
+1.0
+  Check move to (0,10) distProv=5
+1.0
+  Check move to (0,12) distProv=3
+1.0
+Move to (0,12)
+===== TURN 2 =====
+Adventurer at (0,12)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (0,15)
+  Check move to (1,12) distProv=4
+1.0
+  Check move to (0,11) distProv=4
+1.0
+  Check move to (0,13) distProv=2
+1.0
+Move to (0,13)
+===== TURN 3 =====
+Adventurer at (0,13)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (0,15)
+  Check move to (1,13) distProv=3
+1.0
+  Check move to (0,12) distProv=3
+1.0
+  Check move to (0,14) distProv=1
+1.0
+Move to (0,14)
+===== TURN 4 =====
+Adventurer at (0,14)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (0,15)
+  Check move to (1,14) distProv=2
+1.0
+  Check move to (0,13) distProv=2
+1.0
+  Check move to (0,15) distProv=0
+1.0
+Move to (0,15)
+===== TURN 5 =====
+Adventurer at (0,15)
+Reached flower -> finish

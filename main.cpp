@@ -108,14 +108,7 @@ int main(){
     };
 
     // 初期視界更新
-    for(int d=0; d<4; d++){
-        int x=adventurer.x, y=adventurer.y;
-        while(inb(x,y)){
-            confirmed[x][y]=true;
-            if(cell[x][y]=='T') break;
-            x+=dxs[d]; y+=dys[d];
-        }
-    }
+    confirmed[adventurer.x][adventurer.y]=true;
 
     for(int turn=0; turn<1000000; turn++){
         cerr<<"===== TURN "<<turn<<" =====\n";
@@ -135,7 +128,6 @@ int main(){
                 if (!inb(nx, ny)) continue;
                 if (abs(adventurer.x - nx) + abs(adventurer.y - ny) == distF - 1) {
                     if (canPlaceTrent(nx, ny, adventurer)) {
-                        // ★ 経路長の変化をチェック
                         auto before = bfsTrue(adventurer);
                         int distBefore = before[ti][tj];
                         hasTrent[nx][ny] = true;

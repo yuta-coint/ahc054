@@ -1,0 +1,251 @@
+===== TURN 0 =====
+Adventurer at (0,14)
+Output: 0
+Tree is on bfsProv start (0,14)
+Goal from q: (17,8)23
+  Check move to (1,14) distProv=22
+0.0
+Move to (1,14)
+===== TURN 1 =====
+Adventurer at (1,14)
+Output: 0
+Tree is on bfsProv start (1,14)
+Goal from q: (17,8)22
+  Check move to (0,14) distProv=23
+0.0
+  Check move to (2,14) distProv=21
+0.0
+Move to (2,14)
+===== TURN 2 =====
+Adventurer at (2,14)
+Output: 0
+Tree is on bfsProv start (2,14)
+Goal from q: (17,8)21
+  Check move to (1,14) distProv=22
+0.0
+  Check move to (3,14) distProv=20
+0.0
+Move to (3,14)
+===== TURN 3 =====
+Adventurer at (3,14)
+Output: 0
+Tree is on bfsProv start (3,14)
+Goal from q: (17,8)20
+  Check move to (2,14) distProv=21
+0.0
+  Check move to (4,14) distProv=19
+0.0
+Move to (4,14)
+===== TURN 4 =====
+Adventurer at (4,14)
+Output: 0
+Tree is on bfsProv start (4,14)
+Goal from q: (17,8)19
+  Check move to (3,14) distProv=20
+0.0
+  Check move to (5,14) distProv=18
+0.0
+Move to (5,14)
+===== TURN 5 =====
+Adventurer at (5,14)
+Output: 0
+Tree is on bfsProv start (5,14)
+Goal from q: (17,8)18
+  Check move to (4,14) distProv=19
+0.0
+  Check move to (6,14) distProv=17
+0.0
+Move to (6,14)
+===== TURN 6 =====
+Adventurer at (6,14)
+Output: 0
+Tree is on bfsProv start (6,14)
+Goal from q: (17,8)17
+  Check move to (5,14) distProv=18
+0.0
+  Check move to (7,14) distProv=16
+0.0
+Move to (7,14)
+===== TURN 7 =====
+Adventurer at (7,14)
+Output: 0
+Tree is on bfsProv start (7,14)
+Goal from q: (17,8)16
+  Check move to (6,14) distProv=17
+1.0
+  Check move to (8,14) distProv=15
+1.0
+Move to (8,14)
+===== TURN 8 =====
+Adventurer at (8,14)
+Output: 0
+Tree is on bfsProv start (8,14)
+Goal from q: (17,8)15
+  Check move to (7,14) distProv=16
+1.0
+  Check move to (9,14) distProv=14
+1.0
+Move to (9,14)
+===== TURN 9 =====
+Adventurer at (9,14)
+Output: 0
+Tree is on bfsProv start (9,14)
+Goal from q: (17,8)14
+  Check move to (8,14) distProv=15
+1.0
+  Check move to (10,14) distProv=13
+1.0
+Move to (10,14)
+===== TURN 10 =====
+Adventurer at (10,14)
+Output: 0
+Tree is on bfsProv start (10,14)
+Goal from q: (17,8)13
+  Check move to (9,14) distProv=14
+1.0
+  Check move to (11,14) distProv=12
+1.0
+Move to (11,14)
+===== TURN 11 =====
+Adventurer at (11,14)
+Output: 0
+Tree is on bfsProv start (11,14)
+Goal from q: (17,8)12
+  Check move to (10,14) distProv=13
+1.0
+  Check move to (12,14) distProv=11
+1.0
+Move to (12,14)
+===== TURN 12 =====
+Adventurer at (12,14)
+Output: 0
+Tree is on bfsProv start (12,14)
+Goal from q: (17,8)11
+  Check move to (11,14) distProv=12
+1.0
+  Check move to (13,14) distProv=10
+1.0
+Move to (13,14)
+===== TURN 13 =====
+Adventurer at (13,14)
+Output: 0
+Tree is on bfsProv start (13,14)
+Goal from q: (17,8)10
+  Check move to (12,14) distProv=11
+1.0
+  Check move to (14,14) distProv=9
+1.0
+Move to (14,14)
+===== TURN 14 =====
+Adventurer at (14,14)
+Output: 0
+Tree is on bfsProv start (14,14)
+Goal from q: (17,8)9
+  Check move to (13,14) distProv=10
+1.0
+  Check move to (15,14) distProv=8
+1.0
+Move to (15,14)
+===== TURN 15 =====
+Adventurer at (15,14)
+Output: 0
+Tree is on bfsProv start (15,14)
+Goal from q: (17,8)8
+  Check move to (14,14) distProv=9
+1.0
+  Check move to (16,14) distProv=7
+1.0
+Move to (16,14)
+===== TURN 16 =====
+Adventurer at (16,14)
+Output: 0
+Tree is on bfsProv start (16,14)
+Goal from q: (17,8)7
+  Check move to (15,14) distProv=8
+1.0
+  Check move to (17,14) distProv=6
+1.0
+Move to (17,14)
+===== TURN 17 =====
+Adventurer at (17,14)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (17,7)
+  Check move to (16,14) distProv=8
+1.0
+  Check move to (18,14) distProv=8
+1.0
+  Check move to (17,13) distProv=6
+1.0
+Move to (17,13)
+===== TURN 18 =====
+Adventurer at (17,13)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (17,7)
+  Check move to (16,13) distProv=7
+1.0
+  Check move to (18,13) distProv=7
+1.0
+  Check move to (17,12) distProv=5
+1.0
+Move to (17,12)
+===== TURN 19 =====
+Adventurer at (17,12)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (17,7)
+  Check move to (16,12) distProv=6
+1.0
+  Check move to (18,12) distProv=6
+1.0
+  Check move to (17,11) distProv=4
+1.0
+Move to (17,11)
+===== TURN 20 =====
+Adventurer at (17,11)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (17,7)
+  Check move to (16,11) distProv=5
+1.0
+  Check move to (17,10) distProv=3
+1.0
+Move to (17,10)
+===== TURN 21 =====
+Adventurer at (17,10)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (17,7)
+  Check move to (16,10) distProv=4
+1.0
+  Check move to (18,10) distProv=4
+1.0
+  Check move to (17,9) distProv=2
+1.0
+Move to (17,9)
+===== TURN 22 =====
+Adventurer at (17,9)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (17,7)
+  Check move to (16,9) distProv=3
+1.0
+  Check move to (18,9) distProv=3
+1.0
+  Check move to (17,8) distProv=1
+1.0
+Move to (17,8)
+===== TURN 23 =====
+Adventurer at (17,8)
+Output: 0
+Goal=flower
+Tree is on bfsProv start (17,7)
+  Check move to (18,8) distProv=2
+1.0
+  Check move to (17,7) distProv=0
+1.0
+Move to (17,7)
+===== TURN 24 =====
+Adventurer at (17,7)
+Reached flower -> finish
