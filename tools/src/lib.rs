@@ -124,7 +124,7 @@ pub fn gen(seed: u64) -> Input {
     let N = rng.gen_range(20i32..=40) as usize;
     let s = (0, N / 2);
     let mut b = mat!['.'; N; N];
-    let K = rng.gen_range(0..=(N * N / 6) as i32) as usize;
+    let K = rng.gen_range(0..=(N * N / 6) as i32).max(1) as usize;
     let mut k = 0;
     let mut ij = vec![];
     for i in 0..N {
@@ -769,15 +769,19 @@ pub fn exec(p: &mut std::process::Child, local: bool) -> Result<i64, String> {
     let mut turn = 0;
     loop {
         let _ = writeln!(stdin, "{} {}", sim.p.0, sim.p.1);
-        let _ = writeln!(
-            stdin,
-            "{} {}",
-            sim.new_revealed.len(),
-            sim.new_revealed
-                .iter()
-                .map(|&(x, y)| format!("{} {}", x, y))
-                .join(" ")
-        );
+        if sim.new_revealed.is_empty() {
+            let _ = writeln!(stdin, "0");
+        } else {
+            let _ = writeln!(
+                stdin,
+                "{} {}",
+                sim.new_revealed.len(),
+                sim.new_revealed
+                    .iter()
+                    .map(|&(x, y)| format!("{} {}", x, y))
+                    .join(" ")
+            );
+        }
         let _ = stdin.flush();
         if sim.p == sim.t {
             break;
