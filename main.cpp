@@ -3,6 +3,7 @@ using namespace std;
 
 struct Pos { int x,y; };
 
+vector<Pos> toPlace;
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -109,7 +110,7 @@ int main(){
         return d[t.x][t.y] < INF;
     };
 
-    auto canPlaceTrent=[&](int x,int y,Pos adv)->bool{
+    auto tryPlaceTrent=[&](int x,int y,Pos adv)->bool{
         if(!inb(x,y)) return false;
         if(cell[x][y]!='.') return false;
         if(hasTrent[x][y]) return false;
@@ -117,6 +118,9 @@ int main(){
         if(x==adv.x&&y==adv.y) return false;
         if(!hasPathTrue(entrance,{ti,tj},x,y)) return false;
         if(!hasPathTrue(adv,{ti,tj},x,y)) return false;
+        toPlace.push_back({x,y});
+        hasTrent[x][y]=true;
+        cell[x][y]='T';
         return true;
     };
 
@@ -133,25 +137,13 @@ int main(){
         }
 
         // 出力
-        vector<Pos> toPlace;
         if (turn == 0){
-            if (canPlaceTrent(adventurer.x + 1,adventurer.y,adventurer)) toPlace.push_back({adventurer.x + 1,adventurer.y});
-        }
-            // ti,tjの周囲に置く。
-        if (turn == 1){
-            if (canPlaceTrent(ti-1,tj,adventurer)) toPlace.push_back({ti-1,tj});
-        }
-        if (turn == 2){
-            if (canPlaceTrent(ti-1,tj+1,adventurer)) toPlace.push_back({ti-1,tj+1});
-        }
-        if (turn == 3){
-            if (canPlaceTrent(ti,tj-1,adventurer)) toPlace.push_back({ti,tj-1});
-        }
-        if (turn == 4){
-            if (canPlaceTrent(ti,tj+2,adventurer)) toPlace.push_back({ti,tj+2});
-        }
-        if (turn == 5){
-            if (canPlaceTrent(ti+1,tj,adventurer)) toPlace.push_back({ti+1,tj});
+            tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+            tryPlaceTrent(ti-1,tj,adventurer);
+            tryPlaceTrent(ti-1,tj+1,adventurer);
+            tryPlaceTrent(ti,tj-1,adventurer);
+            tryPlaceTrent(ti,tj+2,adventurer);
+            tryPlaceTrent(ti+1,tj,adventurer);
         }
 
         if(toPlace.empty()){
@@ -161,12 +153,12 @@ int main(){
             cout<<toPlace.size();
             for(auto &p:toPlace){
                 cout<<" "<<p.x<<" "<<p.y;
-                hasTrent[p.x][p.y]=true;
-                cell[p.x][p.y]='T';
             }
             cout<<"\n"; cout.flush(); lastPlaced=true;
             cerr<<"Output: placed\n";
         }
+
+        toPlace.clear();
 
         // --- 冒険者シミュレーション（冒険者視点: bfsProv） ---
 

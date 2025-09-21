@@ -1,11 +1,11 @@
 ===== TURN 0 =====
 Adventurer at (0,13)
-Output: 0
+Output: placed
 Goal from q: (12,14)13
 Move to (1,13)
 ===== TURN 1 =====
 Adventurer at (1,13)
-Output: placed
+Output: 0
 Goal from q: (12,14)12
 Move to (2,13)
 ===== TURN 2 =====
@@ -15,7 +15,7 @@ Goal from q: (12,14)11
 Move to (3,13)
 ===== TURN 3 =====
 Adventurer at (3,13)
-Output: placed
+Output: 0
 Goal from q: (12,14)10
 Move to (4,13)
 ===== TURN 4 =====
