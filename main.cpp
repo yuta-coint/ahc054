@@ -45,9 +45,10 @@ int main(){
     auto bfsProv = [&](Pos start){
         vector<vector<int>> dist(N, vector<int>(N, INF));
         if(!inb(start.x,start.y)) return dist;
+        // スタートが確認済みかどうかに応じて開始可否を判断する（必要なら）
         if (confirmed[start.x][start.y]) {
             if(cell[start.x][start.y] != '.' || hasTrent[start.x][start.y]) return dist;
-            cerr << "Tree is on bfsProv start (" << start.x << "," << start.y << ")\n";
+            // (注) 通常スタートが冒険者なら hasTrent[start] は false のはず
         }
         queue<Pos> qu;
         dist[start.x][start.y] = 0;
@@ -57,11 +58,17 @@ int main(){
             for(int d=0; d<4; ++d){
                 int nx = p.x + dxs[d], ny = p.y + dys[d];
                 if(!inb(nx,ny)) continue;
-                if(hasTrent[nx][ny]) continue;
+    
+                // --- ここが重要 ---
+                // 「確認済みマスなら真の地形（木・確認済みトレント）を見る」
+                // 「未確認マスならトレントがあっても見えない＝空きとみなす」
                 if(confirmed[nx][ny]) {
-                    if(cell[nx][ny] != '.') continue; // 木なら進めない
+                    // 確認済みマスなら木や既知のトレントで進めない
+                    if(cell[nx][ny] != '.') continue;   // 木なら進めない
+                    if(hasTrent[nx][ny]) continue;      // 確認済みでトレントがあれば進めない
                 }
-                // 未確認は '.' と仮定 → 進める
+                // 未確認は '.' と仮定 → 進める（hasTrent を無視）
+    
                 if(dist[nx][ny] != INF) continue;
                 dist[nx][ny] = dist[p.x][p.y] + 1;
                 qu.push({nx,ny});
@@ -71,17 +78,23 @@ int main(){
     };
 
     // BFS 真の地形
-    auto bfsTrue=[&](Pos start){
+    auto bfsTrue=[&](Pos start, Pos block){
         vector<vector<int>> dist(N, vector<int>(N,INF));
         if(!inb(start.x,start.y)) return dist;
-        if(cell[start.x][start.y]!='.' || hasTrent[start.x][start.y]) return dist;
-        queue<Pos> qu; dist[start.x][start.y]=0; qu.push(start);
+        if(cell[start.x][start.y] != '.' || hasTrent[start.x][start.y]) return dist;
+        if(start.x==block.x && start.y==block.y) return dist; // スタートがブロックされている
+
+        queue<Pos> qu;
+        dist[start.x][start.y]=0;
+        qu.push(start);
+
         while(!qu.empty()){
             auto p=qu.front(); qu.pop();
             for(int d=0;d<4;d++){
                 int nx=p.x+dxs[d], ny=p.y+dys[d];
                 if(!inb(nx,ny)) continue;
-                if(cell[nx][ny]!='.') continue;
+                if(nx==block.x && ny==block.y) continue; // ブロックマスを通さない
+                if(cell[nx][ny] != '.') continue;
                 if(hasTrent[nx][ny]) continue;
                 if(dist[nx][ny]!=INF) continue;
                 dist[nx][ny]=dist[p.x][p.y]+1;
@@ -91,9 +104,9 @@ int main(){
         return dist;
     };
 
-    auto hasPathTrue=[&](Pos s,Pos t,int bx,int by)->bool{
-        auto d=bfsTrue(s);
-        return d[t.x][t.y]<INF;
+    auto hasPathTrue=[&](Pos s, Pos t, int bx, int by)->bool{
+        auto d = bfsTrue(s, {bx,by});
+        return d[t.x][t.y] < INF;
     };
 
     auto canPlaceTrent=[&](int x,int y,Pos adv)->bool{
@@ -121,28 +134,24 @@ int main(){
 
         // 出力
         vector<Pos> toPlace;
-        if (!lastPlaced && confirmed[ti][tj]) {
-            int distF = abs(adventurer.x - ti) + abs(adventurer.y - tj);
-            for (int d = 0; d < 4; d++) {
-                int nx = ti + dxs[d], ny = tj + dys[d];
-                if (!inb(nx, ny)) continue;
-                if (abs(adventurer.x - nx) + abs(adventurer.y - ny) == distF - 1) {
-                    if (canPlaceTrent(nx, ny, adventurer)) {
-                        auto before = bfsTrue(adventurer);
-                        int distBefore = before[ti][tj];
-                        hasTrent[nx][ny] = true;
-                        auto after = bfsTrue(adventurer);
-                        int distAfter = after[ti][tj];
-                        hasTrent[nx][ny] = false;
-        
-                        if (distAfter < INF && distAfter >= distBefore) {
-                            // 経路を潰さず、むしろ遠回りさせられるときのみ置く
-                            toPlace.push_back({nx, ny});
-                            break;
-                        }
-                    }
-                }
-            }
+        if (turn == 0){
+            if (canPlaceTrent(adventurer.x + 1,adventurer.y,adventurer)) toPlace.push_back({adventurer.x + 1,adventurer.y});
+        }
+            // ti,tjの周囲に置く。
+        if (turn == 1){
+            if (canPlaceTrent(ti-1,tj,adventurer)) toPlace.push_back({ti-1,tj});
+        }
+        if (turn == 2){
+            if (canPlaceTrent(ti-1,tj+1,adventurer)) toPlace.push_back({ti-1,tj+1});
+        }
+        if (turn == 3){
+            if (canPlaceTrent(ti,tj-1,adventurer)) toPlace.push_back({ti,tj-1});
+        }
+        if (turn == 4){
+            if (canPlaceTrent(ti,tj+2,adventurer)) toPlace.push_back({ti,tj+2});
+        }
+        if (turn == 5){
+            if (canPlaceTrent(ti+1,tj,adventurer)) toPlace.push_back({ti+1,tj});
         }
 
         if(toPlace.empty()){
@@ -153,12 +162,13 @@ int main(){
             for(auto &p:toPlace){
                 cout<<" "<<p.x<<" "<<p.y;
                 hasTrent[p.x][p.y]=true;
+                cell[p.x][p.y]='T';
             }
             cout<<"\n"; cout.flush(); lastPlaced=true;
             cerr<<"Output: placed\n";
         }
 
-        // --- 審判シミュレーション ---
+        // --- 冒険者シミュレーション（冒険者視点: bfsProv） ---
 
         // 視界更新
         for(int d=0; d<4; d++){
@@ -190,7 +200,7 @@ int main(){
             if(!found){ cerr<<"WA: no reachable unknown\n"; return 0; }
         }
 
-        // 暫定距離
+        // 暫定距離 (bfsProv)
         auto distProv=bfsProv(*goal);
         int cur=distProv[adventurer.x][adventurer.y];
         if(cur>=INF){ cerr<<"WA: provisional unreachable\n"; return 0; }
@@ -200,10 +210,8 @@ int main(){
         for(int d=0;d<4;d++){
             int nx=adventurer.x+dxs[d], ny=adventurer.y+dys[d];
             if(!inb(nx,ny)) continue;
-            if(cell[nx][ny]!='.') continue;
-            if(hasTrent[nx][ny]) continue;
-            cerr << "  Check move to (" << nx << "," << ny << ") distProv=" << distProv[nx][ny] << "\n";
-            cerr << confirmed[7][10] << cell[7][10] << hasTrent[7][10] << "\n";
+            if(cell[nx][ny]!='.') continue; // 真の地形で木は進めない
+            if(hasTrent[nx][ny]) continue;  // 実際のトレントは進めない
             if(distProv[nx][ny]<cur){ chosen=d; break; }
         }
         if(chosen==-1){ cerr<<"WA: no move\n"; return 0; }

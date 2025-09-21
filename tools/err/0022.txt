@@ -1,889 +1,913 @@
 ===== TURN 0 =====
 Adventurer at (0,12)
-Output: 0
-Tree is on bfsProv start (0,12)
+Output: placed
 Goal from q: (23,6)29
-  Check move to (1,12) distProv=28
-0.0
-Move to (1,12)
+Move to (0,11)
 ===== TURN 1 =====
-Adventurer at (1,12)
-Output: 0
-Tree is on bfsProv start (1,12)
+Adventurer at (0,11)
+Output: placed
 Goal from q: (23,6)28
-  Check move to (0,12) distProv=29
-0.0
-  Check move to (2,12) distProv=27
-0.0
-Move to (2,12)
+Move to (1,11)
 ===== TURN 2 =====
-Adventurer at (2,12)
+Adventurer at (1,11)
 Output: 0
-Tree is on bfsProv start (2,12)
 Goal from q: (23,6)27
-  Check move to (1,12) distProv=28
-0.0
-  Check move to (3,12) distProv=26
-0.0
-Move to (3,12)
+Move to (2,11)
 ===== TURN 3 =====
-Adventurer at (3,12)
-Output: 0
-Tree is on bfsProv start (3,12)
+Adventurer at (2,11)
+Output: placed
 Goal from q: (23,6)26
-  Check move to (2,12) distProv=27
-0.0
-  Check move to (3,11) distProv=25
-0.0
 Move to (3,11)
 ===== TURN 4 =====
 Adventurer at (3,11)
 Output: 0
-Tree is on bfsProv start (3,11)
 Goal from q: (23,6)25
-  Check move to (2,11) distProv=26
-0.0
-  Check move to (4,11) distProv=24
-0.0
 Move to (4,11)
 ===== TURN 5 =====
 Adventurer at (4,11)
 Output: 0
-Tree is on bfsProv start (4,11)
 Goal from q: (23,6)24
-  Check move to (3,11) distProv=25
-0.0
-  Check move to (5,11) distProv=23
-0.0
 Move to (5,11)
 ===== TURN 6 =====
 Adventurer at (5,11)
 Output: 0
-Tree is on bfsProv start (5,11)
 Goal from q: (23,6)23
-  Check move to (4,11) distProv=24
-0.0
-  Check move to (6,11) distProv=22
-0.0
 Move to (6,11)
 ===== TURN 7 =====
 Adventurer at (6,11)
 Output: 0
-Tree is on bfsProv start (6,11)
 Goal from q: (23,6)22
-  Check move to (5,11) distProv=23
-0.0
-  Check move to (7,11) distProv=21
-0.0
 Move to (7,11)
 ===== TURN 8 =====
 Adventurer at (7,11)
 Output: 0
-Tree is on bfsProv start (7,11)
 Goal from q: (23,6)21
-  Check move to (6,11) distProv=22
-1.0
-  Check move to (7,10) distProv=20
-1.0
 Move to (7,10)
 ===== TURN 9 =====
 Adventurer at (7,10)
 Output: 0
-Tree is on bfsProv start (7,10)
 Goal from q: (23,6)20
-  Check move to (6,10) distProv=21
-1.0
-  Check move to (8,10) distProv=19
-1.0
 Move to (8,10)
 ===== TURN 10 =====
 Adventurer at (8,10)
 Output: 0
-Tree is on bfsProv start (8,10)
 Goal from q: (23,6)19
-  Check move to (7,10) distProv=20
-1.0
-  Check move to (9,10) distProv=18
-1.0
 Move to (9,10)
 ===== TURN 11 =====
 Adventurer at (9,10)
 Output: 0
-Tree is on bfsProv start (9,10)
 Goal from q: (23,6)18
-  Check move to (8,10) distProv=19
-1.0
-  Check move to (10,10) distProv=17
-1.0
 Move to (10,10)
 ===== TURN 12 =====
 Adventurer at (10,10)
 Output: 0
-Tree is on bfsProv start (10,10)
 Goal from q: (23,6)17
-  Check move to (9,10) distProv=18
-1.0
-  Check move to (11,10) distProv=16
-1.0
 Move to (11,10)
 ===== TURN 13 =====
 Adventurer at (11,10)
 Output: 0
-Tree is on bfsProv start (11,10)
 Goal from q: (23,6)16
-  Check move to (10,10) distProv=17
-1.0
-  Check move to (12,10) distProv=15
-1.0
 Move to (12,10)
 ===== TURN 14 =====
 Adventurer at (12,10)
 Output: 0
-Tree is on bfsProv start (12,10)
 Goal from q: (23,6)15
-  Check move to (11,10) distProv=16
-1.0
-  Check move to (13,10) distProv=14
-1.0
 Move to (13,10)
 ===== TURN 15 =====
 Adventurer at (13,10)
 Output: 0
-Tree is on bfsProv start (13,10)
 Goal from q: (23,6)14
-  Check move to (12,10) distProv=15
-1.0
-  Check move to (14,10) distProv=13
-1.0
 Move to (14,10)
 ===== TURN 16 =====
 Adventurer at (14,10)
 Output: 0
-Tree is on bfsProv start (14,10)
 Goal from q: (23,6)13
-  Check move to (13,10) distProv=14
-1.0
-  Check move to (15,10) distProv=12
-1.0
 Move to (15,10)
 ===== TURN 17 =====
 Adventurer at (15,10)
 Output: 0
-Tree is on bfsProv start (15,10)
 Goal from q: (23,6)12
-  Check move to (14,10) distProv=13
-1.0
-  Check move to (16,10) distProv=11
-1.0
 Move to (16,10)
 ===== TURN 18 =====
 Adventurer at (16,10)
 Output: 0
-Tree is on bfsProv start (16,10)
 Goal from q: (23,6)11
-  Check move to (15,10) distProv=12
-1.0
-  Check move to (17,10) distProv=10
-1.0
 Move to (17,10)
 ===== TURN 19 =====
 Adventurer at (17,10)
 Output: 0
-Tree is on bfsProv start (17,10)
 Goal from q: (23,6)10
-  Check move to (16,10) distProv=11
-1.0
-  Check move to (18,10) distProv=9
-1.0
 Move to (18,10)
 ===== TURN 20 =====
 Adventurer at (18,10)
 Output: 0
-Tree is on bfsProv start (18,10)
 Goal from q: (23,6)9
-  Check move to (17,10) distProv=10
-1.0
-  Check move to (19,10) distProv=8
-1.0
 Move to (19,10)
 ===== TURN 21 =====
 Adventurer at (19,10)
 Output: 0
-Tree is on bfsProv start (19,10)
 Goal from q: (23,6)8
-  Check move to (18,10) distProv=9
-1.0
-  Check move to (20,10) distProv=7
-1.0
 Move to (20,10)
 ===== TURN 22 =====
 Adventurer at (20,10)
 Output: 0
-Tree is on bfsProv start (20,10)
 Goal from q: (23,6)7
-  Check move to (19,10) distProv=8
-1.0
-  Check move to (21,10) distProv=6
-1.0
 Move to (21,10)
 ===== TURN 23 =====
 Adventurer at (21,10)
 Output: 0
-Tree is on bfsProv start (21,10)
 Goal from q: (23,6)6
-  Check move to (20,10) distProv=7
-1.0
-  Check move to (22,10) distProv=5
-1.0
 Move to (22,10)
 ===== TURN 24 =====
 Adventurer at (22,10)
 Output: 0
-Tree is on bfsProv start (22,10)
 Goal from q: (23,6)5
-  Check move to (21,10) distProv=6
-1.0
-  Check move to (23,10) distProv=4
-1.0
 Move to (23,10)
 ===== TURN 25 =====
 Adventurer at (23,10)
 Output: 0
-Tree is on bfsProv start (23,10)
 Goal from q: (10,21)24
-  Check move to (22,10) distProv=23
-1.0
 Move to (22,10)
 ===== TURN 26 =====
 Adventurer at (22,10)
 Output: 0
-Tree is on bfsProv start (22,10)
 Goal from q: (10,21)23
-  Check move to (21,10) distProv=22
-1.0
 Move to (21,10)
 ===== TURN 27 =====
 Adventurer at (21,10)
 Output: 0
-Tree is on bfsProv start (21,10)
 Goal from q: (10,21)22
-  Check move to (20,10) distProv=21
-1.0
 Move to (20,10)
 ===== TURN 28 =====
 Adventurer at (20,10)
 Output: 0
-Tree is on bfsProv start (20,10)
 Goal from q: (10,21)21
-  Check move to (19,10) distProv=20
-1.0
 Move to (19,10)
 ===== TURN 29 =====
 Adventurer at (19,10)
 Output: 0
-Tree is on bfsProv start (19,10)
 Goal from q: (10,21)20
-  Check move to (18,10) distProv=19
-1.0
 Move to (18,10)
 ===== TURN 30 =====
 Adventurer at (18,10)
 Output: 0
-Tree is on bfsProv start (18,10)
 Goal from q: (10,21)19
-  Check move to (17,10) distProv=18
-1.0
 Move to (17,10)
 ===== TURN 31 =====
 Adventurer at (17,10)
 Output: 0
-Tree is on bfsProv start (17,10)
 Goal from q: (10,21)18
-  Check move to (16,10) distProv=17
-1.0
 Move to (16,10)
 ===== TURN 32 =====
 Adventurer at (16,10)
 Output: 0
-Tree is on bfsProv start (16,10)
 Goal from q: (10,21)17
-  Check move to (15,10) distProv=16
-1.0
 Move to (15,10)
 ===== TURN 33 =====
 Adventurer at (15,10)
 Output: 0
-Tree is on bfsProv start (15,10)
 Goal from q: (10,21)16
-  Check move to (14,10) distProv=15
-1.0
 Move to (14,10)
 ===== TURN 34 =====
 Adventurer at (14,10)
 Output: 0
-Tree is on bfsProv start (14,10)
 Goal from q: (10,21)15
-  Check move to (13,10) distProv=14
-1.0
 Move to (13,10)
 ===== TURN 35 =====
 Adventurer at (13,10)
 Output: 0
-Tree is on bfsProv start (13,10)
 Goal from q: (10,21)14
-  Check move to (12,10) distProv=13
-1.0
 Move to (12,10)
 ===== TURN 36 =====
 Adventurer at (12,10)
 Output: 0
-Tree is on bfsProv start (12,10)
 Goal from q: (10,21)13
-  Check move to (11,10) distProv=12
-1.0
 Move to (11,10)
 ===== TURN 37 =====
 Adventurer at (11,10)
 Output: 0
-Tree is on bfsProv start (11,10)
 Goal from q: (10,21)12
-  Check move to (10,10) distProv=13
-1.0
-  Check move to (12,10) distProv=13
-1.0
-  Check move to (11,11) distProv=11
-1.0
 Move to (11,11)
 ===== TURN 38 =====
 Adventurer at (11,11)
 Output: 0
-Tree is on bfsProv start (11,11)
 Goal from q: (10,21)11
-  Check move to (10,11) distProv=12
-1.0
-  Check move to (12,11) distProv=12
-1.0
-  Check move to (11,10) distProv=12
-1.0
-  Check move to (11,12) distProv=10
-1.0
 Move to (11,12)
 ===== TURN 39 =====
 Adventurer at (11,12)
 Output: 0
-Tree is on bfsProv start (11,12)
 Goal from q: (10,21)10
-  Check move to (10,12) distProv=11
-1.0
-  Check move to (12,12) distProv=11
-1.0
-  Check move to (11,11) distProv=11
-1.0
-  Check move to (11,13) distProv=9
-1.0
 Move to (11,13)
 ===== TURN 40 =====
 Adventurer at (11,13)
 Output: 0
-Tree is on bfsProv start (11,13)
 Goal from q: (10,21)9
-  Check move to (10,13) distProv=10
-1.0
-  Check move to (12,13) distProv=10
-1.0
-  Check move to (11,12) distProv=10
-1.0
-  Check move to (11,14) distProv=8
-1.0
 Move to (11,14)
 ===== TURN 41 =====
 Adventurer at (11,14)
 Output: 0
-Tree is on bfsProv start (11,14)
 Goal from q: (10,21)8
-  Check move to (10,14) distProv=9
-1.0
-  Check move to (12,14) distProv=9
-1.0
-  Check move to (11,13) distProv=9
-1.0
-  Check move to (11,15) distProv=7
-1.0
 Move to (11,15)
 ===== TURN 42 =====
 Adventurer at (11,15)
 Output: 0
-Tree is on bfsProv start (11,15)
 Goal from q: (10,21)7
-  Check move to (11,14) distProv=8
-1.0
-  Check move to (11,16) distProv=6
-1.0
 Move to (11,16)
 ===== TURN 43 =====
 Adventurer at (11,16)
 Output: 0
-Tree is on bfsProv start (11,16)
 Goal from q: (10,21)6
-  Check move to (10,16) distProv=5
-1.0
 Move to (10,16)
 ===== TURN 44 =====
 Adventurer at (10,16)
 Output: 0
-Tree is on bfsProv start (10,16)
 Goal from q: (22,6)22
-  Check move to (9,16) distProv=23
-1.0
-  Check move to (11,16) distProv=21
-1.0
 Move to (11,16)
 ===== TURN 45 =====
 Adventurer at (11,16)
 Output: 0
-Tree is on bfsProv start (11,16)
 Goal from q: (22,6)21
-  Check move to (10,16) distProv=22
-1.0
-  Check move to (12,16) distProv=22
-1.0
-  Check move to (11,15) distProv=20
-1.0
 Move to (11,15)
 ===== TURN 46 =====
 Adventurer at (11,15)
 Output: 0
-Tree is on bfsProv start (11,15)
 Goal from q: (22,6)20
-  Check move to (11,14) distProv=19
-1.0
 Move to (11,14)
 ===== TURN 47 =====
 Adventurer at (11,14)
 Output: 0
-Tree is on bfsProv start (11,14)
 Goal from q: (22,6)19
-  Check move to (10,14) distProv=20
-1.0
-  Check move to (12,14) distProv=18
-1.0
 Move to (12,14)
 ===== TURN 48 =====
 Adventurer at (12,14)
 Output: 0
-Tree is on bfsProv start (12,14)
 Goal from q: (22,6)18
-  Check move to (11,14) distProv=19
-1.0
-  Check move to (13,14) distProv=17
-1.0
 Move to (13,14)
 ===== TURN 49 =====
 Adventurer at (13,14)
 Output: 0
-Tree is on bfsProv start (13,14)
 Goal from q: (22,6)17
-  Check move to (12,14) distProv=18
-1.0
-  Check move to (14,14) distProv=16
-1.0
 Move to (14,14)
 ===== TURN 50 =====
 Adventurer at (14,14)
 Output: 0
-Tree is on bfsProv start (14,14)
 Goal from q: (22,6)16
-  Check move to (13,14) distProv=17
-1.0
-  Check move to (15,14) distProv=15
-1.0
 Move to (15,14)
 ===== TURN 51 =====
 Adventurer at (15,14)
 Output: 0
-Tree is on bfsProv start (15,14)
 Goal from q: (22,6)15
-  Check move to (14,14) distProv=16
-1.0
-  Check move to (16,14) distProv=14
-1.0
 Move to (16,14)
 ===== TURN 52 =====
 Adventurer at (16,14)
 Output: 0
-Tree is on bfsProv start (16,14)
 Goal from q: (22,6)14
-  Check move to (15,14) distProv=15
-1.0
-  Check move to (17,14) distProv=13
-1.0
 Move to (17,14)
 ===== TURN 53 =====
 Adventurer at (17,14)
 Output: 0
-Tree is on bfsProv start (17,14)
 Goal from q: (22,6)13
-  Check move to (16,14) distProv=14
-1.0
-  Check move to (18,14) distProv=12
-1.0
 Move to (18,14)
 ===== TURN 54 =====
 Adventurer at (18,14)
 Output: 0
-Tree is on bfsProv start (18,14)
 Goal from q: (22,6)12
-  Check move to (17,14) distProv=13
-1.0
-  Check move to (18,13) distProv=11
-1.0
 Move to (18,13)
 ===== TURN 55 =====
 Adventurer at (18,13)
 Output: 0
-Tree is on bfsProv start (18,13)
 Goal from q: (22,6)11
-  Check move to (17,13) distProv=12
-1.0
-  Check move to (18,12) distProv=10
-1.0
 Move to (18,12)
 ===== TURN 56 =====
 Adventurer at (18,12)
 Output: 0
-Tree is on bfsProv start (18,12)
 Goal from q: (22,6)10
-  Check move to (17,12) distProv=11
-1.0
-  Check move to (19,12) distProv=9
-1.0
 Move to (19,12)
 ===== TURN 57 =====
 Adventurer at (19,12)
 Output: 0
-Tree is on bfsProv start (19,12)
 Goal from q: (22,6)9
-  Check move to (18,12) distProv=10
-1.0
-  Check move to (20,12) distProv=8
-1.0
 Move to (20,12)
 ===== TURN 58 =====
 Adventurer at (20,12)
 Output: 0
-Tree is on bfsProv start (20,12)
 Goal from q: (22,6)8
-  Check move to (19,12) distProv=9
-1.0
-  Check move to (21,12) distProv=7
-1.0
 Move to (21,12)
 ===== TURN 59 =====
 Adventurer at (21,12)
 Output: 0
-Tree is on bfsProv start (21,12)
 Goal from q: (22,6)7
-  Check move to (20,12) distProv=8
-1.0
-  Check move to (22,12) distProv=8
-1.0
-  Check move to (21,11) distProv=6
-1.0
 Move to (21,11)
 ===== TURN 60 =====
 Adventurer at (21,11)
 Output: 0
-Tree is on bfsProv start (21,11)
 Goal from q: (22,6)6
-  Check move to (20,11) distProv=7
-1.0
-  Check move to (22,11) distProv=7
-1.0
-  Check move to (21,10) distProv=5
-1.0
 Move to (21,10)
 ===== TURN 61 =====
 Adventurer at (21,10)
 Output: 0
-Tree is on bfsProv start (21,10)
 Goal from q: (22,6)5
-  Check move to (20,10) distProv=6
-1.0
-  Check move to (22,10) distProv=6
-1.0
-  Check move to (21,9) distProv=4
-1.0
 Move to (21,9)
 ===== TURN 62 =====
 Adventurer at (21,9)
 Output: 0
-Tree is on bfsProv start (21,9)
 Goal from q: (22,6)4
-  Check move to (20,9) distProv=5
-1.0
-  Check move to (21,8) distProv=3
-1.0
 Move to (21,8)
 ===== TURN 63 =====
 Adventurer at (21,8)
 Output: 0
-Tree is on bfsProv start (21,8)
 Goal from q: (22,6)3
-  Check move to (20,8) distProv=4
-1.0
-  Check move to (21,7) distProv=2
-1.0
 Move to (21,7)
 ===== TURN 64 =====
 Adventurer at (21,7)
 Output: 0
-Tree is on bfsProv start (21,7)
 Goal from q: (22,6)2
-  Check move to (20,7) distProv=3
-1.0
-  Check move to (22,7) distProv=1
-1.0
 Move to (22,7)
 ===== TURN 65 =====
 Adventurer at (22,7)
 Output: 0
-Tree is on bfsProv start (22,7)
 Goal from q: (22,20)17
-  Check move to (21,7) distProv=16
-1.0
 Move to (21,7)
 ===== TURN 66 =====
 Adventurer at (21,7)
 Output: 0
-Tree is on bfsProv start (21,7)
 Goal from q: (22,20)16
-  Check move to (20,7) distProv=15
-1.0
 Move to (20,7)
 ===== TURN 67 =====
 Adventurer at (20,7)
 Output: 0
-Tree is on bfsProv start (20,7)
 Goal from q: (22,20)15
-  Check move to (19,7) distProv=16
-1.0
-  Check move to (21,7) distProv=16
-1.0
-  Check move to (20,6) distProv=16
-1.0
-  Check move to (20,8) distProv=14
-1.0
 Move to (20,8)
 ===== TURN 68 =====
 Adventurer at (20,8)
 Output: 0
-Tree is on bfsProv start (20,8)
 Goal from q: (22,20)14
-  Check move to (19,8) distProv=15
-1.0
-  Check move to (21,8) distProv=15
-1.0
-  Check move to (20,7) distProv=15
-1.0
-  Check move to (20,9) distProv=13
-1.0
 Move to (20,9)
 ===== TURN 69 =====
 Adventurer at (20,9)
 Output: 0
-Tree is on bfsProv start (20,9)
 Goal from q: (22,20)13
-  Check move to (19,9) distProv=14
-1.0
-  Check move to (21,9) distProv=14
-1.0
-  Check move to (20,8) distProv=14
-1.0
-  Check move to (20,10) distProv=12
-1.0
 Move to (20,10)
 ===== TURN 70 =====
 Adventurer at (20,10)
 Output: 0
-Tree is on bfsProv start (20,10)
 Goal from q: (22,20)12
-  Check move to (19,10) distProv=13
-1.0
-  Check move to (21,10) distProv=13
-1.0
-  Check move to (20,9) distProv=13
-1.0
-  Check move to (20,11) distProv=11
-1.0
 Move to (20,11)
 ===== TURN 71 =====
 Adventurer at (20,11)
 Output: 0
-Tree is on bfsProv start (20,11)
 Goal from q: (22,20)11
-  Check move to (19,11) distProv=12
-1.0
-  Check move to (21,11) distProv=12
-1.0
-  Check move to (20,10) distProv=12
-1.0
-  Check move to (20,12) distProv=10
-1.0
 Move to (20,12)
 ===== TURN 72 =====
 Adventurer at (20,12)
 Output: 0
-Tree is on bfsProv start (20,12)
 Goal from q: (22,20)10
-  Check move to (19,12) distProv=11
-1.0
-  Check move to (21,12) distProv=11
-1.0
-  Check move to (20,11) distProv=11
-1.0
-  Check move to (20,13) distProv=9
-1.0
 Move to (20,13)
 ===== TURN 73 =====
 Adventurer at (20,13)
 Output: 0
-Tree is on bfsProv start (20,13)
 Goal from q: (22,20)9
-  Check move to (21,13) distProv=10
-1.0
-  Check move to (20,12) distProv=10
-1.0
-  Check move to (20,14) distProv=8
-1.0
 Move to (20,14)
 ===== TURN 74 =====
 Adventurer at (20,14)
 Output: 0
-Tree is on bfsProv start (20,14)
 Goal from q: (22,20)8
-  Check move to (20,13) distProv=9
-1.0
-  Check move to (20,15) distProv=7
-1.0
 Move to (20,15)
 ===== TURN 75 =====
 Adventurer at (20,15)
 Output: 0
-Tree is on bfsProv start (20,15)
 Goal from q: (22,20)7
-  Check move to (19,15) distProv=8
-1.0
-  Check move to (21,15) distProv=6
-1.0
 Move to (21,15)
 ===== TURN 76 =====
 Adventurer at (21,15)
 Output: 0
-Goal=flower
-Tree is on bfsProv start (21,23)
-  Check move to (20,15) distProv=9
-1.0
-  Check move to (22,15) distProv=9
-1.0
-  Check move to (21,16) distProv=7
-1.0
+Goal from q: (22,20)6
 Move to (21,16)
 ===== TURN 77 =====
 Adventurer at (21,16)
 Output: 0
-Goal=flower
-Tree is on bfsProv start (21,23)
-  Check move to (20,16) distProv=8
-1.0
-  Check move to (22,16) distProv=8
-1.0
-  Check move to (21,15) distProv=8
-1.0
-  Check move to (21,17) distProv=6
-1.0
+Goal from q: (22,20)5
 Move to (21,17)
 ===== TURN 78 =====
 Adventurer at (21,17)
 Output: 0
-Goal=flower
-Tree is on bfsProv start (21,23)
-  Check move to (20,17) distProv=7
-1.0
-  Check move to (22,17) distProv=7
-1.0
-  Check move to (21,16) distProv=7
-1.0
-  Check move to (21,18) distProv=5
-1.0
+Goal from q: (22,20)4
 Move to (21,18)
 ===== TURN 79 =====
 Adventurer at (21,18)
 Output: 0
-Goal=flower
-Tree is on bfsProv start (21,23)
-  Check move to (20,18) distProv=6
-1.0
-  Check move to (21,17) distProv=6
-1.0
-  Check move to (21,19) distProv=4
-1.0
+Goal from q: (22,20)3
 Move to (21,19)
 ===== TURN 80 =====
 Adventurer at (21,19)
 Output: 0
-Goal=flower
-Tree is on bfsProv start (21,23)
-  Check move to (20,19) distProv=5
-1.0
-  Check move to (22,19) distProv=5
-1.0
-  Check move to (21,18) distProv=5
-1.0
-  Check move to (21,20) distProv=3
-1.0
-Move to (21,20)
+Goal from q: (22,20)2
+Move to (22,19)
 ===== TURN 81 =====
-Adventurer at (21,20)
+Adventurer at (22,19)
 Output: 0
-Goal=flower
-Tree is on bfsProv start (21,23)
-  Check move to (20,20) distProv=4
-1.0
-  Check move to (22,20) distProv=4
-1.0
-  Check move to (21,19) distProv=4
-1.0
-  Check move to (21,21) distProv=2
-1.0
-Move to (21,21)
+Goal from q: (13,20)10
+Move to (21,19)
 ===== TURN 82 =====
+Adventurer at (21,19)
+Output: 0
+Goal from q: (13,20)9
+Move to (20,19)
+===== TURN 83 =====
+Adventurer at (20,19)
+Output: 0
+Goal from q: (13,20)8
+Move to (19,19)
+===== TURN 84 =====
+Adventurer at (19,19)
+Output: 0
+Goal from q: (13,20)7
+Move to (18,19)
+===== TURN 85 =====
+Adventurer at (18,19)
+Output: 0
+Goal from q: (13,20)6
+Move to (17,19)
+===== TURN 86 =====
+Adventurer at (17,19)
+Output: 0
+Goal from q: (13,20)5
+Move to (16,19)
+===== TURN 87 =====
+Adventurer at (16,19)
+Output: 0
+Goal from q: (13,20)4
+Move to (15,19)
+===== TURN 88 =====
+Adventurer at (15,19)
+Output: 0
+Goal from q: (13,20)3
+Move to (14,19)
+===== TURN 89 =====
+Adventurer at (14,19)
+Output: 0
+Goal from q: (13,20)2
+Move to (13,19)
+===== TURN 90 =====
+Adventurer at (13,19)
+Output: 0
+Goal from q: (10,0)24
+Move to (12,19)
+===== TURN 91 =====
+Adventurer at (12,19)
+Output: 0
+Goal from q: (10,0)23
+Move to (11,19)
+===== TURN 92 =====
+Adventurer at (11,19)
+Output: 0
+Goal from q: (10,0)22
+Move to (11,18)
+===== TURN 93 =====
+Adventurer at (11,18)
+Output: 0
+Goal from q: (10,0)21
+Move to (11,17)
+===== TURN 94 =====
+Adventurer at (11,17)
+Output: 0
+Goal from q: (10,0)20
+Move to (11,16)
+===== TURN 95 =====
+Adventurer at (11,16)
+Output: 0
+Goal from q: (10,0)19
+Move to (11,15)
+===== TURN 96 =====
+Adventurer at (11,15)
+Output: 0
+Goal from q: (10,0)18
+Move to (11,14)
+===== TURN 97 =====
+Adventurer at (11,14)
+Output: 0
+Goal from q: (10,0)17
+Move to (10,14)
+===== TURN 98 =====
+Adventurer at (10,14)
+Output: 0
+Goal from q: (10,0)16
+Move to (10,13)
+===== TURN 99 =====
+Adventurer at (10,13)
+Output: 0
+Goal from q: (10,0)15
+Move to (10,12)
+===== TURN 100 =====
+Adventurer at (10,12)
+Output: 0
+Goal from q: (10,0)14
+Move to (9,12)
+===== TURN 101 =====
+Adventurer at (9,12)
+Output: 0
+Goal from q: (10,0)13
+Move to (9,11)
+===== TURN 102 =====
+Adventurer at (9,11)
+Output: 0
+Goal from q: (10,0)12
+Move to (9,10)
+===== TURN 103 =====
+Adventurer at (9,10)
+Output: 0
+Goal from q: (10,0)11
+Move to (9,9)
+===== TURN 104 =====
+Adventurer at (9,9)
+Output: 0
+Goal from q: (10,0)10
+Move to (9,8)
+===== TURN 105 =====
+Adventurer at (9,8)
+Output: 0
+Goal from q: (10,0)9
+Move to (9,7)
+===== TURN 106 =====
+Adventurer at (9,7)
+Output: 0
+Goal from q: (10,0)8
+Move to (10,7)
+===== TURN 107 =====
+Adventurer at (10,7)
+Output: 0
+Goal from q: (10,0)9
+Move to (11,7)
+===== TURN 108 =====
+Adventurer at (11,7)
+Output: 0
+Goal from q: (10,0)8
+Move to (11,6)
+===== TURN 109 =====
+Adventurer at (11,6)
+Output: 0
+Goal from q: (10,0)7
+Move to (11,5)
+===== TURN 110 =====
+Adventurer at (11,5)
+Output: 0
+Goal from q: (10,0)6
+Move to (11,4)
+===== TURN 111 =====
+Adventurer at (11,4)
+Output: 0
+Goal from q: (10,0)5
+Move to (11,3)
+===== TURN 112 =====
+Adventurer at (11,3)
+Output: 0
+Goal from q: (10,0)4
+Move to (11,2)
+===== TURN 113 =====
+Adventurer at (11,2)
+Output: 0
+Goal from q: (10,0)3
+Move to (11,1)
+===== TURN 114 =====
+Adventurer at (11,1)
+Output: 0
+Goal from q: (10,0)2
+Move to (11,0)
+===== TURN 115 =====
+Adventurer at (11,0)
+Output: 0
+Goal from q: (1,23)33
+Move to (10,0)
+===== TURN 116 =====
+Adventurer at (10,0)
+Output: 0
+Goal from q: (1,23)32
+Move to (9,0)
+===== TURN 117 =====
+Adventurer at (9,0)
+Output: 0
+Goal from q: (1,23)31
+Move to (8,0)
+===== TURN 118 =====
+Adventurer at (8,0)
+Output: 0
+Goal from q: (1,23)30
+Move to (7,0)
+===== TURN 119 =====
+Adventurer at (7,0)
+Output: 0
+Goal from q: (1,23)29
+Move to (6,0)
+===== TURN 120 =====
+Adventurer at (6,0)
+Output: 0
+Goal from q: (1,23)28
+Move to (6,1)
+===== TURN 121 =====
+Adventurer at (6,1)
+Output: 0
+Goal from q: (1,23)27
+Move to (5,1)
+===== TURN 122 =====
+Adventurer at (5,1)
+Output: 0
+Goal from q: (1,23)26
+Move to (4,1)
+===== TURN 123 =====
+Adventurer at (4,1)
+Output: 0
+Goal from q: (1,23)25
+Move to (4,2)
+===== TURN 124 =====
+Adventurer at (4,2)
+Output: 0
+Goal from q: (1,23)24
+Move to (4,3)
+===== TURN 125 =====
+Adventurer at (4,3)
+Output: 0
+Goal from q: (1,23)23
+Move to (4,4)
+===== TURN 126 =====
+Adventurer at (4,4)
+Output: 0
+Goal from q: (1,23)22
+Move to (4,5)
+===== TURN 127 =====
+Adventurer at (4,5)
+Output: 0
+Goal from q: (1,23)21
+Move to (4,6)
+===== TURN 128 =====
+Adventurer at (4,6)
+Output: 0
+Goal from q: (1,23)20
+Move to (4,7)
+===== TURN 129 =====
+Adventurer at (4,7)
+Output: 0
+Goal from q: (1,23)19
+Move to (4,8)
+===== TURN 130 =====
+Adventurer at (4,8)
+Output: 0
+Goal from q: (1,23)18
+Move to (3,8)
+===== TURN 131 =====
+Adventurer at (3,8)
+Output: 0
+Goal from q: (1,23)17
+Move to (3,9)
+===== TURN 132 =====
+Adventurer at (3,9)
+Output: 0
+Goal from q: (1,23)16
+Move to (3,10)
+===== TURN 133 =====
+Adventurer at (3,10)
+Output: 0
+Goal from q: (1,23)15
+Move to (3,11)
+===== TURN 134 =====
+Adventurer at (3,11)
+Output: 0
+Goal from q: (1,23)14
+Move to (3,12)
+===== TURN 135 =====
+Adventurer at (3,12)
+Output: 0
+Goal from q: (1,23)13
+Move to (3,13)
+===== TURN 136 =====
+Adventurer at (3,13)
+Output: 0
+Goal from q: (1,23)12
+Move to (3,14)
+===== TURN 137 =====
+Adventurer at (3,14)
+Output: 0
+Goal from q: (1,23)11
+Move to (2,14)
+===== TURN 138 =====
+Adventurer at (2,14)
+Output: 0
+Goal from q: (1,23)10
+Move to (1,14)
+===== TURN 139 =====
+Adventurer at (1,14)
+Output: 0
+Goal from q: (1,23)11
+Move to (0,14)
+===== TURN 140 =====
+Adventurer at (0,14)
+Output: 0
+Goal from q: (1,23)10
+Move to (0,15)
+===== TURN 141 =====
+Adventurer at (0,15)
+Output: 0
+Goal from q: (1,23)9
+Move to (0,16)
+===== TURN 142 =====
+Adventurer at (0,16)
+Output: 0
+Goal from q: (1,23)8
+Move to (0,17)
+===== TURN 143 =====
+Adventurer at (0,17)
+Output: 0
+Goal from q: (1,23)7
+Move to (1,17)
+===== TURN 144 =====
+Adventurer at (1,17)
+Output: 0
+Goal from q: (8,23)13
+Move to (2,17)
+===== TURN 145 =====
+Adventurer at (2,17)
+Output: 0
+Goal from q: (8,23)12
+Move to (3,17)
+===== TURN 146 =====
+Adventurer at (3,17)
+Output: 0
+Goal from q: (8,23)11
+Move to (4,17)
+===== TURN 147 =====
+Adventurer at (4,17)
+Output: 0
+Goal from q: (8,23)10
+Move to (5,17)
+===== TURN 148 =====
+Adventurer at (5,17)
+Output: 0
+Goal from q: (8,23)9
+Move to (6,17)
+===== TURN 149 =====
+Adventurer at (6,17)
+Output: 0
+Goal from q: (8,23)8
+Move to (7,17)
+===== TURN 150 =====
+Adventurer at (7,17)
+Output: 0
+Goal from q: (8,23)7
+Move to (8,17)
+===== TURN 151 =====
+Adventurer at (8,17)
+Output: 0
+Goal from q: (8,23)8
+Move to (9,17)
+===== TURN 152 =====
+Adventurer at (9,17)
+Output: 0
+Goal from q: (8,23)9
+Move to (8,17)
+===== TURN 153 =====
+Adventurer at (8,17)
+Output: 0
+Goal from q: (8,23)8
+Move to (8,18)
+===== TURN 154 =====
+Adventurer at (8,18)
+Output: 0
+Goal from q: (8,23)7
+Move to (8,19)
+===== TURN 155 =====
+Adventurer at (8,19)
+Output: 0
+Goal from q: (8,23)6
+Move to (8,20)
+===== TURN 156 =====
+Adventurer at (8,20)
+Output: 0
+Goal from q: (8,23)5
+Move to (8,21)
+===== TURN 157 =====
+Adventurer at (8,21)
+Output: 0
+Goal from q: (8,23)4
+Move to (7,21)
+===== TURN 158 =====
+Adventurer at (7,21)
+Output: 0
+Goal from q: (8,23)3
+Move to (7,22)
+===== TURN 159 =====
+Adventurer at (7,22)
+Output: 0
+Goal from q: (8,23)2
+Move to (7,23)
+===== TURN 160 =====
+Adventurer at (7,23)
+Output: 0
+Goal from q: (23,18)21
+Move to (8,23)
+===== TURN 161 =====
+Adventurer at (8,23)
+Output: 0
+Goal from q: (23,18)20
+Move to (9,23)
+===== TURN 162 =====
+Adventurer at (9,23)
+Output: 0
+Goal from q: (23,18)19
+Move to (10,23)
+===== TURN 163 =====
+Adventurer at (10,23)
+Output: 0
+Goal from q: (23,18)18
+Move to (11,23)
+===== TURN 164 =====
+Adventurer at (11,23)
+Output: 0
+Goal from q: (23,18)17
+Move to (11,22)
+===== TURN 165 =====
+Adventurer at (11,22)
+Output: 0
+Goal from q: (23,18)16
+Move to (12,22)
+===== TURN 166 =====
+Adventurer at (12,22)
+Output: 0
+Goal from q: (23,18)15
+Move to (13,22)
+===== TURN 167 =====
+Adventurer at (13,22)
+Output: 0
+Goal from q: (23,18)14
+Move to (14,22)
+===== TURN 168 =====
+Adventurer at (14,22)
+Output: 0
+Goal from q: (23,18)13
+Move to (15,22)
+===== TURN 169 =====
+Adventurer at (15,22)
+Output: 0
+Goal from q: (23,18)12
+Move to (16,22)
+===== TURN 170 =====
+Adventurer at (16,22)
+Output: 0
+Goal from q: (23,18)11
+Move to (17,22)
+===== TURN 171 =====
+Adventurer at (17,22)
+Output: 0
+Goal from q: (23,18)10
+Move to (18,22)
+===== TURN 172 =====
+Adventurer at (18,22)
+Output: 0
+Goal from q: (23,18)9
+Move to (19,22)
+===== TURN 173 =====
+Adventurer at (19,22)
+Output: 0
+Goal from q: (23,18)8
+Move to (20,22)
+===== TURN 174 =====
+Adventurer at (20,22)
+Output: 0
+Goal from q: (23,18)7
+Move to (20,21)
+===== TURN 175 =====
+Adventurer at (20,21)
+Output: 0
+Goal from q: (23,18)6
+Move to (21,21)
+===== TURN 176 =====
 Adventurer at (21,21)
 Output: 0
-Goal=flower
-Tree is on bfsProv start (21,23)
-  Check move to (20,21) distProv=3
-1.0
-  Check move to (22,21) distProv=3
-1.0
-  Check move to (21,20) distProv=3
-1.0
-  Check move to (21,22) distProv=1
-1.0
-Move to (21,22)
-===== TURN 83 =====
-Adventurer at (21,22)
+Goal from q: (23,18)5
+Move to (22,21)
+===== TURN 177 =====
+Adventurer at (22,21)
+Output: 0
+Goal from q: (23,18)4
+Move to (23,21)
+===== TURN 178 =====
+Adventurer at (23,21)
+Output: 0
+Goal from q: (21,23)4
+Move to (22,21)
+===== TURN 179 =====
+Adventurer at (22,21)
+Output: 0
+Goal from q: (21,23)3
+Move to (22,22)
+===== TURN 180 =====
+Adventurer at (22,22)
+Output: 0
+Goal from q: (21,23)2
+Move to (22,23)
+===== TURN 181 =====
+Adventurer at (22,23)
 Output: 0
 Goal=flower
-Tree is on bfsProv start (21,23)
-  Check move to (20,22) distProv=2
-1.0
-  Check move to (22,22) distProv=2
-1.0
-  Check move to (21,21) distProv=2
-1.0
-  Check move to (21,23) distProv=0
-1.0
 Move to (21,23)
-===== TURN 84 =====
+===== TURN 182 =====
 Adventurer at (21,23)
 Reached flower -> finish
