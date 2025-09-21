@@ -118,11 +118,39 @@ int main(){
         if(x==adv.x&&y==adv.y) return false;
         if(!hasPathTrue(entrance,{ti,tj},x,y)) return false;
         if(!hasPathTrue(adv,{ti,tj},x,y)) return false;
-        toPlace.push_back({x,y});
-        hasTrent[x][y]=true;
-        cell[x][y]='T';
-        return true;
+
+        // 仮置き
+        cell[x][y] = 'T';
+        hasTrent[x][y] = true;
+
+        // --- 追加チェック: 未確認かつ空き ('.') の全マスが到達可能か (bfsTrue を使用) ---
+        bool ok = true;
+        {
+            auto dist = bfsTrue(adv, {-1,-1}); // 仮置き状態を反映した真の地形での距離
+            for (int i = 0; i < N && ok; ++i) {
+                for (int j = 0; j < N; ++j) {
+                    // 「未確認マスのうち、木のない (= 真の地形で '.' ) マス」
+                    if (!confirmed[i][j] && cell[i][j] == '.') {
+                        if (dist[i][j] >= INF) { // 到達不能
+                            ok = false;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (ok) {
+            toPlace.push_back({x,y}); // 確定
+            return true;
+        } else {
+            // 撤回
+            cell[x][y] = '.';
+            hasTrent[x][y] = false;
+            return false;
+        }
     };
+
 
     // 初期視界更新
     confirmed[adventurer.x][adventurer.y]=true;
@@ -143,7 +171,20 @@ int main(){
             tryPlaceTrent(ti-1,tj+1,adventurer);
             tryPlaceTrent(ti,tj-1,adventurer);
             tryPlaceTrent(ti,tj+2,adventurer);
-            tryPlaceTrent(ti+1,tj,adventurer);
+            if (tryPlaceTrent(ti+1,tj,adventurer) == false) {
+                tryPlaceTrent(ti+2,tj,adventurer);
+                tryPlaceTrent(ti+1,tj-1,adventurer);
+            }
+        }   
+
+        for (int d=0; d<4; d++){
+            // adventurerの上下左右に木がないなら、その先のマスに、トレントを置けるか試す
+            int nx=adventurer.x+dxs[d], ny=adventurer.y+dys[d];
+            if(!inb(nx,ny)) continue;
+            if(cell[nx][ny]=='T') continue; // トレントがあるなら置けない
+            if(cell[nx][ny]=='#') continue; // 木があるなら置けない
+            int nnx=nx+dxs[d], nny=ny+dys[d];
+            tryPlaceTrent(nnx,nny,adventurer);
         }
 
         if(toPlace.empty()){
