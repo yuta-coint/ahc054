@@ -188,6 +188,21 @@ int main(){
                     tryPlaceTrent(ti+1,tj+1,adventurer);
                 }
             }
+            if (ti < N/3 && tj < N/2){
+                for (int j = 2; j < N/2 - 1; j++){
+                    tryPlaceTrent(ti - j - 1,tj - j + 1,adventurer);
+                }
+                for (int j = 2; j < N/2 - 1; j++){
+                    tryPlaceTrent(ti - j + 1,tj - j,adventurer);
+                }
+            }else if (ti < N/3 && tj >= N/2){
+                for (int j = 2; j < N/2 - 1; j++){
+                    tryPlaceTrent(ti - j - 1,tj + j - 1,adventurer);
+                }
+                for (int j = 2; j < N/2 - 1; j++){
+                    tryPlaceTrent(ti - j - 1,tj + j,adventurer);
+                }
+            }
         }
         bool placedThisTurn=false;
         //直近の2ターンで同じ方向に動いているなら、冒険者から見て両脇にトレントを置く
