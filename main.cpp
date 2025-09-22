@@ -2,7 +2,8 @@
 using namespace std;
 
 struct Pos { int x,y; };
-
+Pos adventurerPrevPrev{-1,-1};
+Pos adventurerPrev{-1,-1};
 vector<Pos> toPlace;
 int main(){
     ios::sync_with_stdio(false);
@@ -166,25 +167,56 @@ int main(){
 
         // 出力
         if (turn == 0){
-            tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
-            tryPlaceTrent(ti-1,tj,adventurer);
-            tryPlaceTrent(ti-1,tj+1,adventurer);
-            tryPlaceTrent(ti,tj-1,adventurer);
-            tryPlaceTrent(ti,tj+2,adventurer);
-            if (tryPlaceTrent(ti+1,tj,adventurer) == false) {
-                tryPlaceTrent(ti+2,tj,adventurer);
-                tryPlaceTrent(ti+1,tj-1,adventurer);
+            if (tj < N/2){
+                tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                tryPlaceTrent(ti+1,tj,adventurer);
+                tryPlaceTrent(ti-1,tj+1,adventurer);
+                tryPlaceTrent(ti,tj+1,adventurer);
+                tryPlaceTrent(ti-2,tj,adventurer);
+                if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
+                    tryPlaceTrent(ti,tj-2,adventurer);
+                    tryPlaceTrent(ti+1,tj-1,adventurer);
+                }
+            }else{
+                tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                tryPlaceTrent(ti+1,tj,adventurer);
+                tryPlaceTrent(ti-1,tj-1,adventurer);
+                tryPlaceTrent(ti,tj-1,adventurer);
+                tryPlaceTrent(ti-2,tj,adventurer);
+                if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
+                    tryPlaceTrent(ti,tj+2,adventurer);
+                    tryPlaceTrent(ti+1,tj+1,adventurer);
+                }
             }
-        }   
-
-        for (int d=0; d<4; d++){
-            // adventurerの上下左右に木がないなら、その先のマスに、トレントを置けるか試す
-            int nx=adventurer.x+dxs[d], ny=adventurer.y+dys[d];
-            if(!inb(nx,ny)) continue;
-            if(cell[nx][ny]=='T') continue; // トレントがあるなら置けない
-            if(cell[nx][ny]=='#') continue; // 木があるなら置けない
-            int nnx=nx+dxs[d], nny=ny+dys[d];
-            tryPlaceTrent(nnx,nny,adventurer);
+        }
+        bool placedThisTurn=false;
+        //直近の2ターンで同じ方向に動いているなら、冒険者から見て両脇にトレントを置く
+        if (adventurerPrevPrev.x != -1 && adventurerPrev.x != -1) {
+            int dx1 = adventurerPrev.x - adventurerPrevPrev.x;
+            int dy1 = adventurerPrev.y - adventurerPrevPrev.y;
+            int dx2 = adventurer.x - adventurerPrev.x;
+            int dy2 = adventurer.y - adventurerPrev.y;
+            if (dx1 == dx2 && dy1 == dy2 && adventurerPrevPrev.x != 0 && adventurerPrevPrev.x != N-1 && adventurerPrevPrev.y != 0 && adventurerPrevPrev.y != N-1) { // 同じ方向に動いている
+                if (dx1 != 0) { // 縦移動
+                    tryPlaceTrent(adventurer.x, adventurer.y + 1, adventurer);
+                    tryPlaceTrent(adventurer.x, adventurer.y - 1, adventurer);
+                } else if (dy1 != 0) { // 横移動
+                    tryPlaceTrent(adventurer.x + 1, adventurer.y, adventurer);
+                    tryPlaceTrent(adventurer.x - 1, adventurer.y, adventurer);
+                }
+                placedThisTurn = true;
+            }
+        }
+        if (!placedThisTurn){
+            for (int d=0; d<4; d++){
+                // adventurerの上下左右に木がないなら、その先のマスに、トレントを置けるか試す
+                int nx=adventurer.x+dxs[d], ny=adventurer.y+dys[d];
+                if(!inb(nx,ny)) continue;
+                if(cell[nx][ny]=='T') continue; // トレントがあるなら置けない
+                if(cell[nx][ny]=='#') continue; // 木があるなら置けない
+                int nnx=nx+dxs[d], nny=ny+dys[d];
+                tryPlaceTrent(nnx,nny,adventurer);
+            }
         }
 
         if(toPlace.empty()){
@@ -200,6 +232,8 @@ int main(){
         }
 
         toPlace.clear();
+        adventurerPrevPrev=adventurerPrev;
+        adventurerPrev=adventurer;
 
         // --- 冒険者シミュレーション（冒険者視点: bfsProv） ---
 
