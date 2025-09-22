@@ -173,6 +173,7 @@ int main(){
                 tryPlaceTrent(ti-1,tj+1,adventurer);
                 tryPlaceTrent(ti,tj+1,adventurer);
                 tryPlaceTrent(ti-2,tj,adventurer);
+                tryPlaceTrent(ti-2,tj+2,adventurer);
                 if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
                     tryPlaceTrent(ti,tj-2,adventurer);
                     tryPlaceTrent(ti+1,tj-1,adventurer);
@@ -183,24 +184,10 @@ int main(){
                 tryPlaceTrent(ti-1,tj-1,adventurer);
                 tryPlaceTrent(ti,tj-1,adventurer);
                 tryPlaceTrent(ti-2,tj,adventurer);
+                tryPlaceTrent(ti-2,tj-2,adventurer);
                 if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
                     tryPlaceTrent(ti,tj+2,adventurer);
                     tryPlaceTrent(ti+1,tj+1,adventurer);
-                }
-            }
-            if (ti < N/3 && tj < N/2){
-                for (int j = 2; j < N/2 - 1; j++){
-                    tryPlaceTrent(ti - j - 1,tj - j + 1,adventurer);
-                }
-                for (int j = 2; j < N/2 - 1; j++){
-                    tryPlaceTrent(ti - j + 1,tj - j,adventurer);
-                }
-            }else if (ti < N/3 && tj >= N/2){
-                for (int j = 2; j < N/2 - 1; j++){
-                    tryPlaceTrent(ti - j - 1,tj + j - 1,adventurer);
-                }
-                for (int j = 2; j < N/2 - 1; j++){
-                    tryPlaceTrent(ti - j - 1,tj + j,adventurer);
                 }
             }
         }

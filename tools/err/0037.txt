@@ -660,69 +660,89 @@ Goal from q: (6,0)7
 Move to (4,4)
 ===== TURN 132 =====
 Adventurer at (4,4)
-Output: placed
-Goal from q: (6,0)8
-Move to (3,4)
+Output: 0
+Goal from q: (6,0)6
+Move to (4,3)
 ===== TURN 133 =====
-Adventurer at (3,4)
+Adventurer at (4,3)
 Output: placed
-Goal from q: (6,0)9
-Move to (2,4)
+Goal from q: (6,0)5
+Move to (4,2)
 ===== TURN 134 =====
-Adventurer at (2,4)
+Adventurer at (4,2)
 Output: placed
+Goal from q: (6,0)14
+Move to (4,3)
+===== TURN 135 =====
+Adventurer at (4,3)
+Output: 0
+Goal from q: (6,0)13
+Move to (3,3)
+===== TURN 136 =====
+Adventurer at (3,3)
+Output: placed
+Goal from q: (6,0)12
+Move to (3,4)
+===== TURN 137 =====
+Adventurer at (3,4)
+Output: 0
+Goal from q: (6,0)11
+Move to (2,4)
+===== TURN 138 =====
+Adventurer at (2,4)
+Output: 0
 Goal from q: (6,0)10
 Move to (1,4)
-===== TURN 135 =====
+===== TURN 139 =====
 Adventurer at (1,4)
 Output: placed
 Goal from q: (6,0)11
 Move to (0,4)
-===== TURN 136 =====
+===== TURN 140 =====
 Adventurer at (0,4)
-Output: 0
+Output: placed
 Goal from q: (6,0)10
 Move to (0,3)
-===== TURN 137 =====
+===== TURN 141 =====
 Adventurer at (0,3)
 Output: 0
 Goal from q: (6,0)9
 Move to (0,2)
-===== TURN 138 =====
+===== TURN 142 =====
 Adventurer at (0,2)
 Output: placed
 Goal from q: (6,0)8
 Move to (1,2)
-===== TURN 139 =====
+===== TURN 143 =====
 Adventurer at (1,2)
 Output: 0
 Goal from q: (6,0)7
 Move to (1,1)
-===== TURN 140 =====
+===== TURN 144 =====
 Adventurer at (1,1)
-Output: 0
+Output: placed
 Goal from q: (6,0)6
 Move to (2,1)
-===== TURN 141 =====
+===== TURN 145 =====
 Adventurer at (2,1)
 Output: 0
 Goal from q: (6,0)5
-Move to (3,1)
-===== TURN 142 =====
-Adventurer at (3,1)
+Move to (2,0)
+===== TURN 146 =====
+Adventurer at (2,0)
 Output: 0
-Goal from q: (6,0)4
+Goal=flower
 Move to (3,0)
-===== TURN 143 =====
+===== TURN 147 =====
 Adventurer at (3,0)
 Output: 0
 Goal=flower
 Move to (4,0)
-===== TURN 144 =====
+===== TURN 148 =====
 Adventurer at (4,0)
 Output: 0
 Goal=flower
 Move to (5,0)
-===== TURN 145 =====
+===== TURN 149 =====
 Adventurer at (5,0)
 Reached flower -> finish
