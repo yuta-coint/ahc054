@@ -48,6 +48,7 @@ int main(){
 
     int dxs[4]={-1,1,0,0};
     int dys[4]={0,0,-1,1};
+    int unconfirmedCount=N*N-1; // 未確認マス数（初期値は木を除いた全マス数）
     const int INF=1e9;
 
     // BFS 暫定地図（未確認はすべて空きマス扱い）
@@ -304,29 +305,29 @@ int main(){
                 cerr << "\n";
             } else {
                 cerr << "No path found in 0-turn construction\n";
+            }
                 
-                if (tj < N/2){
-                    tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
-                    tryPlaceTrent(ti+1,tj,adventurer);
-                    tryPlaceTrent(ti-1,tj+1,adventurer);
-                    tryPlaceTrent(ti,tj+1,adventurer);
-                    tryPlaceTrent(ti-2,tj,adventurer);
-                    tryPlaceTrent(ti-2,tj+2,adventurer);
-                    if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
-                        tryPlaceTrent(ti,tj-2,adventurer);
-                        tryPlaceTrent(ti+1,tj-1,adventurer);
-                    }
-                }else{
-                    tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
-                    tryPlaceTrent(ti+1,tj,adventurer);
-                    tryPlaceTrent(ti-1,tj-1,adventurer);
-                    tryPlaceTrent(ti,tj-1,adventurer);
-                    tryPlaceTrent(ti-2,tj,adventurer);
-                    tryPlaceTrent(ti-2,tj-2,adventurer);
-                    if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
-                        tryPlaceTrent(ti,tj+2,adventurer);
-                        tryPlaceTrent(ti+1,tj+1,adventurer);
-                    }
+            if (tj < N/2){
+                tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                tryPlaceTrent(ti+1,tj,adventurer);
+                tryPlaceTrent(ti-1,tj+1,adventurer);
+                tryPlaceTrent(ti,tj+1,adventurer);
+                tryPlaceTrent(ti-2,tj,adventurer);
+                tryPlaceTrent(ti-2,tj+2,adventurer);
+                if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
+                    tryPlaceTrent(ti,tj-2,adventurer);
+                    tryPlaceTrent(ti+1,tj-1,adventurer);
+                }
+            }else{
+                tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                tryPlaceTrent(ti+1,tj,adventurer);
+                tryPlaceTrent(ti-1,tj-1,adventurer);
+                tryPlaceTrent(ti,tj-1,adventurer);
+                tryPlaceTrent(ti-2,tj,adventurer);
+                tryPlaceTrent(ti-2,tj-2,adventurer);
+                if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
+                    tryPlaceTrent(ti,tj+2,adventurer);
+                    tryPlaceTrent(ti+1,tj+1,adventurer);
                 }
             }
             // 経路に沿ったトレント配置（経路自身には置かない）
@@ -457,6 +458,25 @@ int main(){
                 tryPlaceTrent(nnx,nny,adventurer);
             }
         }
+        
+        //unconfirmedCountがN/10以下なら、次のターンに新たにconrirmedになりうるマスがあれば、一つ選び、優先的にふさぐ
+        if (unconfirmedCount <= N/10) {
+            //次のターンに新たにconfirmedになりうるマスを探す
+            for (int d=0; d<4; d++){
+                int x=adventurer.x, y=adventurer.y;
+                while(inb(x,y)){
+                    if(!confirmed[x][y] && cell[x][y]=='.'){
+                        if(tryPlaceTrent(x,y,adventurer)){
+                            placedThisTurn=true;
+                            break;
+                        }
+                    }
+                    if(cell[x][y]=='T') break;
+                    x+=dxs[d]; y+=dys[d];
+                }
+                if (placedThisTurn) break;
+            }
+        }
 
         if(toPlace.empty()){
             cout<<0<<"\n"; cout.flush(); lastPlaced=false;
@@ -480,7 +500,10 @@ int main(){
         for(int d=0; d<4; d++){
             int x=adventurer.x, y=adventurer.y;
             while(inb(x,y)){
-                confirmed[x][y]=true;
+                if (confirmed[x][y] == false) {
+                    confirmed[x][y] = true;
+                    unconfirmedCount--; // 追加: 未確認マス数を減らす
+                }
                 if(cell[x][y]=='T') break;
                 x+=dxs[d]; y+=dys[d];
             }
@@ -523,6 +546,7 @@ int main(){
         if(chosen==-1){ cerr<<"WA: no move\n"; return 0; }
 
         adventurer.x+=dxs[chosen]; adventurer.y+=dys[chosen];
+        if (!confirmed[adventurer.x][adventurer.y]) unconfirmedCount--; // 追加: 未確認マス数を減らす
         confirmed[adventurer.x][adventurer.y]=true;
         cerr<<"Move to ("<<adventurer.x<<","<<adventurer.y<<")\n";
     }
