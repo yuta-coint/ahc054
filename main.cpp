@@ -5,6 +5,7 @@ struct Pos { int x,y; };
 Pos adventurerPrevPrev{-1,-1};
 Pos adventurerPrev{-1,-1};
 vector<Pos> toPlace;
+
 int main(){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -34,6 +35,11 @@ int main(){
     Pos entrance{0, N/2};
     Pos adventurer=entrance;
     confirmed[adventurer.x][adventurer.y]=true;
+    
+    // 追加: adventurer から 3 マス以内かどうか
+    auto tooCloseToAdventurer = [&](int x,int y){
+        return abs(x - adventurer.x) + abs(y - adventurer.y) <= 3;
+    };
 
     bool lastPlaced=false;
     int qidx=0;
@@ -155,9 +161,7 @@ int main(){
 
     // 初期視界更新
     confirmed[adventurer.x][adventurer.y]=true;
-    //　裏の行き止まり
-    vector<Pos> deadEnds;
-    vector<Pos> hazzard;
+
     for(int turn=0; turn<1000000; turn++){
         cerr<<"===== TURN "<<turn<<" =====\n";
         cerr<<"Adventurer at ("<<adventurer.x<<","<<adventurer.y<<")\n";
@@ -166,76 +170,207 @@ int main(){
             cerr<<"Reached flower -> finish\n";
             break;
         }
-
         // 出力
-        if (turn == 0){
-            if (tj < N/2){
-                tryPlaceTrent(adventurer.x - 1,adventurer.y,adventurer);
-                if (tryPlaceTrent(ti-1,tj+1,adventurer)) {
-                    deadEnds.push_back({ti-1,tj+1});
-                }else{
-                    hazzard.push_back({ti-1,tj+1});
+        if (turn == 0) {
+            struct Node {
+                Pos p;
+                vector<Pos> path;
+                int step;
+            };
+            vector<Pos> bestPath;
+
+            // 最初の2手を決め打ちしてから探索
+            for(int d1=0; d1<4; d1++){
+                int nx1=ti+dxs[d1], ny1=tj+dys[d1];
+                if(!inb(nx1,ny1) || cell[nx1][ny1] != '.') continue;
+                for(int d2=0; d2<4; d2++){
+                    // d2 は d1 と直交方向のみ
+                    if(dxs[d1]*dxs[d2] + dys[d1]*dys[d2] != 0) continue;
+                    int nx2=nx1+dxs[d2], ny2=ny1+dys[d2];
+                    if(!inb(nx2,ny2) || cell[nx2][ny2] != '.') continue;
+                    // 一手目のマスを記録
+                    Pos firstStep{-1,-1};
+
+                    // 判定関数
+                    auto canStep = [&](int nx,int ny,int step)->bool {
+                        if(!inb(nx,ny)) return false;
+                        if(cell[nx][ny] != '.') return false;
+                        // --- 条件0: 二手目以降は(ti,tj)の隣禁止 ---
+                        if(step >= 2 && firstStep.x != -1){
+                            for(int d=0; d<4; d++){
+                                if(nx == ti+dxs[d] && ny == tj+dys[d]){
+                                    return false;
+                                }
+                            }
+                        }
+
+                        // --- 条件1: 三手目以降は一手目の隣禁止 ---
+                        if(step >= 3 && firstStep.x != -1){
+                            for(int d=0; d<4; d++){
+                                if(nx == firstStep.x+dxs[d] && ny == firstStep.y+dys[d]){
+                                    return false;
+                                }
+                            }
+                        }
+
+                        // --- 条件2: 木の隣は通らない ---
+                        for(int d=0; d<4; d++){
+                            int ax = nx+dxs[d], ay = ny+dys[d];
+                            if(inb(ax,ay) && cell[ax][ay]=='T') return false;
+                        }
+
+                        // --- 条件3: 斜めに木が2つあるマスは避ける ---
+                        int diagWood = 0;
+                        int ddx[4] = {-1,-1,1,1};
+                        int ddy[4] = {-1,1,-1,1};
+                        for(int k=0; k<4; k++){
+                            int ax = nx+ddx[k], ay = ny+ddy[k];
+                            if(inb(ax,ay) && cell[ax][ay]=='T') diagWood++;
+                        }
+                        if(diagWood >= 2) return false;
+
+                        return true;
+                    };
+                    
+                    // BFS 開始（start = nx2）
+                    vector<vector<bool>> vis(N, vector<bool>(N,false));
+                    queue<Node> qu;
+                    vector<Pos> initPath = {{ti,tj},{nx1,ny1},{nx2,ny2}};
+                    qu.push({{nx2,ny2}, initPath, 2});
+                    vis[ti][tj] = vis[nx1][ny1] = vis[nx2][ny2] = true;
+
+                    bool found=false;
+                    while(!qu.empty() && !found){
+                        auto cur = qu.front(); qu.pop();
+                        Pos p = cur.p;
+
+                        // step==2 のときに firstStep を記録する（つまり 1手目）
+                        if(cur.step == 2 && firstStep.x == -1){
+                            // path[1] が 1手目
+                            firstStep = cur.path[1];
+                        }
+
+                        // 次展開
+                        for(int d=0; d<4 && !found; d++){
+                            int nx = p.x + dxs[d], ny = p.y + dys[d];
+                            if(!inb(nx,ny)) continue;
+                            if(vis[nx][ny]) continue;
+                            if(tooCloseToAdventurer(nx,ny)) continue;
+                            if(!canStep(nx,ny,cur.step+1)) continue;
+
+                            bool isBoundary = (nx==0 || nx==N-1 || ny==0 || ny==N-1);
+                            if(isBoundary){
+                                int cx = (nx==0?0:N-1);
+                                int cy = (ny==0?0:N-1);
+                                if(abs(nx-cx)+abs(ny-cy) <= N/4){
+                                    int sx = (cx>nx?1:(cx<nx?-1:0));
+                                    int sy = (cy>ny?1:(cy<ny?-1:0));
+                                    bool ok=true;
+                                    for(int step=1; step<=2; ++step){
+                                        int xx = nx + sx*step, yy = ny + sy*step;
+                                        if(!inb(xx,yy) || cell[xx][yy] != '.') { ok=false; break; }
+                                    }
+                                    if(ok){
+                                        auto full = cur.path;
+                                        full.push_back({nx,ny});
+                                        bestPath = full;
+                                        found = true;
+                                        break;
+                                    } else continue;
+                                } else continue;
+                            }
+
+                            vis[nx][ny] = true;
+                            auto nxt = cur.path;
+                            nxt.push_back({nx,ny});
+                            qu.push({{nx,ny}, nxt, cur.step+1});
+                        }
+                    }
+
+
+                    if(!bestPath.empty()) break; // 見つかれば外側ループを抜ける
                 }
-                if (tryPlaceTrent(ti,tj+1,adventurer)) {
-                    deadEnds.push_back({ti,tj+1});
-                }else{
-                    hazzard.push_back({ti,tj+1});
+                if(!bestPath.empty()) break;
+            } // end for d1
+
+            // 経路の出力
+            if(!bestPath.empty()){
+                cerr << "Chosen path: ";
+                for(auto &p:bestPath){
+                    cerr << "(" << p.x << "," << p.y << ") ";
                 }
-                if (!tryPlaceTrent(ti+1,tj,adventurer)) hazzard.push_back({ti+1,tj});
-                if (!tryPlaceTrent(ti-2,tj,adventurer)) hazzard.push_back({ti-2,tj});
-                hazzard.push_back({ti-1,tj+1});
-                if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
-                    tryPlaceTrent(ti,tj-2,adventurer);
+                cerr << "\n";
+            } else {
+                cerr << "No path found in 0-turn construction\n";
+                
+                if (tj < N/2){
+                    tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                    tryPlaceTrent(ti+1,tj,adventurer);
+                    tryPlaceTrent(ti-1,tj+1,adventurer);
+                    tryPlaceTrent(ti,tj+1,adventurer);
+                    tryPlaceTrent(ti-2,tj,adventurer);
+                    tryPlaceTrent(ti-2,tj+2,adventurer);
+                    if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
+                        tryPlaceTrent(ti,tj-2,adventurer);
+                        tryPlaceTrent(ti+1,tj-1,adventurer);
+                    }
+                }else{
+                    tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                    tryPlaceTrent(ti+1,tj,adventurer);
                     tryPlaceTrent(ti-1,tj-1,adventurer);
+                    tryPlaceTrent(ti,tj-1,adventurer);
+                    tryPlaceTrent(ti-2,tj,adventurer);
+                    tryPlaceTrent(ti-2,tj-2,adventurer);
+                    if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
+                        tryPlaceTrent(ti,tj+2,adventurer);
+                        tryPlaceTrent(ti+1,tj+1,adventurer);
+                    }
                 }
-            }else{
-                tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
-                if (tryPlaceTrent(ti-1,tj-1,adventurer)) {
-                    deadEnds.push_back({ti-1,tj-1});
+            }
+            // 経路に沿ったトレント配置（経路自身には置かない）
+            vector<Pos> extraList;
+            if(!bestPath.empty()){
+                Pos end = bestPath.back();
+                int cx = (end.x==0?0:N-1);
+                int cy = (end.y==0?0:N-1);
+                int ex = (cx>end.x?1:(cx<end.x?-1:0));
+                int ey = (cy>end.y?1:(cy<end.y?-1:0));
+                Pos skip1{end.x+ex,end.y+ey};
+                Pos skip2{end.x+ex*2,end.y+ey*2};
+                Pos force{end.x+ex*3,end.y+ey*3};
+
+                for(auto &p:bestPath){
+                    for(int d=0;d<4;d++){
+                        int nx=p.x+dxs[d], ny=p.y+dys[d];
+                        if(!inb(nx,ny) || cell[nx][ny] != '.') continue;
+                        // 経路自身には置かない
+                        bool onPath=false;
+                        for(auto &q:bestPath) if(q.x==nx && q.y==ny){ onPath=true; break; }
+                        if(onPath) continue;
+                        Pos cand{nx,ny};
+                        if((cand.x==skip1.x&&cand.y==skip1.y)||
+                           (cand.x==skip2.x&&cand.y==skip2.y)){
+                            continue; // 例外的に置かない
+                        }
+                        tryPlaceTrent(nx,ny,adventurer);
+                        // 置いたマスのさらに隣を extraList に集計
+                        for(int dd=0;dd<4;dd++){
+                            int nnx=nx+dxs[dd], nny=ny+dys[dd];
+                            if(inb(nnx,nny)) extraList.push_back({nnx,nny});
+                        }
+                    }
                 }
-                else{
-                    hazzard.push_back({ti-1,tj-1});
-                }
-                if (tryPlaceTrent(ti,tj-1,adventurer)) {
-                    deadEnds.push_back({ti,tj-1});
-                }else{
-                    hazzard.push_back({ti,tj-1});
-                }
-                if (!tryPlaceTrent(ti+1,tj,adventurer)) hazzard.push_back({ti+1,tj});
-                if (!tryPlaceTrent(ti-2,tj,adventurer)) hazzard.push_back({ti-2,tj});
-                hazzard.push_back({ti-1,tj-1});
-                if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
-                    tryPlaceTrent(ti,tj+2,adventurer);
-                    tryPlaceTrent(ti+1,tj+1,adventurer);
+                // 三歩目は強制的に置く
+                if(inb(force.x,force.y)&&cell[force.x][force.y]=='.'){
+                    tryPlaceTrent(force.x,force.y,adventurer);
                 }
             }
         }
-        vector<int> deadEndFilled(deadEnds.size(), 0);
+
+
         bool placedThisTurn=false;
-        for (int k = 0; k < deadEnds.size(); k++){
-            if (confirmed[deadEnds[k].x][deadEnds[k].y]) deadEndFilled[k] = 1;
-        }
-        //最小値が0の場合、道を遮る
-        for (int l = 0; l < hazzard.size(); l++){
-            if (*min_element(begin(deadEndFilled), end(deadEndFilled))){
-                if (adventurer.x == hazzard[l].x) {
-                    tryPlaceTrent(adventurer.x, adventurer.y + 1, adventurer);
-                    tryPlaceTrent(adventurer.x, adventurer.y - 1, adventurer);
-                    tryPlaceTrent(adventurer.x + 2, adventurer.y, adventurer);
-                    tryPlaceTrent(adventurer.x - 2, adventurer.y, adventurer);
-                    placedThisTurn = true;
-                }
-                if (adventurer.y == hazzard[l].y) {
-                    tryPlaceTrent(adventurer.x + 1, adventurer.y, adventurer);
-                    tryPlaceTrent(adventurer.x - 1, adventurer.y, adventurer);
-                    tryPlaceTrent(adventurer.x, adventurer.y + 2, adventurer);
-                    tryPlaceTrent(adventurer.x, adventurer.y - 2, adventurer);
-                    placedThisTurn = true;
-                }
-            }
-        }
         //直近の2ターンで同じ方向に動いているなら、冒険者から見て両脇にトレントを置く
-        if (adventurerPrevPrev.x != -1 && adventurerPrev.x != -1 && !placedThisTurn) {
+        if (adventurerPrevPrev.x != -1 && adventurerPrev.x != -1) {
             int dx1 = adventurerPrev.x - adventurerPrevPrev.x;
             int dy1 = adventurerPrev.y - adventurerPrevPrev.y;
             int dx2 = adventurer.x - adventurerPrev.x;

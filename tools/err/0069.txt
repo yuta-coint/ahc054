@@ -1,5 +1,6 @@
 ===== TURN 0 =====
 Adventurer at (0,10)
+No path found in 0-turn construction
 Output: placed
 Goal from q: (12,4)18
 Move to (0,9)
@@ -1612,47 +1613,37 @@ Move to (14,8)
 Adventurer at (14,8)
 Output: 0
 Goal from q: (15,3)6
-Move to (15,8)
-===== TURN 323 =====
-Adventurer at (15,8)
-Output: 0
-Goal from q: (15,3)7
-Move to (14,8)
-===== TURN 324 =====
-Adventurer at (14,8)
-Output: 0
-Goal from q: (15,3)6
 Move to (14,7)
-===== TURN 325 =====
+===== TURN 323 =====
 Adventurer at (14,7)
-Output: 0
+Output: placed
 Goal from q: (15,3)5
 Move to (14,6)
-===== TURN 326 =====
+===== TURN 324 =====
 Adventurer at (14,6)
 Output: placed
 Goal from q: (15,3)4
 Move to (14,5)
-===== TURN 327 =====
+===== TURN 325 =====
 Adventurer at (14,5)
 Output: 0
 Goal from q: (15,3)3
 Move to (15,5)
-===== TURN 328 =====
+===== TURN 326 =====
 Adventurer at (15,5)
 Output: placed
 Goal from q: (17,6)3
 Move to (16,5)
-===== TURN 329 =====
+===== TURN 327 =====
 Adventurer at (16,5)
 Output: 0
 Goal from q: (17,6)2
 Move to (16,6)
-===== TURN 330 =====
+===== TURN 328 =====
 Adventurer at (16,6)
 Output: 0
 Goal=flower
 Move to (17,6)
-===== TURN 331 =====
+===== TURN 329 =====
 Adventurer at (17,6)
 Reached flower -> finish

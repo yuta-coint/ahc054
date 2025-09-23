@@ -1,5 +1,6 @@
 ===== TURN 0 =====
 Adventurer at (0,15)
+No path found in 0-turn construction
 Output: placed
 Goal from q: (1,4)12
 Move to (0,14)
@@ -8880,7 +8881,7 @@ Goal from q: (22,15)5
 Move to (19,14)
 ===== TURN 1776 =====
 Adventurer at (19,14)
-Output: placed
+Output: 0
 Goal from q: (22,15)6
 Move to (19,13)
 ===== TURN 1777 =====
