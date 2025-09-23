@@ -31,6 +31,7 @@ int main(){
 
     vector<vector<bool>> confirmed(N, vector<bool>(N,false));
     vector<vector<bool>> hasTrent(N, vector<bool>(N,false));
+    vector<vector<bool>> isDanger(N, vector<bool>(N,false));
 
     Pos entrance{0, N/2};
     Pos adventurer=entrance;
@@ -125,6 +126,7 @@ int main(){
         if(x==adv.x&&y==adv.y) return false;
         if(!hasPathTrue(entrance,{ti,tj},x,y)) return false;
         if(!hasPathTrue(adv,{ti,tj},x,y)) return false;
+        //if(isDanger[x][y]) return false; // 追加: 危険マスには置かない
 
         // 仮置き
         cell[x][y] = 'T';
@@ -356,13 +358,71 @@ int main(){
                         // 置いたマスのさらに隣を extraList に集計
                         for(int dd=0;dd<4;dd++){
                             int nnx=nx+dxs[dd], nny=ny+dys[dd];
-                            if(inb(nnx,nny)) extraList.push_back({nnx,nny});
+                            if(inb(nnx,nny)){
+                                extraList.push_back({nnx,nny});
+                                isDanger[nnx][nny] = true; // 追加: 危険マスとしてマーク
+                            }
                         }
                     }
                 }
                 // 三歩目は強制的に置く
                 if(inb(force.x,force.y)&&cell[force.x][force.y]=='.'){
                     tryPlaceTrent(force.x,force.y,adventurer);
+                }
+            }
+        
+
+            for (int i = 1; i + 1 < N; ++i) { // i-1 / i+1 が安全に使える範囲に制限
+                if (i % 4 == 1) {
+                    // 上辺 (0,i) の場合: 参照するインデックスが有効か確認してから評価
+                    if (inb(1,i) && inb(0,i-1) && inb(0,i+1)) {
+                        if ((cell[1][i] == '.' || cell[1][i] == '#') &&
+                            (cell[0][i-1] == '.' || cell[0][i-1] == '#') &&
+                            (cell[0][i+1] == '.' || cell[0][i+1] == '#')) {
+                            tryPlaceTrent(0, i, adventurer);
+                        }
+                    }
+                    // 下辺 (N-1,i)
+                    if (inb(N-2,i) && inb(N-1,i-1) && inb(N-1,i+1)) {
+                        if ((cell[N-2][i] == '.' || cell[N-2][i] == '#') &&
+                            (cell[N-1][i-1] == '.' || cell[N-1][i-1] == '#') &&
+                            (cell[N-1][i+1] == '.' || cell[N-1][i+1] == '#')) {
+                            tryPlaceTrent(N-1, i, adventurer);
+                        }
+                    }
+                    // 右辺 (i,N-1)
+                    if (inb(i,N-2) && inb(i-1,N-1) && inb(i+1,N-1)) {
+                        if ((cell[i][N-2] == '.' || cell[i][N-2] == '#') &&
+                            (cell[i-1][N-1] == '.' || cell[i-1][N-1] == '#') &&
+                            (cell[i+1][N-1] == '.' || cell[i+1][N-1] == '#')) {
+                            tryPlaceTrent(i, N-1, adventurer);
+                        }
+                    }
+                } else if (i % 4 == 3) {
+                    // (1,i) 周辺
+                    if (inb(0,i) && inb(1,i-1) && inb(1,i+1)) {
+                        if ((cell[0][i] == '.' || cell[0][i] == '#') &&
+                            (cell[1][i-1] == '.' || cell[1][i-1] == '#') &&
+                            (cell[1][i+1] == '.' || cell[1][i+1] == '#')) {
+                            tryPlaceTrent(1, i, adventurer);
+                        }
+                    }
+                    // (N-2,i) 周辺
+                    if (inb(N-1,i) && inb(N-2,i-1) && inb(N-2,i+1)) {
+                        if ((cell[N-1][i] == '.' || cell[N-1][i] == '#') &&
+                            (cell[N-2][i-1] == '.' || cell[N-2][i-1] == '#') &&
+                            (cell[N-2][i+1] == '.' || cell[N-2][i+1] == '#')) {
+                            tryPlaceTrent(N-2, i, adventurer);
+                        }
+                    }
+                    // (i,N-2) 周辺
+                    if (inb(i,N-1) && inb(i-1,N-2) && inb(i+1,N-2)) {
+                        if ((cell[i][N-1] == '.' || cell[i][N-1] == '#') &&
+                            (cell[i-1][N-2] == '.' || cell[i-1][N-2] == '#') &&
+                            (cell[i+1][N-2] == '.' || cell[i+1][N-2] == '#')) {
+                            tryPlaceTrent(i, N-2, adventurer);
+                        }
+                    }
                 }
             }
         }
