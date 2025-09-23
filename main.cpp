@@ -31,7 +31,6 @@ int main(){
 
     vector<vector<bool>> confirmed(N, vector<bool>(N,false));
     vector<vector<bool>> hasTrent(N, vector<bool>(N,false));
-    vector<vector<bool>> isDanger(N, vector<bool>(N,false));
 
     Pos entrance{0, N/2};
     Pos adventurer=entrance;
@@ -48,7 +47,6 @@ int main(){
 
     int dxs[4]={-1,1,0,0};
     int dys[4]={0,0,-1,1};
-    int unconfirmedCount=N*N-1; // 未確認マス数（初期値は木を除いた全マス数）
     const int INF=1e9;
 
     // BFS 暫定地図（未確認はすべて空きマス扱い）
@@ -127,7 +125,6 @@ int main(){
         if(x==adv.x&&y==adv.y) return false;
         if(!hasPathTrue(entrance,{ti,tj},x,y)) return false;
         if(!hasPathTrue(adv,{ti,tj},x,y)) return false;
-        //if(isDanger[x][y]) return false; // 追加: 危険マスには置かない
 
         // 仮置き
         cell[x][y] = 'T';
@@ -242,19 +239,19 @@ int main(){
                     qu.push({{nx2,ny2}, initPath, 2});
                     vis[ti][tj] = vis[nx1][ny1] = vis[nx2][ny2] = true;
 
-                    bool found=false;
-                    while(!qu.empty() && !found){
+                    vector<vector<Pos>> candidates; // 複数候補を集める
+
+                    while(!qu.empty()){
                         auto cur = qu.front(); qu.pop();
                         Pos p = cur.p;
 
                         // step==2 のときに firstStep を記録する（つまり 1手目）
                         if(cur.step == 2 && firstStep.x == -1){
-                            // path[1] が 1手目
                             firstStep = cur.path[1];
                         }
 
                         // 次展開
-                        for(int d=0; d<4 && !found; d++){
+                        for(int d=0; d<4; d++){
                             int nx = p.x + dxs[d], ny = p.y + dys[d];
                             if(!inb(nx,ny)) continue;
                             if(vis[nx][ny]) continue;
@@ -276,11 +273,10 @@ int main(){
                                     if(ok){
                                         auto full = cur.path;
                                         full.push_back({nx,ny});
-                                        bestPath = full;
-                                        found = true;
-                                        break;
-                                    } else continue;
-                                } else continue;
+                                        candidates.push_back(full); // 候補に追加
+                                    }
+                                }
+                                continue; // 境界は探索打ち切り
                             }
 
                             vis[nx][ny] = true;
@@ -290,10 +286,17 @@ int main(){
                         }
                     }
 
-
-                    if(!bestPath.empty()) break; // 見つかれば外側ループを抜ける
+                    // 候補の中から最短を選ぶ
+                    if(!candidates.empty()){
+                        auto best = *min_element(candidates.begin(), candidates.end(),
+                            [](const vector<Pos>& a, const vector<Pos>& b){
+                                return a.size() < b.size();
+                            });
+                        if(bestPath.empty() || best.size() < bestPath.size()){
+                            bestPath = best;
+                        }
+                    }
                 }
-                if(!bestPath.empty()) break;
             } // end for d1
 
             // 経路の出力
@@ -305,29 +308,29 @@ int main(){
                 cerr << "\n";
             } else {
                 cerr << "No path found in 0-turn construction\n";
-            }
                 
-            if (tj < N/2){
-                tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
-                tryPlaceTrent(ti+1,tj,adventurer);
-                tryPlaceTrent(ti-1,tj+1,adventurer);
-                tryPlaceTrent(ti,tj+1,adventurer);
-                tryPlaceTrent(ti-2,tj,adventurer);
-                tryPlaceTrent(ti-2,tj+2,adventurer);
-                if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
-                    tryPlaceTrent(ti,tj-2,adventurer);
-                    tryPlaceTrent(ti+1,tj-1,adventurer);
-                }
-            }else{
-                tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
-                tryPlaceTrent(ti+1,tj,adventurer);
-                tryPlaceTrent(ti-1,tj-1,adventurer);
-                tryPlaceTrent(ti,tj-1,adventurer);
-                tryPlaceTrent(ti-2,tj,adventurer);
-                tryPlaceTrent(ti-2,tj-2,adventurer);
-                if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
-                    tryPlaceTrent(ti,tj+2,adventurer);
-                    tryPlaceTrent(ti+1,tj+1,adventurer);
+                if (tj < N/2){
+                    tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                    tryPlaceTrent(ti+1,tj,adventurer);
+                    tryPlaceTrent(ti-1,tj+1,adventurer);
+                    tryPlaceTrent(ti,tj+1,adventurer);
+                    tryPlaceTrent(ti-2,tj,adventurer);
+                    tryPlaceTrent(ti-2,tj+2,adventurer);
+                    if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
+                        tryPlaceTrent(ti,tj-2,adventurer);
+                        tryPlaceTrent(ti+1,tj-1,adventurer);
+                    }
+                }else{
+                    tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                    tryPlaceTrent(ti+1,tj,adventurer);
+                    tryPlaceTrent(ti-1,tj-1,adventurer);
+                    tryPlaceTrent(ti,tj-1,adventurer);
+                    tryPlaceTrent(ti-2,tj,adventurer);
+                    tryPlaceTrent(ti-2,tj-2,adventurer);
+                    if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
+                        tryPlaceTrent(ti,tj+2,adventurer);
+                        tryPlaceTrent(ti+1,tj+1,adventurer);
+                    }
                 }
             }
             // 経路に沿ったトレント配置（経路自身には置かない）
@@ -359,71 +362,13 @@ int main(){
                         // 置いたマスのさらに隣を extraList に集計
                         for(int dd=0;dd<4;dd++){
                             int nnx=nx+dxs[dd], nny=ny+dys[dd];
-                            if(inb(nnx,nny)){
-                                extraList.push_back({nnx,nny});
-                                isDanger[nnx][nny] = true; // 追加: 危険マスとしてマーク
-                            }
+                            if(inb(nnx,nny)) extraList.push_back({nnx,nny});
                         }
                     }
                 }
                 // 三歩目は強制的に置く
                 if(inb(force.x,force.y)&&cell[force.x][force.y]=='.'){
                     tryPlaceTrent(force.x,force.y,adventurer);
-                }
-            }
-        
-
-            for (int i = 1; i + 1 < N; ++i) { // i-1 / i+1 が安全に使える範囲に制限
-                if (i % 4 == 1) {
-                    // 上辺 (0,i) の場合: 参照するインデックスが有効か確認してから評価
-                    if (inb(1,i) && inb(0,i-1) && inb(0,i+1)) {
-                        if ((cell[1][i] == '.' || cell[1][i] == '#') &&
-                            (cell[0][i-1] == '.' || cell[0][i-1] == '#') &&
-                            (cell[0][i+1] == '.' || cell[0][i+1] == '#')) {
-                            tryPlaceTrent(0, i, adventurer);
-                        }
-                    }
-                    // 下辺 (N-1,i)
-                    if (inb(N-2,i) && inb(N-1,i-1) && inb(N-1,i+1)) {
-                        if ((cell[N-2][i] == '.' || cell[N-2][i] == '#') &&
-                            (cell[N-1][i-1] == '.' || cell[N-1][i-1] == '#') &&
-                            (cell[N-1][i+1] == '.' || cell[N-1][i+1] == '#')) {
-                            tryPlaceTrent(N-1, i, adventurer);
-                        }
-                    }
-                    // 右辺 (i,N-1)
-                    if (inb(i,N-2) && inb(i-1,N-1) && inb(i+1,N-1)) {
-                        if ((cell[i][N-2] == '.' || cell[i][N-2] == '#') &&
-                            (cell[i-1][N-1] == '.' || cell[i-1][N-1] == '#') &&
-                            (cell[i+1][N-1] == '.' || cell[i+1][N-1] == '#')) {
-                            tryPlaceTrent(i, N-1, adventurer);
-                        }
-                    }
-                } else if (i % 4 == 3) {
-                    // (1,i) 周辺
-                    if (inb(0,i) && inb(1,i-1) && inb(1,i+1)) {
-                        if ((cell[0][i] == '.' || cell[0][i] == '#') &&
-                            (cell[1][i-1] == '.' || cell[1][i-1] == '#') &&
-                            (cell[1][i+1] == '.' || cell[1][i+1] == '#')) {
-                            tryPlaceTrent(1, i, adventurer);
-                        }
-                    }
-                    // (N-2,i) 周辺
-                    if (inb(N-1,i) && inb(N-2,i-1) && inb(N-2,i+1)) {
-                        if ((cell[N-1][i] == '.' || cell[N-1][i] == '#') &&
-                            (cell[N-2][i-1] == '.' || cell[N-2][i-1] == '#') &&
-                            (cell[N-2][i+1] == '.' || cell[N-2][i+1] == '#')) {
-                            tryPlaceTrent(N-2, i, adventurer);
-                        }
-                    }
-                    // (i,N-2) 周辺
-                    if (inb(i,N-1) && inb(i-1,N-2) && inb(i+1,N-2)) {
-                        if ((cell[i][N-1] == '.' || cell[i][N-1] == '#') &&
-                            (cell[i-1][N-2] == '.' || cell[i-1][N-2] == '#') &&
-                            (cell[i+1][N-2] == '.' || cell[i+1][N-2] == '#')) {
-                            tryPlaceTrent(i, N-2, adventurer);
-                        }
-                    }
                 }
             }
         }
@@ -458,25 +403,6 @@ int main(){
                 tryPlaceTrent(nnx,nny,adventurer);
             }
         }
-        
-        //unconfirmedCountがN/10以下なら、次のターンに新たにconrirmedになりうるマスがあれば、一つ選び、優先的にふさぐ
-        if (unconfirmedCount <= N/10) {
-            //次のターンに新たにconfirmedになりうるマスを探す
-            for (int d=0; d<4; d++){
-                int x=adventurer.x, y=adventurer.y;
-                while(inb(x,y)){
-                    if(!confirmed[x][y] && cell[x][y]=='.'){
-                        if(tryPlaceTrent(x,y,adventurer)){
-                            placedThisTurn=true;
-                            break;
-                        }
-                    }
-                    if(cell[x][y]=='T') break;
-                    x+=dxs[d]; y+=dys[d];
-                }
-                if (placedThisTurn) break;
-            }
-        }
 
         if(toPlace.empty()){
             cout<<0<<"\n"; cout.flush(); lastPlaced=false;
@@ -500,10 +426,7 @@ int main(){
         for(int d=0; d<4; d++){
             int x=adventurer.x, y=adventurer.y;
             while(inb(x,y)){
-                if (confirmed[x][y] == false) {
-                    confirmed[x][y] = true;
-                    unconfirmedCount--; // 追加: 未確認マス数を減らす
-                }
+                confirmed[x][y]=true;
                 if(cell[x][y]=='T') break;
                 x+=dxs[d]; y+=dys[d];
             }
@@ -546,7 +469,6 @@ int main(){
         if(chosen==-1){ cerr<<"WA: no move\n"; return 0; }
 
         adventurer.x+=dxs[chosen]; adventurer.y+=dys[chosen];
-        if (!confirmed[adventurer.x][adventurer.y]) unconfirmedCount--; // 追加: 未確認マス数を減らす
         confirmed[adventurer.x][adventurer.y]=true;
         cerr<<"Move to ("<<adventurer.x<<","<<adventurer.y<<")\n";
     }
