@@ -5,54 +5,44 @@ Goal from q: (30,4)47
 Move to (0,20)
 ===== TURN 1 =====
 Adventurer at (0,20)
-Output: 0
-Goal from q: (30,4)46
+Output: placed
+Goal from q: (30,4)48
 Move to (1,20)
 ===== TURN 2 =====
 Adventurer at (1,20)
 Output: 0
-Goal from q: (30,4)45
-Move to (2,20)
+Goal from q: (30,4)47
+Move to (1,21)
 ===== TURN 3 =====
-Adventurer at (2,20)
-Output: placed
-Goal from q: (30,4)44
-Move to (3,20)
-===== TURN 4 =====
-Adventurer at (3,20)
-Output: 0
-Goal from q: (30,4)49
-Move to (2,20)
-===== TURN 5 =====
-Adventurer at (2,20)
+Adventurer at (1,21)
 Output: 0
 Goal from q: (30,4)48
 Move to (2,21)
-===== TURN 6 =====
+===== TURN 4 =====
 Adventurer at (2,21)
 Output: 0
 Goal from q: (30,4)47
 Move to (2,22)
-===== TURN 7 =====
+===== TURN 5 =====
 Adventurer at (2,22)
 Output: 0
 Goal from q: (30,4)46
 Move to (3,22)
-===== TURN 8 =====
+===== TURN 6 =====
 Adventurer at (3,22)
 Output: placed
 Goal from q: (30,4)45
 Move to (4,22)
-===== TURN 9 =====
+===== TURN 7 =====
 Adventurer at (4,22)
 Output: 0
 Goal from q: (30,4)44
 Move to (4,21)
-===== TURN 10 =====
+===== TURN 8 =====
 Adventurer at (4,21)
 Output: 0
 Goal=flower
 Move to (5,21)
-===== TURN 11 =====
+===== TURN 9 =====
 Adventurer at (5,21)
 Reached flower -> finish

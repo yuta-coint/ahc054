@@ -155,7 +155,9 @@ int main(){
 
     // 初期視界更新
     confirmed[adventurer.x][adventurer.y]=true;
-
+    //　裏の行き止まり
+    vector<Pos> deadEnds;
+    vector<Pos> hazzard;
     for(int turn=0; turn<1000000; turn++){
         cerr<<"===== TURN "<<turn<<" =====\n";
         cerr<<"Adventurer at ("<<adventurer.x<<","<<adventurer.y<<")\n";
@@ -168,32 +170,72 @@ int main(){
         // 出力
         if (turn == 0){
             if (tj < N/2){
-                tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
-                tryPlaceTrent(ti+1,tj,adventurer);
-                tryPlaceTrent(ti-1,tj+1,adventurer);
-                tryPlaceTrent(ti,tj+1,adventurer);
-                tryPlaceTrent(ti-2,tj,adventurer);
-                tryPlaceTrent(ti-2,tj+2,adventurer);
+                tryPlaceTrent(adventurer.x - 1,adventurer.y,adventurer);
+                if (tryPlaceTrent(ti-1,tj+1,adventurer)) {
+                    deadEnds.push_back({ti-1,tj+1});
+                }else{
+                    hazzard.push_back({ti-1,tj+1});
+                }
+                if (tryPlaceTrent(ti,tj+1,adventurer)) {
+                    deadEnds.push_back({ti,tj+1});
+                }else{
+                    hazzard.push_back({ti,tj+1});
+                }
+                if (!tryPlaceTrent(ti+1,tj,adventurer)) hazzard.push_back({ti+1,tj});
+                if (!tryPlaceTrent(ti-2,tj,adventurer)) hazzard.push_back({ti-2,tj});
+                hazzard.push_back({ti-1,tj+1});
                 if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
                     tryPlaceTrent(ti,tj-2,adventurer);
-                    tryPlaceTrent(ti+1,tj-1,adventurer);
+                    tryPlaceTrent(ti-1,tj-1,adventurer);
                 }
             }else{
                 tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
-                tryPlaceTrent(ti+1,tj,adventurer);
-                tryPlaceTrent(ti-1,tj-1,adventurer);
-                tryPlaceTrent(ti,tj-1,adventurer);
-                tryPlaceTrent(ti-2,tj,adventurer);
-                tryPlaceTrent(ti-2,tj-2,adventurer);
+                if (tryPlaceTrent(ti-1,tj-1,adventurer)) {
+                    deadEnds.push_back({ti-1,tj-1});
+                }
+                else{
+                    hazzard.push_back({ti-1,tj-1});
+                }
+                if (tryPlaceTrent(ti,tj-1,adventurer)) {
+                    deadEnds.push_back({ti,tj-1});
+                }else{
+                    hazzard.push_back({ti,tj-1});
+                }
+                if (!tryPlaceTrent(ti+1,tj,adventurer)) hazzard.push_back({ti+1,tj});
+                if (!tryPlaceTrent(ti-2,tj,adventurer)) hazzard.push_back({ti-2,tj});
+                hazzard.push_back({ti-1,tj-1});
                 if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
                     tryPlaceTrent(ti,tj+2,adventurer);
                     tryPlaceTrent(ti+1,tj+1,adventurer);
                 }
             }
         }
+        vector<int> deadEndFilled(deadEnds.size(), 0);
         bool placedThisTurn=false;
+        for (int k = 0; k < deadEnds.size(); k++){
+            if (confirmed[deadEnds[k].x][deadEnds[k].y]) deadEndFilled[k] = 1;
+        }
+        //最小値が0の場合、道を遮る
+        for (int l = 0; l < hazzard.size(); l++){
+            if (*min_element(begin(deadEndFilled), end(deadEndFilled))){
+                if (adventurer.x == hazzard[l].x) {
+                    tryPlaceTrent(adventurer.x, adventurer.y + 1, adventurer);
+                    tryPlaceTrent(adventurer.x, adventurer.y - 1, adventurer);
+                    tryPlaceTrent(adventurer.x + 2, adventurer.y, adventurer);
+                    tryPlaceTrent(adventurer.x - 2, adventurer.y, adventurer);
+                    placedThisTurn = true;
+                }
+                if (adventurer.y == hazzard[l].y) {
+                    tryPlaceTrent(adventurer.x + 1, adventurer.y, adventurer);
+                    tryPlaceTrent(adventurer.x - 1, adventurer.y, adventurer);
+                    tryPlaceTrent(adventurer.x, adventurer.y + 2, adventurer);
+                    tryPlaceTrent(adventurer.x, adventurer.y - 2, adventurer);
+                    placedThisTurn = true;
+                }
+            }
+        }
         //直近の2ターンで同じ方向に動いているなら、冒険者から見て両脇にトレントを置く
-        if (adventurerPrevPrev.x != -1 && adventurerPrev.x != -1) {
+        if (adventurerPrevPrev.x != -1 && adventurerPrev.x != -1 && !placedThisTurn) {
             int dx1 = adventurerPrev.x - adventurerPrevPrev.x;
             int dy1 = adventurerPrev.y - adventurerPrevPrev.y;
             int dx2 = adventurer.x - adventurerPrev.x;
