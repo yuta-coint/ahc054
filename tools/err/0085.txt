@@ -1,6 +1,6 @@
 ===== TURN 0 =====
 Adventurer at (0,10)
-Chosen path: (11,4) (12,4) (12,3) (13,3) (14,3) (14,2) (15,2) (15,1) (15,0) 
+Chosen path: (11,4) (12,4) (12,3) (13,3) (14,3) (15,3) (15,2) (15,1) (15,0)   length=8
 Output: placed
 Goal from q: (19,0)29
 Move to (1,10)
@@ -1168,9 +1168,9 @@ Move to (15,2)
 Adventurer at (15,2)
 Output: 0
 Goal from q: (9,5)9
-Move to (14,2)
+Move to (15,3)
 ===== TURN 234 =====
-Adventurer at (14,2)
+Adventurer at (15,3)
 Output: 0
 Goal from q: (9,5)8
 Move to (14,3)
