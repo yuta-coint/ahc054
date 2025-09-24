@@ -178,7 +178,6 @@ int main(){
 
             // 四つの角リスト（角は固定）
             vector<Pos> corners = {{0,0},{0,N-1},{N-1,0},{N-1,N-1}};
-
             for(int d1=0; d1<4; d1++){
                 int nx1 = ti + dxs[d1], ny1 = tj + dys[d1];
                 if(!inb(nx1,ny1) || cell[nx1][ny1] != '.') continue;
@@ -328,6 +327,30 @@ int main(){
                 cerr << "  length="<<bestLen<<"\n";
             } else {
                 cerr << "No path found in 0-turn construction\n";
+                if (tj < N/2){
+                    tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                    tryPlaceTrent(ti+1,tj,adventurer);
+                    tryPlaceTrent(ti-1,tj+1,adventurer);
+                    tryPlaceTrent(ti,tj+1,adventurer);
+                    tryPlaceTrent(ti-2,tj,adventurer);
+                    tryPlaceTrent(ti-2,tj+2,adventurer);
+                    if (tryPlaceTrent(ti,tj-1,adventurer) == false) {
+                        tryPlaceTrent(ti,tj-2,adventurer);
+                        tryPlaceTrent(ti+1,tj-1,adventurer);
+                    }
+                
+                }else{
+                    tryPlaceTrent(adventurer.x + 1,adventurer.y,adventurer);
+                    tryPlaceTrent(ti+1,tj,adventurer);
+                    tryPlaceTrent(ti-1,tj-1,adventurer);
+                    tryPlaceTrent(ti,tj-1,adventurer);
+                    tryPlaceTrent(ti-2,tj,adventurer);
+                    tryPlaceTrent(ti-2,tj-2,adventurer);
+                    if (tryPlaceTrent(ti,tj+1,adventurer) == false) {
+                        tryPlaceTrent(ti,tj+2,adventurer);
+                        tryPlaceTrent(ti+1,tj+1,adventurer);
+                    }
+                }
             }
 
             // 経路に沿ったトレント配置（経路自身には置かない） --- 既存処理を流用
