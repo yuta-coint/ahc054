@@ -686,7 +686,19 @@ int main(){
                 if(cell[nx][ny]=='T') continue; // トレントがあるなら置けない
                 if(cell[nx][ny]=='#') continue; // 木があるなら置けない
                 int nnx=nx+dxs[d], nny=ny+dys[d];
-                tryPlaceTrent(nnx,nny,adventurer);
+                if (tryPlaceTrent(nnx,nny,adventurer) == false){
+                    // 置けなくて、かつ、それらのマスがconfirmedでなく、かつ、トレントも木もないなら、その先をトレントが置けるまで調べる
+                    if(inb(nnx,nny) && !confirmed[nnx][nny] && cell[nnx][nny]=='.' && cell[nx][ny]=='.' && cell[nx][ny]=='.'){
+                        int step=2;
+                        while(true){
+                            int nnx2=adventurer.x+dxs[d]*step, nny2=adventurer.y+dys[d]*step;
+                            if(!inb(nnx2,nny2)) break;
+                            if(tryPlaceTrent(nnx2,nny2,adventurer)) break;
+                            if(cell[nnx2][nny2]!='.') break;
+                            step++;
+                        }
+                    }
+                }
             }
         }
 
