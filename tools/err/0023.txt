@@ -1,18 +1,26 @@
 ===== TURN 0 =====
 Adventurer at (0,11)
 Chosen path: (3,8) (3,7) (4,7) (5,7) (5,8) (5,9) (5,10) (4,10) (4,11) (4,12) (4,13) (3,13) (3,14) (3,15) (2,15) (1,15) (1,16) (0,16)   length=17
+DEBUG: finalEndpoint = (0,16)
+DEBUG: bestCorner = (0,21) dist=5
+DEBUG: X_cell = (0,14)
+DEBUG: P length = 11
+DEBUG: first placement at (2,12)
+DEBUG: chosen Z = (7,21)
+DEBUG: placed during op at (1,11)
+DEBUG: op ended without reaching wall
 Output: placed
 Goal from q: (19,11)21
-Move to (1,11)
+Move to (0,10)
 ===== TURN 1 =====
-Adventurer at (1,11)
+Adventurer at (0,10)
 Output: 0
 Goal from q: (19,11)20
 Move to (1,10)
 ===== TURN 2 =====
 Adventurer at (1,10)
 Output: 0
-Goal from q: (19,11)21
+Goal from q: (19,11)19
 Move to (2,10)
 ===== TURN 3 =====
 Adventurer at (2,10)
@@ -22,27 +30,27 @@ Move to (2,9)
 ===== TURN 4 =====
 Adventurer at (2,9)
 Output: 0
-Goal from q: (19,11)27
+Goal from q: (19,11)25
 Move to (2,10)
 ===== TURN 5 =====
 Adventurer at (2,10)
 Output: 0
-Goal from q: (19,11)26
+Goal from q: (19,11)24
 Move to (1,10)
 ===== TURN 6 =====
 Adventurer at (1,10)
 Output: 0
-Goal from q: (19,11)25
+Goal from q: (19,11)23
 Move to (0,10)
 ===== TURN 7 =====
 Adventurer at (0,10)
 Output: 0
-Goal from q: (19,11)24
+Goal from q: (19,11)22
 Move to (0,11)
 ===== TURN 8 =====
 Adventurer at (0,11)
 Output: 0
-Goal from q: (19,11)23
+Goal from q: (19,11)21
 Move to (0,12)
 ===== TURN 9 =====
 Adventurer at (0,12)

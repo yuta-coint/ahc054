@@ -1,6 +1,10 @@
 ===== TURN 0 =====
 Adventurer at (0,13)
 Chosen path: (18,25) (18,24) (19,24) (20,24) (20,25)   length=4
+DEBUG: finalEndpoint = (20,25)
+DEBUG: bestCorner = (25,25) dist=5
+DEBUG: X_cell = (18,25)
+DEBUG: P length = 5
 Output: placed
 Goal from q: (12,14)13
 Move to (1,13)

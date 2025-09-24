@@ -2,8 +2,15 @@
 using namespace std;
 
 struct Pos { int x,y; };
+inline bool operator==(const Pos& a, const Pos& b){
+    return a.x == b.x && a.y == b.y;
+}
 Pos adventurerPrevPrev{-1,-1};
 Pos adventurerPrev{-1,-1};
+Pos finalEndpoint = {-1,-1};      // turn==0 で決めた最終終点（壁上のセル）
+Pos X_cell = {-1,-1};             // ステップ②で見つけた X（壁沿いを進んで見つける最初の '.' ）
+vector<Pos> lastP;                // ステップ③で見つけた P（X -> finalEndpoint の最短経路）
+Pos lastPlacedTrent = {-1,-1};    // ④で「直前にトレントを置いたマス」を追跡するため
 vector<Pos> toPlace;
 
 int main(){
@@ -175,7 +182,6 @@ int main(){
             // ===== 改良版 BFS: 各 (d1,d2) シードを厳密に BFS して、最短で終端に到達した経路を採る =====
             vector<Pos> bestPath;
             int bestLen = INF;
-
             // 四つの角リスト（角は固定）
             vector<Pos> corners = {{0,0},{0,N-1},{N-1,0},{N-1,N-1}};
             for(int d1=0; d1<4; d1++){
@@ -396,6 +402,260 @@ int main(){
                     tryPlaceTrent(force.x,force.y,adventurer);
                 }
             }
+            // ===================== 新挿入ブロック： bestPath 決定後の追加戦略 =====================
+            if(!bestPath.empty()){
+                // ① 終点とそれに最も近い「角」を明らかにする
+                finalEndpoint = bestPath.back(); // グローバルに保存
+                cerr << "DEBUG: finalEndpoint = ("<<finalEndpoint.x<<","<<finalEndpoint.y<<")\n";
+
+                // 四隅リスト
+                vector<Pos> corners = {{0,0},{0,N-1},{N-1,0},{N-1,N-1}};
+                // 最短の corner を求める（マンハッタン距離）
+                Pos bestCorner = corners[0];
+                int bestCornerDist = abs(finalEndpoint.x - corners[0].x) + abs(finalEndpoint.y - corners[0].y);
+                for(int ci=1; ci<4; ++ci){
+                    int cd = abs(finalEndpoint.x - corners[ci].x) + abs(finalEndpoint.y - corners[ci].y);
+                    if(cd < bestCornerDist){ bestCornerDist = cd; bestCorner = corners[ci]; }
+                }
+                cerr << "DEBUG: bestCorner = ("<<bestCorner.x<<","<<bestCorner.y<<") dist="<<bestCornerDist<<"\n";
+
+                // ② 終点から角とは真逆の方向に一マスずつ「壁沿い」を進んで最初に cell が T でないマスを X とする
+                X_cell = {-1,-1};
+                // まず終点がどの辺にいるか判定（終点は境界にいる前提）
+                // 移動方向 (dxw,dyw) は「角 -> 終点」方向の逆に沿って壁を辿る方向を意味する。
+                int dxw = 0, dyw = 0;
+                if(finalEndpoint.x == 0){ // top edge
+                    // corner が left-top (0,0) なら反対方向は右 (0,+1)
+                    dyw = (bestCorner.y == 0 ? +1 : -1);
+                    dxw = 0;
+                } else if(finalEndpoint.x == N-1){ // bottom edge
+                    dyw = (bestCorner.y == 0 ? +1 : -1);
+                    dxw = 0;
+                } else if(finalEndpoint.y == 0){ // left edge
+                    dxw = (bestCorner.x == 0 ? +1 : -1);
+                    dyw = 0;
+                } else if(finalEndpoint.y == N-1){ // right edge
+                    dxw = (bestCorner.x == 0 ? +1 : -1);
+                    dyw = 0;
+                } else {
+                    // safety（終点が境界でない場合はスキップ）
+                    dxw = 0; dyw = 0;
+                }
+
+                // 壁沿いに1歩ずつ進む（終点からスタート、終点自身は除外して次から）
+                if(dxw!=0 || dyw!=0){
+                    int cx = finalEndpoint.x + dxw;
+                    int cy = finalEndpoint.y + dyw;
+                    while(inb(cx,cy) && (cx==0 || cx==N-1 || cy==0 || cy==N-1)){
+                        // X の条件：「cellがTでないマス(トレントも木もない)」
+                        if(cell[cx][cy] == '.' && !hasTrent[cx][cy]){
+                            X_cell = {cx,cy};
+                            break;
+                        }
+                        cx += dxw; cy += dyw;
+                    }
+                }
+                if(X_cell.x == -1){
+                    cerr << "DEBUG: X not found along wall; skipping X->endpoint routing\n";
+                } else {
+                    cerr << "DEBUG: X_cell = ("<<X_cell.x<<","<<X_cell.y<<")\n";
+                }
+
+                // ③ Xから終点までの最短経路Pを特定する（true地形での最短。到達不可なら lastP = {}）
+                lastP.clear();
+                if(X_cell.x != -1){
+                    // BFS (真の地形) で parent を作る（bfsTrue と同様だが parent を取る）
+                    vector<vector<int>> distP(N, vector<int>(N, INF));
+                    vector<vector<Pos>> parentP(N, vector<Pos>(N, {-1,-1}));
+                    queue<Pos> qP;
+                    // start = X_cell
+                    distP[X_cell.x][X_cell.y] = 0;
+                    qP.push(X_cell);
+                    bool foundP = false;
+                    while(!qP.empty() && !foundP){
+                        auto p = qP.front(); qP.pop();
+                        int px = p.x, py = p.y;
+                        for(int d=0; d<4; ++d){
+                            int nx = px + dxs[d], ny = py + dys[d];
+                            if(!inb(nx,ny)) continue;
+                            if(distP[nx][ny] != INF) continue;
+                            // 真の地形条件
+                            if(cell[nx][ny] != '.') continue;
+                            if(hasTrent[nx][ny]) continue;
+                            distP[nx][ny] = distP[px][py] + 1;
+                            parentP[nx][ny] = {px,py};
+                            if(nx == finalEndpoint.x && ny == finalEndpoint.y){
+                                foundP = true;
+                                break;
+                            }
+                            qP.push({nx,ny});
+                        }
+                    }
+                    if(foundP){
+                        // 復元（finalEndpoint から X へ）
+                        Pos cur = finalEndpoint;
+                        while(!(cur.x == -1 && cur.y == -1)){
+                            lastP.push_back(cur);
+                            Pos pr = parentP[cur.x][cur.y];
+                            if(pr.x == -1 && pr.y == -1) break;
+                            cur = pr;
+                        }
+                        reverse(lastP.begin(), lastP.end()); // now from X -> ... -> finalEndpoint
+                        cerr << "DEBUG: P length = "<<lastP.size()<<"\n";
+                    } else {
+                        cerr << "DEBUG: no P from X to finalEndpoint\n";
+                    }
+                }
+
+                // ④ P を花に近い順に並べた sorted_P を作る（花に近い＝(ti,tj) へのマンハッタン距離 小）
+                vector<Pos> sorted_P;
+                if(!lastP.empty()){
+                    sorted_P = lastP;
+                    sort(sorted_P.begin(), sorted_P.end(), [&](const Pos &a, const Pos &b){
+                        int da = abs(a.x - ti) + abs(a.y - tj);
+                        int db = abs(b.x - ti) + abs(b.y - tj);
+                        if(da != db) return da < db;
+                        // tie-breaker: shorter index in lastP (preserve order along path)
+                        auto ita = find(lastP.begin(), lastP.end(), a);
+                        auto itb = find(lastP.begin(), lastP.end(), b);
+                        return (ita < itb);
+                    });
+                }
+
+                // ユーティリティ: Pに含まれるか？
+                auto inP = [&](int x,int y)->bool{
+                    for(auto &pp: lastP) if(pp.x==x && pp.y==y) return true;
+                    return false;
+                };
+
+                // 実際の配置ループ： sorted_P の各 Y について隣接マス（4方向）を試す
+                bool firstPlacementDone = false;
+                for(auto &Y : sorted_P){
+                    // collect 4-neighbors of Y that satisfy: not in P, not touching wall, not yet trented, cell=='.'
+                    vector<Pos> cand;
+                    for(int d=0; d<4; ++d){
+                        int nx = Y.x + dxs[d], ny = Y.y + dys[d];
+                        if(!inb(nx,ny)) continue;
+                        if(inP(nx,ny)) continue;              // Pに含まれない
+                        if(!(nx>0 && nx<N-1 && ny>0 && ny<N-1)) continue; // 壁にも接しておらず（内部マスのみ）
+                        if(cell[nx][ny] != '.') continue;
+                        if(hasTrent[nx][ny]) continue;
+                        cand.push_back({nx,ny});
+                    }
+                    // tryPlaceTrent for each candidate (order: as collected)
+                    for(auto &c : cand){
+                        bool ok = tryPlaceTrent(c.x, c.y, adventurer);
+                        if(ok){
+                            // ④全体で最初にトレントを置いたマスについての special 操作を行う
+                            if(!firstPlacementDone){
+                                firstPlacementDone = true;
+                                lastPlacedTrent = c; // update last placed trent
+                                cerr << "DEBUG: first placement at ("<<c.x<<","<<c.y<<")\n";
+
+                                // ------------------ 【操作】ここから ------------------
+                                // Z の決定：角から距離が N//3 かつ「終点とは異なる壁」にある境界上のマスを1個選ぶ
+                                Pos Z = {-1,-1};
+                                // 探索方針：全境界セルを走査して条件を満たすものを選ぶ（安定的に同じものを選ぶためソート的に選ぶ）
+                                vector<Pos> candZ;
+                                for(int x=0;x<N;++x){
+                                    for(int y=0;y<N;++y){
+                                        if(!(x==0 || x==N-1 || y==0 || y==N-1)) continue;
+                                        if(x==finalEndpoint.x && y==finalEndpoint.y) continue; // 終点と異なること
+                                        // この境界セルについて「最も近い角」を見つけ、その角からの距離が N//3 か？
+                                        int bestCd = INT_MAX; Pos bestC = corners[0];
+                                        for(auto &c0 : corners){
+                                            int d0 = abs(x - c0.x) + abs(y - c0.y);
+                                            if(d0 < bestCd){ bestCd = d0; bestC = c0; }
+                                        }
+                                        if(bestCd == N/3){
+                                            // さらに「終点とは異なる壁沿い」にあるか：壁を表す side idx
+                                            auto sideOf = [&](Pos P)->int{
+                                                if(P.x==0) return 0; // top
+                                                if(P.x==N-1) return 1; // bottom
+                                                if(P.y==0) return 2; // left
+                                                if(P.y==N-1) return 3; // right
+                                                return -1;
+                                            };
+                                            int dCorner = abs(x - bestCorner.x) + abs(y - bestCorner.y);
+                                            if(dCorner == N/3 && sideOf({x,y}) != sideOf(finalEndpoint)){
+                                                candZ.push_back({x,y});
+                                            }
+                                        }
+                                    }
+                                }
+                                if(!candZ.empty()){
+                                    // 安定的に先頭を選ぶ（例えば lexicographic）
+                                    sort(candZ.begin(), candZ.end(), [](const Pos &a, const Pos &b){
+                                        if(a.x != b.x) return a.x < b.x; return a.y < b.y;
+                                    });
+                                    Z = candZ.front();
+                                }
+                                if(Z.x == -1){
+                                    cerr << "DEBUG: no Z found (skip special op)\n";
+                                } else {
+                                    cerr << "DEBUG: chosen Z = ("<<Z.x<<","<<Z.y<<")\n";
+                                    // 「直前にトレントを置いたマス」と辺または一点を共有するマス（8近傍）を Z に近い順に試す
+                                    bool reachedWallPlacement = false;
+                                    int safetyIter = 0;
+                                    while(!reachedWallPlacement && safetyIter < 200){
+                                        ++safetyIter;
+                                        // collect 8-neighbors around lastPlacedTrent
+                                        vector<pair<int,Pos>> around;
+                                        for(int ax=-1; ax<=1; ++ax){
+                                            for(int ay=-1; ay<=1; ++ay){
+                                                if(ax==0 && ay==0) continue;
+                                                int nx = lastPlacedTrent.x + ax, ny = lastPlacedTrent.y + ay;
+                                                if(!inb(nx,ny)) continue;
+                                                if(cell[nx][ny] != '.') continue;
+                                                if(hasTrent[nx][ny]) continue;
+                                                if(inP(nx,ny)) continue;  // ←★ Pに含まれているマスを除外
+                                                int dZ = abs(nx - Z.x) + abs(ny - Z.y);
+                                                around.push_back({dZ, {nx,ny}});
+                                            }
+                                        }
+                                        if(around.empty()) break;
+                                        sort(around.begin(), around.end(), [](const pair<int,Pos>& a, const pair<int,Pos>& b){
+                                            if(a.first != b.first) return a.first < b.first;
+                                            if(a.second.x != b.second.x) return a.second.x < b.second.x;
+                                            return a.second.y < b.second.y;
+                                        });
+                                        bool placedThisRound = false;
+                                        for(auto &pr : around){
+                                            Pos cand = pr.second;
+                                            if(tryPlaceTrent(cand.x, cand.y, adventurer)){
+                                                // 成功したら lastPlacedTrent を更新
+                                                lastPlacedTrent = cand;
+                                                placedThisRound = true;
+                                                cerr << "DEBUG: placed during op at ("<<cand.x<<","<<cand.y<<")\n";
+                                                // 終わり条件：この cand が壁沿い（境界）ならループを抜ける
+                                                if(cand.x==0 || cand.x==N-1 || cand.y==0 || cand.y==N-1){
+                                                    reachedWallPlacement = true;
+                                                    break;
+                                                }
+                                                // そうでなければ、続けてループ（next while）して cand の周囲から拡げる
+                                                break; // break for -> re-evaluate around new lastPlacedTrent
+                                            }
+                                        }
+                                        if(!placedThisRound){
+                                            // 置けるものが周囲になければ終了
+                                            break;
+                                        }
+                                    } // end while
+                                    if(reachedWallPlacement) cerr << "DEBUG: wall trent reached at ("<<lastPlacedTrent.x<<","<<lastPlacedTrent.y<<")\n";
+                                    else cerr << "DEBUG: op ended without reaching wall\n";
+                                }
+                                // ------------------ 【操作】ここまで ------------------
+                            } // end if !firstPlacementDone
+                            // continue with next Ys (but we do not break: we still try other neighbors as specified)
+                        } // end if ok
+                    } // end for candidates of Y
+
+                    // ④全体で一度でもトレントを置いたら、既定の動作に戻る（もし要件がそうなら） —— ここは戦略次第
+                    // （現状は sorted_P 全走査を続ける形にしています）
+                } // end for sorted_P
+            } // end if !bestPath.empty()
+            // ===================== end 新挿入ブロック =====================
+
         } // end if turn==0
 
 
