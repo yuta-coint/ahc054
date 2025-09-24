@@ -164,7 +164,69 @@ int main(){
             return false;
         }
     };
+    auto flowerToNearestCornerDist = [&](Pos block) {
+    // block = {bx,by} が (-1,-1) なら「ブロックなし」
+    auto dist = bfsTrue({ti,tj}, block);
+    int best = INF;
+    vector<Pos> corners = {{0,0},{0,N-1},{N-1,0},{N-1,N-1}};
+    for(auto &c : corners){
+        if(dist[c.x][c.y] < best){
+            best = dist[c.x][c.y];
+        }
+    }
+    return best;
+    };
+    auto tryPlaceTrent2=[&](int x,int y,Pos adv)->bool{
+    if(!inb(x,y)) return false;
+    if(cell[x][y]!='.') return false;
+    if(hasTrent[x][y]) return false;
+    if(confirmed[x][y]) return false;
+    if(x==adv.x&&y==adv.y) return false;
+    if(!hasPathTrue(entrance,{ti,tj},x,y)) return false;
+    if(!hasPathTrue(adv,{ti,tj},x,y)) return false;
 
+    // --- 追加: 距離判定用 ---
+    int beforeDist = flowerToNearestCornerDist({-1,-1});
+
+    // 仮置き
+    cell[x][y] = 'T';
+    hasTrent[x][y] = true;
+
+    // --- ここで afterDist を計算 ---
+    int afterDist = flowerToNearestCornerDist({-1,-1});
+
+    if(afterDist >= 2 * beforeDist){
+        // 2倍以上になったら撤回してスキップ
+        cell[x][y] = '.';
+        hasTrent[x][y] = false;
+        return false;
+    }
+
+    // --- 既存の未確認到達性チェック ---
+    bool ok = true;
+    {
+        auto dist = bfsTrue(adv, {-1,-1});
+        for (int i = 0; i < N && ok; ++i) {
+            for (int j = 0; j < N; ++j) {
+                if (!confirmed[i][j] && cell[i][j] == '.') {
+                    if (dist[i][j] >= INF) {
+                        ok = false;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    if (ok) {
+        toPlace.push_back({x,y}); // 確定
+        return true;
+    } else {
+        cell[x][y] = '.';
+        hasTrent[x][y] = false;
+        return false;
+    }
+};
 
     // 初期視界更新
     confirmed[adventurer.x][adventurer.y]=true;
@@ -389,7 +451,7 @@ int main(){
                            (cand.x==skip2.x&&cand.y==skip2.y)){
                             continue; // 例外的に置かない
                         }
-                        tryPlaceTrent(nx,ny,adventurer);
+                        tryPlaceTrent2(nx,ny,adventurer);
                         // 置いたマスのさらに隣を extraList に集計
                         for(int dd=0;dd<4;dd++){
                             int nnx=nx+dxs[dd], nny=ny+dys[dd];
