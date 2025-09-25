@@ -789,19 +789,26 @@ int main(){
                 if(cell[nx][ny]=='T') continue; // トレントがあるなら置けない
                 if(cell[nx][ny]=='#') continue; // 木があるなら置けない
                 int nnx=nx+dxs[d], nny=ny+dys[d];
-                if (tryPlaceTrent(nnx,nny,adventurer) == false){
-                    // 置けなくて、かつ、それらのマスがconfirmedでなく、かつ、トレントも木もないなら、その先をトレントが置けるまで調べる
-                    if(inb(nnx,nny) && !confirmed[nnx][nny] && cell[nnx][nny]=='.' && cell[nx][ny]=='.' && cell[nx][ny]=='.'){
-                        int step=2;
-                        while(true){
-                            int nnx2=adventurer.x+dxs[d]*step, nny2=adventurer.y+dys[d]*step;
-                            if(!inb(nnx2,nny2)) break;
-                            if(tryPlaceTrent(nnx2,nny2,adventurer)) break;
-                            if(cell[nnx2][nny2]!='.') break;
-                            step++;
-                        }
-                    }
+                tryPlaceTrent(nnx,nny,adventurer);
+            }
+        }
+        
+        for(int d = 0; d < 4; d++){
+            int nx = adventurer.x + dxs[d], ny = adventurer.y + dys[d];
+            if(!inb(nx,ny)) continue;
+            if(cell[nx][ny] != '.') continue;
+            //　その方向にトレントがないなら、Tに当たるまで、confirmedでないマスについてトレントを置けるか試す
+            int step = 2;
+            while (true){
+                int tx = adventurer.x + dxs[d]*step, ty = adventurer.y + dys[d]*step;
+                if(!inb(tx,ty)) break;
+                if(cell[tx][ty]=='#') break; // 木があるなら置けない
+                if(cell[tx][ty]=='T') break; // トレントがあるなら置けない
+                if(!confirmed[tx][ty]){
+                    bool ok = tryPlaceTrent(tx,ty,adventurer);
+                    if(ok) break; // 置けたらそこで終了
                 }
+                step++;
             }
         }
 
