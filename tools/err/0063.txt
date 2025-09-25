@@ -6240,7 +6240,7 @@ Goal from q: (0,4)15
 Move to (6,12)
 ===== TURN 1247 =====
 Adventurer at (6,12)
-Output: placed
+Output: 0
 Goal from q: (0,4)14
 Move to (5,12)
 ===== TURN 1248 =====
@@ -11650,49 +11650,59 @@ Goal from q: (1,7)5
 Move to (5,7)
 ===== TURN 2329 =====
 Adventurer at (5,7)
-Output: placed
+Output: 0
 Goal from q: (1,7)6
 Move to (4,7)
 ===== TURN 2330 =====
 Adventurer at (4,7)
 Output: 0
+Goal from q: (1,7)5
+Move to (3,7)
+===== TURN 2331 =====
+Adventurer at (3,7)
+Output: 0
+Goal from q: (1,7)10
+Move to (4,7)
+===== TURN 2332 =====
+Adventurer at (4,7)
+Output: 0
 Goal from q: (1,7)9
 Move to (5,7)
-===== TURN 2331 =====
+===== TURN 2333 =====
 Adventurer at (5,7)
 Output: 0
 Goal from q: (1,7)8
 Move to (5,8)
-===== TURN 2332 =====
+===== TURN 2334 =====
 Adventurer at (5,8)
 Output: 0
 Goal from q: (1,7)7
 Move to (5,9)
-===== TURN 2333 =====
+===== TURN 2335 =====
 Adventurer at (5,9)
 Output: 0
 Goal from q: (1,7)8
 Move to (5,10)
-===== TURN 2334 =====
+===== TURN 2336 =====
 Adventurer at (5,10)
 Output: 0
 Goal from q: (1,7)7
 Move to (4,10)
-===== TURN 2335 =====
+===== TURN 2337 =====
 Adventurer at (4,10)
 Output: 0
 Goal from q: (1,7)6
 Move to (3,10)
-===== TURN 2336 =====
+===== TURN 2338 =====
 Adventurer at (3,10)
 Output: 0
 Goal from q: (1,7)5
 Move to (2,10)
-===== TURN 2337 =====
+===== TURN 2339 =====
 Adventurer at (2,10)
 Output: 0
 Goal=flower
 Move to (2,9)
-===== TURN 2338 =====
+===== TURN 2340 =====
 Adventurer at (2,9)
 Reached flower -> finish

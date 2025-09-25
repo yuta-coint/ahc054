@@ -804,6 +804,15 @@ int main(){
                 if(!inb(tx,ty)) break;
                 if(cell[tx][ty]=='#') break; // 木があるなら置けない
                 if(cell[tx][ty]=='T') break; // トレントがあるなら置けない
+                // 花からのマンハッタン距離が4以下で、かつ、周りに三マス以上Tがあるなら置かない
+                if(abs(tx-ti)+abs(ty-tj)<=4){
+                    int aroundT=0;
+                    for(int dd=0;dd<4;dd++){
+                        int ax=tx+dxs[dd], ay=ty+dys[dd];
+                        if(inb(ax,ay) && cell[ax][ay]=='T') aroundT++;
+                    }
+                    if(aroundT>=3) break;
+                }
                 if(!confirmed[tx][ty]){
                     bool ok = tryPlaceTrent(tx,ty,adventurer);
                     if(ok) break; // 置けたらそこで終了
