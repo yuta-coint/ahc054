@@ -11,138 +11,137 @@ DEBUG: placed during op at (2,2)
 DEBUG: placed during op at (2,3)
 DEBUG: placed during op at (2,4)
 DEBUG: placed during op at (2,5)
-DEBUG: placed during op at (2,6)
+DEBUG: placed during op at (1,6)
 DEBUG: placed during op at (1,7)
+DEBUG: placed during op at (1,6)
+DEBUG: placed during op at (2,6)
+DEBUG: placed during op at (1,6)
 DEBUG: placed during op at (2,7)
-DEBUG: placed during op at (3,6)
-DEBUG: placed during op at (3,5)
-DEBUG: placed during op at (4,6)
-DEBUG: placed during op at (3,7)
-DEBUG: placed during op at (2,8)
-DEBUG: placed during op at (1,9)
-DEBUG: placed during op at (1,10)
-DEBUG: placed during op at (2,9)
-DEBUG: placed during op at (3,8)
-DEBUG: placed during op at (3,9)
-DEBUG: placed during op at (2,10)
-DEBUG: placed during op at (1,11)
-DEBUG: placed during op at (1,12)
-DEBUG: placed during op at (2,11)
-DEBUG: placed during op at (2,12)
-DEBUG: placed during op at (1,13)
-DEBUG: placed during op at (1,14)
-DEBUG: placed during op at (2,13)
-DEBUG: placed during op at (3,13)
-DEBUG: placed during op at (3,14)
-DEBUG: placed during op at (2,15)
-DEBUG: placed during op at (1,16)
-DEBUG: placed during op at (1,17)
-DEBUG: placed during op at (2,16)
-DEBUG: placed during op at (3,15)
-DEBUG: placed during op at (4,14)
-DEBUG: placed during op at (4,13)
-DEBUG: placed during op at (5,12)
-DEBUG: placed during op at (5,11)
-DEBUG: placed during op at (5,10)
-DEBUG: placed during op at (5,9)
-DEBUG: placed during op at (6,8)
-DEBUG: placed during op at (6,7)
-DEBUG: placed during op at (6,6)
-DEBUG: placed during op at (6,5)
-DEBUG: placed during op at (5,4)
-DEBUG: placed during op at (6,4)
-DEBUG: placed during op at (7,5)
-DEBUG: placed during op at (8,6)
-DEBUG: placed during op at (7,7)
-DEBUG: placed during op at (7,8)
-DEBUG: placed during op at (6,9)
-DEBUG: placed during op at (6,10)
-DEBUG: placed during op at (7,9)
-DEBUG: placed during op at (8,8)
-DEBUG: placed during op at (8,7)
-DEBUG: placed during op at (9,6)
-DEBUG: placed during op at (9,5)
-DEBUG: placed during op at (8,4)
-DEBUG: placed during op at (7,4)
-DEBUG: placed during op at (6,3)
-DEBUG: placed during op at (7,3)
-DEBUG: placed during op at (7,2)
-DEBUG: placed during op at (8,3)
-DEBUG: placed during op at (8,2)
+DEBUG: placed during op at (1,6)
 DEBUG: op ended without reaching wall
 Output: placed
 Goal from q: (11,5)16
-Move to (0,9)
+Move to (1,10)
 ===== TURN 1 =====
+Adventurer at (1,10)
+Output: placed
+Goal from q: (11,5)15
+Move to (1,9)
+===== TURN 2 =====
+Adventurer at (1,9)
+Output: placed
+Goal from q: (11,5)14
+Move to (2,9)
+===== TURN 3 =====
+Adventurer at (2,9)
+Output: 0
+Goal from q: (11,5)13
+Move to (2,8)
+===== TURN 4 =====
+Adventurer at (2,8)
+Output: placed
+Goal from q: (11,5)12
+Move to (3,8)
+===== TURN 5 =====
+Adventurer at (3,8)
+Output: placed
+Goal from q: (11,5)11
+Move to (3,7)
+===== TURN 6 =====
+Adventurer at (3,7)
+Output: 0
+Goal from q: (11,5)20
+Move to (3,8)
+===== TURN 7 =====
+Adventurer at (3,8)
+Output: 0
+Goal from q: (11,5)19
+Move to (2,8)
+===== TURN 8 =====
+Adventurer at (2,8)
+Output: 0
+Goal from q: (11,5)18
+Move to (2,9)
+===== TURN 9 =====
+Adventurer at (2,9)
+Output: 0
+Goal from q: (11,5)17
+Move to (1,9)
+===== TURN 10 =====
+Adventurer at (1,9)
+Output: 0
+Goal from q: (11,5)16
+Move to (0,9)
+===== TURN 11 =====
 Adventurer at (0,9)
 Output: 0
 Goal from q: (11,5)15
 Move to (0,8)
-===== TURN 2 =====
+===== TURN 12 =====
 Adventurer at (0,8)
 Output: 0
 Goal from q: (11,5)14
 Move to (0,7)
-===== TURN 3 =====
+===== TURN 13 =====
 Adventurer at (0,7)
 Output: 0
 Goal from q: (11,5)13
 Move to (0,6)
-===== TURN 4 =====
+===== TURN 14 =====
 Adventurer at (0,6)
 Output: 0
 Goal from q: (11,5)12
 Move to (0,5)
-===== TURN 5 =====
+===== TURN 15 =====
 Adventurer at (0,5)
 Output: 0
 Goal from q: (11,5)13
 Move to (1,5)
-===== TURN 6 =====
+===== TURN 16 =====
 Adventurer at (1,5)
 Output: 0
 Goal from q: (11,5)12
 Move to (1,4)
-===== TURN 7 =====
+===== TURN 17 =====
 Adventurer at (1,4)
 Output: 0
 Goal from q: (11,5)13
 Move to (1,3)
-===== TURN 8 =====
+===== TURN 18 =====
 Adventurer at (1,3)
 Output: placed
 Goal from q: (11,5)14
 Move to (1,2)
-===== TURN 9 =====
+===== TURN 19 =====
 Adventurer at (1,2)
 Output: 0
 Goal from q: (11,5)15
 Move to (1,1)
-===== TURN 10 =====
+===== TURN 20 =====
 Adventurer at (1,1)
 Output: placed
 Goal from q: (11,5)16
 Move to (1,0)
-===== TURN 11 =====
+===== TURN 21 =====
 Adventurer at (1,0)
 Output: placed
 Goal from q: (11,5)15
 Move to (2,0)
-===== TURN 12 =====
+===== TURN 22 =====
 Adventurer at (2,0)
 Output: 0
 Goal from q: (11,5)14
 Move to (3,0)
-===== TURN 13 =====
+===== TURN 23 =====
 Adventurer at (3,0)
-Output: placed
+Output: 0
 Goal from q: (11,5)13
 Move to (4,0)
-===== TURN 14 =====
+===== TURN 24 =====
 Adventurer at (4,0)
 Output: 0
 Goal=flower
 Move to (4,1)
-===== TURN 15 =====
+===== TURN 25 =====
 Adventurer at (4,1)
 Reached flower -> finish
