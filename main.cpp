@@ -240,7 +240,36 @@ int main(){
             break;
         }
         // 出力
-        if (turn == 0) {
+        //花が端にある場合は例外処理をする
+        vector<pair<int,int>> places;
+        if(ti == 0 || ti == N-1 || tj == 0 || tj == N-1){
+            if (ti == 0 && tj < N/2) {
+                //花を(0,0)としたとき、(0,1),(0,-3),(1,0),(1,-1),(1,-3),(2,-3),(3,-2),(3,-1),(3,0),(3,1),(4,2),(5,1)にトレントを置く
+                places = {{0,1},{0,-3},{1,0},{1,-1},{1,-3},{2,-3},{3,-2},{3,-1},{3,0},{3,1},{4,2},{5,1}};
+            }else if (ti == 0 && tj >= N/2) {
+                places = {{0,-1},{0,-3},{1,0},{1,1},{1,3},{2,3},{3,2},{3,1},{3,0},{3,-1},{4,-2},{5,-1}};
+            }else if (ti == N-1 && tj < N/2) {
+                //ti == 0 && tj < N/2の場合のx座標の正負を反転
+                places = {{0,1},{0,-3},{-1,0},{-1,-1},{-1,-3},{-2,-3},{-3,-2},{-3,-1},{-3,0},{-3,1},{-4,2},{-5,1}};
+            }else if (ti == N-1 && tj >= N/2) {
+                //ti == 0 && tj >= N/2の場合のx座標の正負を反転
+                places = {{0,-1},{0,-3},{-1,0},{-1,1},{-1,3},{-2,3},{-3,2},{-3,1},{-3,0},{-3,-1},{-4,-2},{-5,-1}};
+            }else if (tj == 0 && ti < N/2) {
+                //花を(0,0)としたとき、(1,0),(-3,0),(0,1),(-1,1),(-3,1),(-3,2),(-2,3),(-1,3),(0,3),(1,3),(2,4),(1,5)にトレントを置く
+                places = {{1,0},{-3,0},{0,1},{-1,1},{-3,1},{-3,2},{-2,3},{-1,3},{0,3},{1,3},{2,4},{1,5}};
+            }else if (tj == 0 && ti >= N/2) {
+                places = {{-1,0},{-3,0},{0,1},{1,1},{3,1},{3,2},{2,3},{1,3},{0,3},{-1,3},{-2,4},{-1,5}};
+            }else if (tj == N-1 && ti < N/2) {
+                //tj == 0 && ti < N/2の場合のy座標の正負を反転
+                places = {{1,0},{-3,0},{0,-1},{-1,-1},{-3,-1},{-3,-2},{-2,-3},{-1,-3},{0,-3},{1,-3},{2,-4},{1,-5}};
+            }else if (tj == N-1 && ti >= N/2) {
+                //tj == 0 && ti >= N/2の場合のy座標の正負を反転
+                places = {{-1,0},{-3,0},{0,-1},{1,-1},{3,-1},{3,-2},{2,-3},{1,-3},{0,-3},{-1,-3},{-2,-4},{-1,-5}};
+            }
+            for (auto p : places) {
+                tryPlaceTrent(ti + p.first, tj + p.second, adventurer);
+            }
+        }else if (turn == 0) {
             // ===== 改良版 BFS: 各 (d1,d2) シードを厳密に BFS して、最短で終端に到達した経路を採る =====
             vector<Pos> bestPath;
             int bestLen = INF;
@@ -327,8 +356,8 @@ int main(){
                                     int cd = abs(nx - corners[ci].x) + abs(ny - corners[ci].y);
                                     if(cd < bestCdist){ bestCdist = cd; bestCorner = corners[ci]; }
                                 }
-                                // 角からの距離条件 (N/4 を保持)
-                                if(bestCdist <= N/4){
+                                // 角からの距離条件
+                                if(N/10 <= bestCdist <= N/3){
                                     // 終点から角へ一歩・二歩進めるかチェック (角に近づく方向)
                                     int sx = (bestCorner.x > nx ? 1 : (bestCorner.x < nx ? -1 : 0));
                                     int sy = (bestCorner.y > ny ? 1 : (bestCorner.y < ny ? -1 : 0));
@@ -684,7 +713,7 @@ int main(){
                                         bool placedThisRound = false;
                                         for(auto &pr : around){
                                             Pos cand = pr.second;
-                                            if(tryPlaceTrent(cand.x, cand.y, adventurer)){
+                                            if(tryPlaceTrent(cand.x, cand.y, adventurer) || cell[cand.x][cand.y]=='T'){
                                                 // 成功したら lastPlacedTrent を更新
                                                 lastPlacedTrent = cand;
                                                 placedThisRound = true;
@@ -729,13 +758,23 @@ int main(){
             int dy1 = adventurerPrev.y - adventurerPrevPrev.y;
             int dx2 = adventurer.x - adventurerPrev.x;
             int dy2 = adventurer.y - adventurerPrev.y;
-            if (dx1 == dx2 && dy1 == dy2 && adventurerPrevPrev.x != 0 && adventurerPrevPrev.x != N-1 && adventurerPrevPrev.y != 0 && adventurerPrevPrev.y != N-1) { // 同じ方向に動いている
+            if (dx1 == dx2 && dy1 == dy2) { // 同じ方向に動いている
                 if (dx1 != 0) { // 縦移動
-                    tryPlaceTrent(adventurer.x, adventurer.y + 1, adventurer);
-                    tryPlaceTrent(adventurer.x, adventurer.y - 1, adventurer);
+                    if ((adventurer.x + adventurer.y) % 3 != 0) { // チェッカーボード配置
+                        tryPlaceTrent(adventurer.x, adventurer.y + 1, adventurer);
+                        tryPlaceTrent(adventurer.x, adventurer.y - 1, adventurer);
+                    } else {
+                        tryPlaceTrent(adventurer.x, adventurer.y + 3, adventurer);
+                        tryPlaceTrent(adventurer.x, adventurer.y - 3, adventurer);
+                    }
                 } else if (dy1 != 0) { // 横移動
-                    tryPlaceTrent(adventurer.x + 1, adventurer.y, adventurer);
-                    tryPlaceTrent(adventurer.x - 1, adventurer.y, adventurer);
+                    if ((adventurer.x + adventurer.y) % 3 != 0) { // チェッカーボード配置
+                        tryPlaceTrent(adventurer.x + 1, adventurer.y, adventurer);
+                        tryPlaceTrent(adventurer.x - 1, adventurer.y, adventurer);
+                    } else {
+                        tryPlaceTrent(adventurer.x + 3, adventurer.y, adventurer);
+                        tryPlaceTrent(adventurer.x - 3, adventurer.y, adventurer);
+                    }
                 }
                 placedThisTurn = true;
             }
