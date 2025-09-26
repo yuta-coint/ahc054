@@ -26,14 +26,6 @@ int main(){
     vector<vector<char>> cell(N, vector<char>(N));
     for(int i=0;i<N;i++) for(int j=0;j<N;j++) cell[i][j] = b[i][j];
 
-    // qリスト（ローカルテスト用）
-    vector<Pos> q;
-    q.reserve(N*N-1);
-    for(int k=0;k<N*N-1;k++){
-        int qi,qj; cin >> qi >> qj;
-        q.push_back({qi,qj});
-    }
-
     auto inb=[&](int x,int y){ return 0<=x && x<N && 0<=y && y<N; };
 
     vector<vector<bool>> confirmed(N, vector<bool>(N,false));
@@ -229,7 +221,14 @@ int main(){
 };
 
     // 初期視界更新
+    cin >> adventurerPrev.x >> adventurerPrev.y;
     confirmed[adventurer.x][adventurer.y]=true;
+    int n0; cin >> n0;
+    for(int i=0;i<n0;i++){
+        int x,y; cin >> x >> y;
+        confirmed[x][y] = true;
+    }
+    adventurerPrev = adventurer;
 
     for(int turn=0; turn<1000000; turn++){
         cerr<<"===== TURN "<<turn<<" =====\n";
@@ -492,7 +491,7 @@ int main(){
                     }
                 }
                 // 三歩目は強制的に置く
-                if (inb(force.x,force.y)&&cell[force.x][force.y]=='.'){
+                if(inb(force.x,force.y)&&cell[force.x][force.y]=='.'){
                     tryPlaceTrent(force.x,force.y,adventurer);
                 }
             }
@@ -638,13 +637,6 @@ int main(){
                     }
                     // tryPlaceTrent for each candidate (order: as collected)
                     for(auto &c : cand){
-                        //三方に木がある場合は置かない
-                        int woodCount = 0;
-                        for(int d=0;d<4;d++){
-                            int ax = c.x + dxs[d], ay = c.y + dys[d];
-                            if(inb(ax,ay) && cell[ax][ay]=='T') woodCount++;
-                        }
-                        if (woodCount >= 3) continue;
                         bool ok = tryPlaceTrent(c.x, c.y, adventurer);
                         if(ok){
                             // ④全体で最初にトレントを置いたマスについての special 操作を行う
@@ -761,10 +753,6 @@ int main(){
 
 
         bool placedThisTurn=false;
-        // turn0では、必ず、冒険者の真下にトレントを置く
-        if (turn == 0) {
-            tryPlaceTrent(adventurer.x, adventurer.y, adventurer);
-        }
         //直近の2ターンで同じ方向に動いているなら、冒険者から見て両脇にトレントを置く
         if (adventurerPrevPrev.x != -1 && adventurerPrev.x != -1) {
             int dx1 = adventurerPrev.x - adventurerPrevPrev.x;
@@ -849,56 +837,18 @@ int main(){
         adventurerPrev=adventurer;
 
         // --- 冒険者シミュレーション（冒険者視点: bfsProv） ---
-
-        // 視界更新
-        for(int d=0; d<4; d++){
-            int x=adventurer.x, y=adventurer.y;
-            while(inb(x,y)){
-                confirmed[x][y]=true;
-                if(cell[x][y]=='T') break;
-                x+=dxs[d]; y+=dys[d];
-            }
+        cin >> adventurer.x >> adventurer.y;
+        int n;
+        cin >> n;
+        for(int i=0;i<n;i++){
+            int x,y; cin>>x>>y;
+            confirmed[x][y]=true;
         }
-
-        // 目的地決定
-        if(confirmed[ti][tj]){
-            goal=Pos{ti,tj};
-            cerr<<"Goal=flower\n";
-        } else{
-            auto distProv=bfsProv(adventurer);
-            bool found=false;
-            while(qidx<(int)q.size()){
-                auto cand=q[qidx];
-                if(!confirmed[cand.x][cand.y] && distProv[cand.x][cand.y]<INF){
-                    goal=cand;
-                    found=true;
-                    cerr<<"Goal from q: ("<<cand.x<<","<<cand.y<<")" << distProv[cand.x][cand.y] << "\n";
-                    break;
-                }
-                qidx++;
-            }
-            if(!found){ cerr<<"WA: no reachable unknown\n"; return 0; }
+        // 花に到達していたらプログラムを終了
+        if(adventurer.x == ti && adventurer.y == tj){
+            cerr << "Reached the flower! Terminating.\n";
+            break;
         }
-
-        // 暫定距離 (bfsProv)
-        auto distProv=bfsProv(*goal);
-        int cur=distProv[adventurer.x][adventurer.y];
-        if(cur>=INF){ cerr<<"WA: provisional unreachable\n"; return 0; }
-
-        // 移動（優先度: 上→下→左→右）
-        int chosen=-1;
-        for(int d=0;d<4;d++){
-            int nx=adventurer.x+dxs[d], ny=adventurer.y+dys[d];
-            if(!inb(nx,ny)) continue;
-            if(cell[nx][ny]!='.') continue; // 真の地形で木は進めない
-            if(hasTrent[nx][ny]) continue;  // 実際のトレントは進めない
-            if(distProv[nx][ny]<cur){ chosen=d; break; }
-        }
-        if(chosen==-1){ cerr<<"WA: no move\n"; return 0; }
-
-        adventurer.x+=dxs[chosen]; adventurer.y+=dys[chosen];
-        confirmed[adventurer.x][adventurer.y]=true;
-        cerr<<"Move to ("<<adventurer.x<<","<<adventurer.y<<")\n";
     }
 
     return 0;

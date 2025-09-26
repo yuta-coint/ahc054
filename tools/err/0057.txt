@@ -5,11 +5,10 @@ DEBUG: finalEndpoint = (0,25)
 DEBUG: bestCorner = (0,33) dist=8
 DEBUG: X_cell = (0,22)
 DEBUG: P length = 28
-DEBUG: first placement at (12,23)
+DEBUG: first placement at (10,24)
 DEBUG: chosen Z = (11,33)
-DEBUG: placed during op at (13,24)
-DEBUG: placed during op at (12,25)
-DEBUG: placed during op at (11,26)
+DEBUG: placed during op at (9,25)
+DEBUG: placed during op at (10,26)
 DEBUG: placed during op at (11,27)
 DEBUG: placed during op at (11,28)
 DEBUG: placed during op at (11,29)
@@ -123,7 +122,7 @@ Goal=flower
 Move to (11,23)
 ===== TURN 21 =====
 Adventurer at (11,23)
-Output: 0
+Output: placed
 Goal=flower
 Move to (11,24)
 ===== TURN 22 =====
