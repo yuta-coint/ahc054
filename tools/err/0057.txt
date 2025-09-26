@@ -5,28 +5,209 @@ DEBUG: finalEndpoint = (0,27)
 DEBUG: bestCorner = (0,33) dist=6
 DEBUG: X_cell = (0,25)
 DEBUG: P length = 31
-DEBUG: first placement at (11,21)
+DEBUG: sorted_P: (10,26) (11,24) (10,25) (9,26) (11,23) (10,24) (8,26) (11,22) (8,24) (9,23) (10,22) (7,24) (8,23) (9,22) (6,24) (5,24) (7,26) (4,24) (6,26) (3,24) (5,26) (2,24) (4,26) (2,25) (3,26) (1,25) (3,27) (0,25) (2,27) (1,27) (0,27) 
+DEBUG: first placement at (12,23)
 DEBUG: chosen Z = (11,33)
 DEBUG: placed during op at (12,22)
-DEBUG: placed during op at (12,23)
-DEBUG: placed during op at (13,24)
-DEBUG: placed during op at (12,25)
-DEBUG: placed during op at (12,26)
-DEBUG: placed during op at (11,27)
-DEBUG: placed during op at (11,28)
-DEBUG: placed during op at (11,29)
-DEBUG: placed during op at (11,30)
-DEBUG: placed during op at (11,31)
-DEBUG: placed during op at (11,32)
-DEBUG: placed during op at (10,32)
-DEBUG: placed during op at (9,32)
-DEBUG: placed during op at (10,31)
-DEBUG: placed during op at (9,31)
-DEBUG: placed during op at (10,31)
-DEBUG: placed during op at (10,30)
-DEBUG: placed during op at (10,31)
-DEBUG: placed during op at (9,30)
-DEBUG: placed during op at (10,31)
+DEBUG: placed during op at (11,21)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
+DEBUG: placed during op at (12,22)
+DEBUG: placed during op at (13,23)
 DEBUG: op ended without reaching wall
 Output: placed
 Goal from q: (20,33)36
@@ -1720,752 +1901,772 @@ Move to (13,26)
 Adventurer at (13,26)
 Output: 0
 Goal from q: (6,26)9
-Move to (13,25)
+Move to (12,26)
 ===== TURN 339 =====
+Adventurer at (12,26)
+Output: 0
+Goal from q: (6,26)8
+Move to (12,25)
+===== TURN 340 =====
+Adventurer at (12,25)
+Output: 0
+Goal from q: (6,26)15
+Move to (13,25)
+===== TURN 341 =====
 Adventurer at (13,25)
 Output: 0
 Goal from q: (6,26)14
 Move to (13,26)
-===== TURN 340 =====
+===== TURN 342 =====
 Adventurer at (13,26)
 Output: 0
 Goal from q: (6,26)13
 Move to (13,27)
-===== TURN 341 =====
+===== TURN 343 =====
 Adventurer at (13,27)
 Output: 0
 Goal from q: (6,26)12
 Move to (13,28)
-===== TURN 342 =====
+===== TURN 344 =====
 Adventurer at (13,28)
 Output: 0
 Goal from q: (6,26)11
 Move to (13,29)
-===== TURN 343 =====
+===== TURN 345 =====
 Adventurer at (13,29)
 Output: placed
 Goal from q: (6,26)12
 Move to (12,29)
-===== TURN 344 =====
+===== TURN 346 =====
 Adventurer at (12,29)
-Output: 0
+Output: placed
 Goal from q: (6,26)11
 Move to (12,30)
-===== TURN 345 =====
+===== TURN 347 =====
 Adventurer at (12,30)
 Output: placed
 Goal from q: (6,26)12
-Move to (12,31)
-===== TURN 346 =====
-Adventurer at (12,31)
-Output: 0
-Goal from q: (6,26)13
-Move to (12,32)
-===== TURN 347 =====
-Adventurer at (12,32)
-Output: placed
-Goal from q: (6,26)14
-Move to (12,33)
+Move to (11,30)
 ===== TURN 348 =====
-Adventurer at (12,33)
+Adventurer at (11,30)
+Output: placed
+Goal from q: (6,26)11
+Move to (11,31)
+===== TURN 349 =====
+Adventurer at (11,31)
+Output: 0
+Goal from q: (6,26)12
+Move to (11,32)
+===== TURN 350 =====
+Adventurer at (11,32)
 Output: placed
 Goal from q: (6,26)13
-Move to (11,33)
-===== TURN 349 =====
-Adventurer at (11,33)
+Move to (10,32)
+===== TURN 351 =====
+Adventurer at (10,32)
 Output: 0
 Goal from q: (6,26)12
 Move to (10,33)
-===== TURN 350 =====
+===== TURN 352 =====
 Adventurer at (10,33)
-Output: 0
+Output: placed
 Goal from q: (6,26)11
 Move to (9,33)
-===== TURN 351 =====
+===== TURN 353 =====
 Adventurer at (9,33)
 Output: 0
 Goal from q: (6,26)10
 Move to (8,33)
-===== TURN 352 =====
+===== TURN 354 =====
 Adventurer at (8,33)
 Output: 0
 Goal from q: (6,26)9
 Move to (8,32)
-===== TURN 353 =====
+===== TURN 355 =====
 Adventurer at (8,32)
 Output: placed
 Goal from q: (6,26)8
 Move to (7,32)
-===== TURN 354 =====
+===== TURN 356 =====
 Adventurer at (7,32)
 Output: placed
 Goal from q: (6,26)7
 Move to (7,31)
-===== TURN 355 =====
+===== TURN 357 =====
 Adventurer at (7,31)
 Output: placed
 Goal from q: (6,26)6
 Move to (6,31)
-===== TURN 356 =====
+===== TURN 358 =====
 Adventurer at (6,31)
 Output: placed
 Goal from q: (6,26)7
 Move to (6,30)
-===== TURN 357 =====
+===== TURN 359 =====
 Adventurer at (6,30)
 Output: placed
 Goal from q: (6,26)6
 Move to (5,30)
-===== TURN 358 =====
+===== TURN 360 =====
 Adventurer at (5,30)
 Output: 0
 Goal from q: (6,26)5
 Move to (5,29)
-===== TURN 359 =====
+===== TURN 361 =====
 Adventurer at (5,29)
 Output: 0
 Goal from q: (6,26)4
 Move to (5,28)
-===== TURN 360 =====
+===== TURN 362 =====
 Adventurer at (5,28)
-Output: placed
+Output: 0
 Goal from q: (6,26)3
 Move to (6,28)
-===== TURN 361 =====
+===== TURN 363 =====
 Adventurer at (6,28)
 Output: 0
 Goal from q: (6,26)4
 Move to (7,28)
-===== TURN 362 =====
-Adventurer at (7,28)
-Output: 0
-Goal from q: (6,26)5
-Move to (8,28)
-===== TURN 363 =====
-Adventurer at (8,28)
-Output: 0
-Goal from q: (6,26)6
-Move to (9,28)
 ===== TURN 364 =====
-Adventurer at (9,28)
+Adventurer at (7,28)
 Output: placed
-Goal from q: (6,26)9
+Goal from q: (6,26)5
 Move to (8,28)
 ===== TURN 365 =====
 Adventurer at (8,28)
 Output: 0
+Goal from q: (6,26)6
+Move to (9,28)
+===== TURN 366 =====
+Adventurer at (9,28)
+Output: placed
+Goal from q: (6,26)7
+Move to (10,28)
+===== TURN 367 =====
+Adventurer at (10,28)
+Output: 0
+Goal from q: (6,26)10
+Move to (9,28)
+===== TURN 368 =====
+Adventurer at (9,28)
+Output: 0
+Goal from q: (6,26)9
+Move to (8,28)
+===== TURN 369 =====
+Adventurer at (8,28)
+Output: 0
 Goal from q: (6,26)8
 Move to (7,28)
-===== TURN 366 =====
+===== TURN 370 =====
 Adventurer at (7,28)
 Output: 0
 Goal from q: (6,26)7
 Move to (6,28)
-===== TURN 367 =====
+===== TURN 371 =====
 Adventurer at (6,28)
 Output: 0
 Goal from q: (6,26)6
 Move to (5,28)
-===== TURN 368 =====
+===== TURN 372 =====
 Adventurer at (5,28)
 Output: 0
 Goal from q: (6,26)5
 Move to (4,28)
-===== TURN 369 =====
+===== TURN 373 =====
 Adventurer at (4,28)
 Output: placed
 Goal from q: (6,26)14
 Move to (4,29)
-===== TURN 370 =====
+===== TURN 374 =====
 Adventurer at (4,29)
 Output: 0
 Goal from q: (6,26)13
 Move to (4,30)
-===== TURN 371 =====
+===== TURN 375 =====
 Adventurer at (4,30)
 Output: 0
 Goal from q: (6,26)12
 Move to (4,31)
-===== TURN 372 =====
+===== TURN 376 =====
 Adventurer at (4,31)
 Output: placed
 Goal from q: (6,26)15
 Move to (3,31)
-===== TURN 373 =====
+===== TURN 377 =====
 Adventurer at (3,31)
 Output: 0
 Goal from q: (6,26)14
 Move to (3,32)
-===== TURN 374 =====
+===== TURN 378 =====
 Adventurer at (3,32)
 Output: placed
 Goal from q: (6,26)17
 Move to (2,32)
-===== TURN 375 =====
+===== TURN 379 =====
 Adventurer at (2,32)
 Output: 0
 Goal from q: (6,26)16
 Move to (2,33)
-===== TURN 376 =====
+===== TURN 380 =====
 Adventurer at (2,33)
 Output: placed
 Goal from q: (6,26)15
 Move to (1,33)
-===== TURN 377 =====
+===== TURN 381 =====
 Adventurer at (1,33)
 Output: 0
 Goal from q: (6,26)14
 Move to (0,33)
-===== TURN 378 =====
+===== TURN 382 =====
 Adventurer at (0,33)
 Output: 0
 Goal from q: (6,26)13
-Move to (0,32)
-===== TURN 379 =====
-Adventurer at (0,32)
-Output: 0
-Goal from q: (6,26)12
-Move to (0,31)
-===== TURN 380 =====
-Adventurer at (0,31)
-Output: 0
-Goal from q: (6,26)11
-Move to (1,31)
-===== TURN 381 =====
-Adventurer at (1,31)
-Output: 0
-Goal from q: (6,26)96
-Move to (0,31)
-===== TURN 382 =====
-Adventurer at (0,31)
-Output: 0
-Goal from q: (6,26)95
 Move to (0,32)
 ===== TURN 383 =====
 Adventurer at (0,32)
 Output: 0
+Goal from q: (6,26)12
+Move to (0,31)
+===== TURN 384 =====
+Adventurer at (0,31)
+Output: 0
+Goal from q: (6,26)11
+Move to (1,31)
+===== TURN 385 =====
+Adventurer at (1,31)
+Output: 0
+Goal from q: (6,26)96
+Move to (0,31)
+===== TURN 386 =====
+Adventurer at (0,31)
+Output: 0
+Goal from q: (6,26)95
+Move to (0,32)
+===== TURN 387 =====
+Adventurer at (0,32)
+Output: 0
 Goal from q: (6,26)94
 Move to (0,33)
-===== TURN 384 =====
+===== TURN 388 =====
 Adventurer at (0,33)
 Output: 0
 Goal from q: (6,26)93
 Move to (1,33)
-===== TURN 385 =====
+===== TURN 389 =====
 Adventurer at (1,33)
 Output: 0
 Goal from q: (6,26)92
 Move to (2,33)
-===== TURN 386 =====
+===== TURN 390 =====
 Adventurer at (2,33)
 Output: 0
 Goal from q: (6,26)91
 Move to (3,33)
-===== TURN 387 =====
+===== TURN 391 =====
 Adventurer at (3,33)
 Output: 0
 Goal from q: (6,26)90
 Move to (3,32)
-===== TURN 388 =====
+===== TURN 392 =====
 Adventurer at (3,32)
 Output: 0
 Goal from q: (6,26)89
 Move to (3,31)
-===== TURN 389 =====
+===== TURN 393 =====
 Adventurer at (3,31)
 Output: 0
 Goal from q: (6,26)88
 Move to (4,31)
-===== TURN 390 =====
+===== TURN 394 =====
 Adventurer at (4,31)
 Output: 0
 Goal from q: (6,26)87
 Move to (4,30)
-===== TURN 391 =====
+===== TURN 395 =====
 Adventurer at (4,30)
 Output: 0
 Goal from q: (6,26)86
 Move to (5,30)
-===== TURN 392 =====
+===== TURN 396 =====
 Adventurer at (5,30)
 Output: 0
 Goal from q: (6,26)85
 Move to (6,30)
-===== TURN 393 =====
+===== TURN 397 =====
 Adventurer at (6,30)
 Output: 0
 Goal from q: (6,26)84
-Move to (7,30)
-===== TURN 394 =====
-Adventurer at (7,30)
+Move to (6,31)
+===== TURN 398 =====
+Adventurer at (6,31)
 Output: 0
 Goal from q: (6,26)83
 Move to (7,31)
-===== TURN 395 =====
+===== TURN 399 =====
 Adventurer at (7,31)
 Output: 0
 Goal from q: (6,26)82
 Move to (7,32)
-===== TURN 396 =====
+===== TURN 400 =====
 Adventurer at (7,32)
 Output: 0
 Goal from q: (6,26)81
 Move to (8,32)
-===== TURN 397 =====
+===== TURN 401 =====
 Adventurer at (8,32)
 Output: 0
 Goal from q: (6,26)80
 Move to (8,33)
-===== TURN 398 =====
+===== TURN 402 =====
 Adventurer at (8,33)
 Output: 0
 Goal from q: (6,26)79
 Move to (9,33)
-===== TURN 399 =====
+===== TURN 403 =====
 Adventurer at (9,33)
 Output: 0
 Goal from q: (6,26)78
 Move to (10,33)
-===== TURN 400 =====
+===== TURN 404 =====
 Adventurer at (10,33)
 Output: 0
 Goal from q: (6,26)77
-Move to (11,33)
-===== TURN 401 =====
-Adventurer at (11,33)
+Move to (10,32)
+===== TURN 405 =====
+Adventurer at (10,32)
 Output: 0
 Goal from q: (6,26)76
-Move to (12,33)
-===== TURN 402 =====
-Adventurer at (12,33)
+Move to (11,32)
+===== TURN 406 =====
+Adventurer at (11,32)
 Output: 0
 Goal from q: (6,26)75
-Move to (12,32)
-===== TURN 403 =====
-Adventurer at (12,32)
+Move to (11,31)
+===== TURN 407 =====
+Adventurer at (11,31)
 Output: 0
 Goal from q: (6,26)74
-Move to (12,31)
-===== TURN 404 =====
-Adventurer at (12,31)
+Move to (11,30)
+===== TURN 408 =====
+Adventurer at (11,30)
 Output: 0
 Goal from q: (6,26)73
 Move to (12,30)
-===== TURN 405 =====
+===== TURN 409 =====
 Adventurer at (12,30)
 Output: 0
 Goal from q: (6,26)72
 Move to (13,30)
-===== TURN 406 =====
+===== TURN 410 =====
 Adventurer at (13,30)
 Output: 0
 Goal from q: (6,26)71
 Move to (13,29)
-===== TURN 407 =====
+===== TURN 411 =====
 Adventurer at (13,29)
 Output: 0
 Goal from q: (6,26)70
 Move to (13,28)
-===== TURN 408 =====
+===== TURN 412 =====
 Adventurer at (13,28)
 Output: 0
 Goal from q: (6,26)69
 Move to (14,28)
-===== TURN 409 =====
+===== TURN 413 =====
 Adventurer at (14,28)
 Output: 0
 Goal from q: (6,26)68
 Move to (15,28)
-===== TURN 410 =====
+===== TURN 414 =====
 Adventurer at (15,28)
 Output: 0
 Goal from q: (6,26)67
 Move to (15,29)
-===== TURN 411 =====
+===== TURN 415 =====
 Adventurer at (15,29)
 Output: 0
 Goal from q: (6,26)66
 Move to (16,29)
-===== TURN 412 =====
+===== TURN 416 =====
 Adventurer at (16,29)
 Output: 0
 Goal from q: (6,26)65
 Move to (17,29)
-===== TURN 413 =====
+===== TURN 417 =====
 Adventurer at (17,29)
 Output: 0
 Goal from q: (6,26)64
 Move to (18,29)
-===== TURN 414 =====
+===== TURN 418 =====
 Adventurer at (18,29)
 Output: 0
 Goal from q: (6,26)63
 Move to (18,30)
-===== TURN 415 =====
+===== TURN 419 =====
 Adventurer at (18,30)
 Output: 0
 Goal from q: (6,26)62
 Move to (19,30)
-===== TURN 416 =====
+===== TURN 420 =====
 Adventurer at (19,30)
 Output: 0
 Goal from q: (6,26)61
 Move to (20,30)
-===== TURN 417 =====
+===== TURN 421 =====
 Adventurer at (20,30)
 Output: 0
 Goal from q: (6,26)60
 Move to (20,31)
-===== TURN 418 =====
+===== TURN 422 =====
 Adventurer at (20,31)
 Output: 0
 Goal from q: (6,26)59
 Move to (21,31)
-===== TURN 419 =====
+===== TURN 423 =====
 Adventurer at (21,31)
 Output: 0
 Goal from q: (6,26)58
 Move to (21,32)
-===== TURN 420 =====
+===== TURN 424 =====
 Adventurer at (21,32)
 Output: 0
 Goal from q: (6,26)57
 Move to (22,32)
-===== TURN 421 =====
+===== TURN 425 =====
 Adventurer at (22,32)
 Output: 0
 Goal from q: (6,26)56
 Move to (22,33)
-===== TURN 422 =====
+===== TURN 426 =====
 Adventurer at (22,33)
 Output: 0
 Goal from q: (6,26)55
 Move to (23,33)
-===== TURN 423 =====
+===== TURN 427 =====
 Adventurer at (23,33)
 Output: 0
 Goal from q: (6,26)54
 Move to (24,33)
-===== TURN 424 =====
+===== TURN 428 =====
 Adventurer at (24,33)
 Output: 0
 Goal from q: (6,26)53
 Move to (24,32)
-===== TURN 425 =====
+===== TURN 429 =====
 Adventurer at (24,32)
 Output: 0
 Goal from q: (6,26)52
 Move to (24,31)
-===== TURN 426 =====
+===== TURN 430 =====
 Adventurer at (24,31)
 Output: 0
 Goal from q: (6,26)51
 Move to (23,31)
-===== TURN 427 =====
+===== TURN 431 =====
 Adventurer at (23,31)
 Output: 0
 Goal from q: (6,26)50
 Move to (23,30)
-===== TURN 428 =====
+===== TURN 432 =====
 Adventurer at (23,30)
 Output: 0
 Goal from q: (6,26)49
 Move to (22,30)
-===== TURN 429 =====
+===== TURN 433 =====
 Adventurer at (22,30)
 Output: 0
 Goal from q: (6,26)48
 Move to (22,29)
-===== TURN 430 =====
+===== TURN 434 =====
 Adventurer at (22,29)
 Output: 0
 Goal from q: (6,26)47
 Move to (21,29)
-===== TURN 431 =====
+===== TURN 435 =====
 Adventurer at (21,29)
 Output: 0
 Goal from q: (6,26)46
 Move to (21,28)
-===== TURN 432 =====
+===== TURN 436 =====
 Adventurer at (21,28)
 Output: 0
 Goal from q: (6,26)45
 Move to (20,28)
-===== TURN 433 =====
+===== TURN 437 =====
 Adventurer at (20,28)
 Output: 0
 Goal from q: (6,26)44
 Move to (19,28)
-===== TURN 434 =====
+===== TURN 438 =====
 Adventurer at (19,28)
 Output: 0
 Goal from q: (6,26)43
 Move to (19,27)
-===== TURN 435 =====
+===== TURN 439 =====
 Adventurer at (19,27)
 Output: 0
 Goal from q: (6,26)42
 Move to (18,27)
-===== TURN 436 =====
+===== TURN 440 =====
 Adventurer at (18,27)
 Output: 0
 Goal from q: (6,26)41
 Move to (17,27)
-===== TURN 437 =====
+===== TURN 441 =====
 Adventurer at (17,27)
 Output: 0
 Goal from q: (6,26)40
 Move to (17,26)
-===== TURN 438 =====
+===== TURN 442 =====
 Adventurer at (17,26)
 Output: 0
 Goal from q: (6,26)39
 Move to (17,25)
-===== TURN 439 =====
+===== TURN 443 =====
 Adventurer at (17,25)
 Output: 0
 Goal from q: (6,26)38
 Move to (16,25)
-===== TURN 440 =====
+===== TURN 444 =====
 Adventurer at (16,25)
 Output: 0
 Goal from q: (6,26)37
 Move to (16,24)
-===== TURN 441 =====
+===== TURN 445 =====
 Adventurer at (16,24)
 Output: 0
 Goal from q: (6,26)36
 Move to (15,24)
-===== TURN 442 =====
+===== TURN 446 =====
 Adventurer at (15,24)
 Output: 0
 Goal from q: (6,26)35
 Move to (15,23)
-===== TURN 443 =====
+===== TURN 447 =====
 Adventurer at (15,23)
 Output: 0
 Goal from q: (6,26)34
 Move to (14,23)
-===== TURN 444 =====
+===== TURN 448 =====
 Adventurer at (14,23)
 Output: 0
 Goal from q: (6,26)33
 Move to (14,22)
-===== TURN 445 =====
+===== TURN 449 =====
 Adventurer at (14,22)
 Output: 0
 Goal from q: (6,26)32
 Move to (13,22)
-===== TURN 446 =====
+===== TURN 450 =====
 Adventurer at (13,22)
 Output: 0
 Goal from q: (6,26)31
 Move to (13,21)
-===== TURN 447 =====
+===== TURN 451 =====
 Adventurer at (13,21)
 Output: 0
 Goal from q: (6,26)30
 Move to (12,21)
-===== TURN 448 =====
+===== TURN 452 =====
 Adventurer at (12,21)
 Output: 0
 Goal from q: (6,26)29
 Move to (12,20)
-===== TURN 449 =====
+===== TURN 453 =====
 Adventurer at (12,20)
 Output: 0
 Goal from q: (6,26)28
 Move to (11,20)
-===== TURN 450 =====
+===== TURN 454 =====
 Adventurer at (11,20)
 Output: 0
 Goal from q: (6,26)27
 Move to (10,20)
-===== TURN 451 =====
+===== TURN 455 =====
 Adventurer at (10,20)
 Output: 0
 Goal from q: (6,26)26
 Move to (10,19)
-===== TURN 452 =====
+===== TURN 456 =====
 Adventurer at (10,19)
 Output: 0
 Goal from q: (6,26)25
 Move to (9,19)
-===== TURN 453 =====
+===== TURN 457 =====
 Adventurer at (9,19)
 Output: 0
 Goal from q: (6,26)24
 Move to (8,19)
-===== TURN 454 =====
+===== TURN 458 =====
 Adventurer at (8,19)
 Output: 0
 Goal from q: (6,26)23
 Move to (8,20)
-===== TURN 455 =====
+===== TURN 459 =====
 Adventurer at (8,20)
 Output: 0
 Goal from q: (6,26)22
 Move to (7,20)
-===== TURN 456 =====
+===== TURN 460 =====
 Adventurer at (7,20)
 Output: 0
 Goal from q: (6,26)21
 Move to (7,21)
-===== TURN 457 =====
+===== TURN 461 =====
 Adventurer at (7,21)
 Output: 0
 Goal from q: (6,26)20
 Move to (6,21)
-===== TURN 458 =====
+===== TURN 462 =====
 Adventurer at (6,21)
 Output: 0
 Goal from q: (6,26)19
 Move to (5,21)
-===== TURN 459 =====
+===== TURN 463 =====
 Adventurer at (5,21)
 Output: 0
 Goal from q: (6,26)18
 Move to (5,20)
-===== TURN 460 =====
+===== TURN 464 =====
 Adventurer at (5,20)
 Output: 0
 Goal from q: (6,26)17
 Move to (4,20)
-===== TURN 461 =====
+===== TURN 465 =====
 Adventurer at (4,20)
 Output: 0
 Goal from q: (6,26)16
 Move to (3,20)
-===== TURN 462 =====
+===== TURN 466 =====
 Adventurer at (3,20)
 Output: 0
 Goal from q: (6,26)15
 Move to (3,21)
-===== TURN 463 =====
+===== TURN 467 =====
 Adventurer at (3,21)
 Output: 0
 Goal from q: (6,26)14
 Move to (2,21)
-===== TURN 464 =====
+===== TURN 468 =====
 Adventurer at (2,21)
 Output: 0
 Goal from q: (6,26)13
 Move to (1,21)
-===== TURN 465 =====
+===== TURN 469 =====
 Adventurer at (1,21)
 Output: 0
 Goal from q: (6,26)12
 Move to (0,21)
-===== TURN 466 =====
+===== TURN 470 =====
 Adventurer at (0,21)
 Output: 0
 Goal from q: (6,26)11
 Move to (0,22)
-===== TURN 467 =====
+===== TURN 471 =====
 Adventurer at (0,22)
 Output: 0
 Goal from q: (6,26)10
 Move to (0,23)
-===== TURN 468 =====
+===== TURN 472 =====
 Adventurer at (0,23)
 Output: 0
 Goal from q: (6,26)9
 Move to (1,23)
-===== TURN 469 =====
+===== TURN 473 =====
 Adventurer at (1,23)
 Output: 0
 Goal from q: (6,26)10
 Move to (0,23)
-===== TURN 470 =====
+===== TURN 474 =====
 Adventurer at (0,23)
 Output: 0
 Goal from q: (6,26)9
 Move to (0,24)
-===== TURN 471 =====
+===== TURN 475 =====
 Adventurer at (0,24)
 Output: 0
 Goal from q: (6,26)8
 Move to (0,25)
-===== TURN 472 =====
+===== TURN 476 =====
 Adventurer at (0,25)
 Output: 0
 Goal from q: (6,26)7
 Move to (1,25)
-===== TURN 473 =====
+===== TURN 477 =====
 Adventurer at (1,25)
 Output: 0
 Goal from q: (6,26)6
 Move to (2,25)
-===== TURN 474 =====
+===== TURN 478 =====
 Adventurer at (2,25)
 Output: 0
 Goal from q: (6,26)7
 Move to (2,24)
-===== TURN 475 =====
+===== TURN 479 =====
 Adventurer at (2,24)
 Output: 0
 Goal from q: (6,26)6
 Move to (3,24)
-===== TURN 476 =====
+===== TURN 480 =====
 Adventurer at (3,24)
 Output: 0
 Goal from q: (6,26)5
 Move to (4,24)
-===== TURN 477 =====
+===== TURN 481 =====
 Adventurer at (4,24)
 Output: 0
 Goal from q: (6,26)4
 Move to (5,24)
-===== TURN 478 =====
+===== TURN 482 =====
 Adventurer at (5,24)
 Output: 0
 Goal from q: (6,26)3
 Move to (6,24)
-===== TURN 479 =====
+===== TURN 483 =====
 Adventurer at (6,24)
 Output: 0
 Goal from q: (6,26)4
 Move to (7,24)
-===== TURN 480 =====
+===== TURN 484 =====
 Adventurer at (7,24)
 Output: 0
 Goal from q: (6,26)5
 Move to (8,24)
-===== TURN 481 =====
+===== TURN 485 =====
 Adventurer at (8,24)
 Output: 0
 Goal from q: (6,26)10
 Move to (8,23)
-===== TURN 482 =====
+===== TURN 486 =====
 Adventurer at (8,23)
 Output: 0
 Goal from q: (6,26)13
 Move to (9,23)
-===== TURN 483 =====
+===== TURN 487 =====
 Adventurer at (9,23)
 Output: 0
 Goal from q: (6,26)12
 Move to (9,22)
-===== TURN 484 =====
+===== TURN 488 =====
 Adventurer at (9,22)
 Output: 0
 Goal from q: (6,26)11
 Move to (10,22)
-===== TURN 485 =====
+===== TURN 489 =====
 Adventurer at (10,22)
 Output: 0
 Goal from q: (6,26)10
 Move to (11,22)
-===== TURN 486 =====
+===== TURN 490 =====
 Adventurer at (11,22)
 Output: 0
 Goal=flower
 Move to (11,23)
-===== TURN 487 =====
+===== TURN 491 =====
 Adventurer at (11,23)
 Output: 0
 Goal=flower
 Move to (11,24)
-===== TURN 488 =====
+===== TURN 492 =====
 Adventurer at (11,24)
 Reached flower -> finish

@@ -5,10 +5,14 @@ DEBUG: finalEndpoint = (21,0)
 DEBUG: bestCorner = (27,0) dist=6
 DEBUG: X_cell = (19,0)
 DEBUG: P length = 19
-DEBUG: first placement at (26,1)
+DEBUG: sorted_P: (24,4) (25,3) (23,4) (24,3) (25,2) (25,1) (22,4) (22,3) (25,0) (24,0) (21,3) (23,0) (21,2) (22,0) (20,2) (20,1) (21,0) (19,1) (19,0) 
+DEBUG: first placement at (24,5)
 DEBUG: chosen Z = (27,9)
-DEBUG: placed during op at (27,2)
-DEBUG: wall trent reached at (27,2)
+DEBUG: placed during op at (24,6)
+DEBUG: placed during op at (25,7)
+DEBUG: placed during op at (26,8)
+DEBUG: placed during op at (27,9)
+DEBUG: wall trent reached at (27,9)
 Output: placed
 Goal from q: (27,11)30
 Move to (1,14)
@@ -339,12 +343,12 @@ Goal from q: (27,11)5
 Move to (25,9)
 ===== TURN 66 =====
 Adventurer at (25,9)
-Output: placed
+Output: 0
 Goal from q: (27,11)4
 Move to (26,9)
 ===== TURN 67 =====
 Adventurer at (26,9)
-Output: placed
+Output: 0
 Goal from q: (27,11)3
 Move to (26,10)
 ===== TURN 68 =====
@@ -389,7 +393,7 @@ Goal from q: (9,14)22
 Move to (22,8)
 ===== TURN 76 =====
 Adventurer at (22,8)
-Output: 0
+Output: placed
 Goal from q: (9,14)21
 Move to (22,7)
 ===== TURN 77 =====

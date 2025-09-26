@@ -5,11 +5,9 @@ DEBUG: finalEndpoint = (0,6)
 DEBUG: bestCorner = (0,0) dist=6
 DEBUG: X_cell = (0,10)
 DEBUG: P length = 35
-DEBUG: first placement at (12,10)
+DEBUG: sorted_P: (9,7) (9,8) (8,7) (10,8) (7,7) (10,9) (11,9) (9,12) (11,10) (7,11) (8,12) (10,12) (11,11) (6,11) (7,12) (11,12) (5,11) (4,11) (6,7) (3,11) (5,7) (2,11) (4,7) (0,10) (1,11) (4,6) (0,11) (3,6) (3,5) (2,5) (2,4) (0,6) (1,4) (0,5) (0,4) 
+DEBUG: first placement at (10,7)
 DEBUG: chosen Z = (9,0)
-DEBUG: placed during op at (12,9)
-DEBUG: placed during op at (11,8)
-DEBUG: placed during op at (10,7)
 DEBUG: placed during op at (9,6)
 DEBUG: placed during op at (9,5)
 DEBUG: placed during op at (9,4)

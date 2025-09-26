@@ -5,37 +5,9 @@ DEBUG: finalEndpoint = (26,20)
 DEBUG: bestCorner = (26,26) dist=6
 DEBUG: X_cell = (26,19)
 DEBUG: P length = 2
+DEBUG: sorted_P: (26,19) (26,20) 
 DEBUG: first placement at (25,20)
 DEBUG: chosen Z = (17,26)
-DEBUG: placed during op at (24,21)
-DEBUG: placed during op at (23,22)
-DEBUG: placed during op at (22,23)
-DEBUG: placed during op at (21,24)
-DEBUG: placed during op at (20,24)
-DEBUG: placed during op at (19,25)
-DEBUG: placed during op at (18,25)
-DEBUG: placed during op at (17,25)
-DEBUG: placed during op at (16,25)
-DEBUG: placed during op at (17,24)
-DEBUG: placed during op at (16,24)
-DEBUG: placed during op at (15,25)
-DEBUG: placed during op at (14,25)
-DEBUG: placed during op at (15,24)
-DEBUG: placed during op at (16,23)
-DEBUG: placed during op at (17,23)
-DEBUG: placed during op at (18,24)
-DEBUG: placed during op at (18,23)
-DEBUG: placed during op at (17,22)
-DEBUG: placed during op at (16,22)
-DEBUG: placed during op at (17,22)
-DEBUG: placed during op at (17,21)
-DEBUG: placed during op at (17,22)
-DEBUG: placed during op at (18,22)
-DEBUG: placed during op at (17,22)
-DEBUG: placed during op at (16,21)
-DEBUG: placed during op at (17,22)
-DEBUG: placed during op at (18,21)
-DEBUG: placed during op at (17,22)
 DEBUG: op ended without reaching wall
 Output: placed
 Goal from q: (11,16)14
@@ -572,299 +544,539 @@ Goal from q: (13,26)4
 Move to (13,23)
 ===== TURN 107 =====
 Adventurer at (13,23)
-Output: 0
-Goal from q: (5,20)15
+Output: placed
+Goal from q: (13,26)5
 Move to (13,24)
 ===== TURN 108 =====
 Adventurer at (13,24)
-Output: 0
-Goal from q: (5,20)14
-Move to (13,25)
+Output: placed
+Goal from q: (13,26)4
+Move to (14,24)
 ===== TURN 109 =====
-Adventurer at (13,25)
+Adventurer at (14,24)
+Output: 0
+Goal from q: (13,26)3
+Move to (14,25)
+===== TURN 110 =====
+Adventurer at (14,25)
+Output: placed
+Goal from q: (13,26)2
+Move to (14,26)
+===== TURN 111 =====
+Adventurer at (14,26)
 Output: placed
 Goal from q: (5,20)15
 Move to (13,26)
-===== TURN 110 =====
+===== TURN 112 =====
 Adventurer at (13,26)
-Output: placed
+Output: 0
 Goal from q: (5,20)14
 Move to (12,26)
-===== TURN 111 =====
+===== TURN 113 =====
 Adventurer at (12,26)
 Output: 0
 Goal from q: (5,20)13
-Move to (11,26)
-===== TURN 112 =====
-Adventurer at (11,26)
+Move to (12,25)
+===== TURN 114 =====
+Adventurer at (12,25)
 Output: placed
 Goal from q: (5,20)12
 Move to (11,25)
-===== TURN 113 =====
+===== TURN 115 =====
 Adventurer at (11,25)
-Output: placed
+Output: 0
 Goal from q: (5,20)11
-Move to (10,25)
-===== TURN 114 =====
-Adventurer at (10,25)
+Move to (11,24)
+===== TURN 116 =====
+Adventurer at (11,24)
 Output: placed
 Goal from q: (5,20)10
 Move to (10,24)
-===== TURN 115 =====
+===== TURN 117 =====
 Adventurer at (10,24)
-Output: placed
+Output: 0
 Goal from q: (5,20)9
-Move to (9,24)
-===== TURN 116 =====
-Adventurer at (9,24)
+Move to (10,23)
+===== TURN 118 =====
+Adventurer at (10,23)
 Output: placed
 Goal from q: (5,20)8
 Move to (9,23)
-===== TURN 117 =====
+===== TURN 119 =====
 Adventurer at (9,23)
-Output: placed
+Output: 0
 Goal from q: (5,20)7
 Move to (8,23)
-===== TURN 118 =====
+===== TURN 120 =====
 Adventurer at (8,23)
+Output: placed
+Goal from q: (5,20)8
+Move to (8,24)
+===== TURN 121 =====
+Adventurer at (8,24)
+Output: placed
+Goal from q: (5,20)9
+Move to (7,24)
+===== TURN 122 =====
+Adventurer at (7,24)
+Output: 0
+Goal from q: (5,20)8
+Move to (7,25)
+===== TURN 123 =====
+Adventurer at (7,25)
+Output: placed
+Goal from q: (5,20)11
+Move to (6,25)
+===== TURN 124 =====
+Adventurer at (6,25)
+Output: 0
+Goal from q: (5,20)10
+Move to (6,26)
+===== TURN 125 =====
+Adventurer at (6,26)
+Output: placed
+Goal from q: (5,20)9
+Move to (5,26)
+===== TURN 126 =====
+Adventurer at (5,26)
+Output: 0
+Goal from q: (5,20)8
+Move to (4,26)
+===== TURN 127 =====
+Adventurer at (4,26)
+Output: placed
+Goal from q: (5,20)9
+Move to (4,25)
+===== TURN 128 =====
+Adventurer at (4,25)
+Output: placed
+Goal from q: (5,20)8
+Move to (3,25)
+===== TURN 129 =====
+Adventurer at (3,25)
+Output: placed
+Goal from q: (5,20)9
+Move to (3,24)
+===== TURN 130 =====
+Adventurer at (3,24)
+Output: placed
+Goal from q: (5,20)8
+Move to (2,24)
+===== TURN 131 =====
+Adventurer at (2,24)
+Output: placed
+Goal from q: (5,20)7
+Move to (2,23)
+===== TURN 132 =====
+Adventurer at (2,23)
 Output: 0
 Goal from q: (5,20)6
-Move to (7,23)
-===== TURN 119 =====
-Adventurer at (7,23)
+Move to (2,22)
+===== TURN 133 =====
+Adventurer at (2,22)
 Output: placed
 Goal from q: (5,20)5
-Move to (7,22)
-===== TURN 120 =====
-Adventurer at (7,22)
+Move to (2,21)
+===== TURN 134 =====
+Adventurer at (2,21)
 Output: placed
+Goal from q: (5,20)8
+Move to (1,21)
+===== TURN 135 =====
+Adventurer at (1,21)
+Output: placed
+Goal from q: (5,20)7
+Move to (1,20)
+===== TURN 136 =====
+Adventurer at (1,20)
+Output: 0
+Goal from q: (5,20)6
+Move to (1,19)
+===== TURN 137 =====
+Adventurer at (1,19)
+Output: placed
+Goal from q: (5,20)5
+Move to (2,19)
+===== TURN 138 =====
+Adventurer at (2,19)
+Output: 0
 Goal from q: (5,20)4
-Move to (6,22)
-===== TURN 121 =====
-Adventurer at (6,22)
+Move to (3,19)
+===== TURN 139 =====
+Adventurer at (3,19)
 Output: placed
 Goal from q: (5,20)3
-Move to (6,21)
-===== TURN 122 =====
-Adventurer at (6,21)
+Move to (3,20)
+===== TURN 140 =====
+Adventurer at (3,20)
 Output: placed
-Goal from q: (5,20)2
-Move to (5,21)
-===== TURN 123 =====
-Adventurer at (5,21)
+Goal from q: (19,24)36
+Move to (3,19)
+===== TURN 141 =====
+Adventurer at (3,19)
+Output: 0
+Goal from q: (19,24)35
+Move to (2,19)
+===== TURN 142 =====
+Adventurer at (2,19)
+Output: 0
+Goal from q: (19,24)34
+Move to (1,19)
+===== TURN 143 =====
+Adventurer at (1,19)
+Output: 0
+Goal from q: (19,24)33
+Move to (1,20)
+===== TURN 144 =====
+Adventurer at (1,20)
+Output: 0
+Goal from q: (19,24)32
+Move to (1,21)
+===== TURN 145 =====
+Adventurer at (1,21)
+Output: 0
+Goal from q: (19,24)31
+Move to (2,21)
+===== TURN 146 =====
+Adventurer at (2,21)
+Output: 0
+Goal from q: (19,24)30
+Move to (2,22)
+===== TURN 147 =====
+Adventurer at (2,22)
+Output: 0
+Goal from q: (19,24)29
+Move to (2,23)
+===== TURN 148 =====
+Adventurer at (2,23)
+Output: 0
+Goal from q: (19,24)28
+Move to (2,24)
+===== TURN 149 =====
+Adventurer at (2,24)
+Output: 0
+Goal from q: (19,24)27
+Move to (3,24)
+===== TURN 150 =====
+Adventurer at (3,24)
+Output: 0
+Goal from q: (19,24)26
+Move to (3,25)
+===== TURN 151 =====
+Adventurer at (3,25)
+Output: 0
+Goal from q: (19,24)25
+Move to (4,25)
+===== TURN 152 =====
+Adventurer at (4,25)
+Output: 0
+Goal from q: (19,24)24
+Move to (4,26)
+===== TURN 153 =====
+Adventurer at (4,26)
+Output: 0
+Goal from q: (19,24)23
+Move to (5,26)
+===== TURN 154 =====
+Adventurer at (5,26)
+Output: 0
+Goal from q: (19,24)22
+Move to (6,26)
+===== TURN 155 =====
+Adventurer at (6,26)
 Output: 0
 Goal from q: (19,24)21
-Move to (6,21)
-===== TURN 124 =====
-Adventurer at (6,21)
+Move to (7,26)
+===== TURN 156 =====
+Adventurer at (7,26)
 Output: 0
 Goal from q: (19,24)20
-Move to (7,21)
-===== TURN 125 =====
-Adventurer at (7,21)
+Move to (7,25)
+===== TURN 157 =====
+Adventurer at (7,25)
 Output: 0
 Goal from q: (19,24)19
-Move to (7,22)
-===== TURN 126 =====
-Adventurer at (7,22)
+Move to (7,24)
+===== TURN 158 =====
+Adventurer at (7,24)
 Output: 0
 Goal from q: (19,24)18
-Move to (7,23)
-===== TURN 127 =====
-Adventurer at (7,23)
-Output: placed
+Move to (8,24)
+===== TURN 159 =====
+Adventurer at (8,24)
+Output: 0
 Goal from q: (19,24)17
 Move to (8,23)
-===== TURN 128 =====
+===== TURN 160 =====
 Adventurer at (8,23)
 Output: 0
 Goal from q: (19,24)16
 Move to (9,23)
-===== TURN 129 =====
+===== TURN 161 =====
 Adventurer at (9,23)
 Output: 0
 Goal from q: (19,24)15
-Move to (9,24)
-===== TURN 130 =====
-Adventurer at (9,24)
+Move to (10,23)
+===== TURN 162 =====
+Adventurer at (10,23)
 Output: 0
 Goal from q: (19,24)14
 Move to (10,24)
-===== TURN 131 =====
+===== TURN 163 =====
 Adventurer at (10,24)
 Output: 0
 Goal from q: (19,24)13
-Move to (10,25)
-===== TURN 132 =====
-Adventurer at (10,25)
+Move to (11,24)
+===== TURN 164 =====
+Adventurer at (11,24)
 Output: 0
 Goal from q: (19,24)12
 Move to (11,25)
-===== TURN 133 =====
+===== TURN 165 =====
 Adventurer at (11,25)
 Output: 0
 Goal from q: (19,24)11
-Move to (11,26)
-===== TURN 134 =====
-Adventurer at (11,26)
+Move to (12,25)
+===== TURN 166 =====
+Adventurer at (12,25)
 Output: 0
 Goal from q: (19,24)10
 Move to (12,26)
-===== TURN 135 =====
+===== TURN 167 =====
 Adventurer at (12,26)
 Output: 0
 Goal from q: (19,24)9
 Move to (13,26)
-===== TURN 136 =====
+===== TURN 168 =====
 Adventurer at (13,26)
 Output: 0
 Goal from q: (19,24)8
 Move to (14,26)
-===== TURN 137 =====
+===== TURN 169 =====
 Adventurer at (14,26)
 Output: 0
 Goal from q: (19,24)7
 Move to (15,26)
-===== TURN 138 =====
+===== TURN 170 =====
 Adventurer at (15,26)
 Output: 0
 Goal from q: (19,24)6
 Move to (16,26)
-===== TURN 139 =====
+===== TURN 171 =====
 Adventurer at (16,26)
 Output: 0
 Goal from q: (19,24)5
 Move to (17,26)
-===== TURN 140 =====
+===== TURN 172 =====
 Adventurer at (17,26)
-Output: 0
-Goal from q: (19,24)4
-Move to (18,26)
-===== TURN 141 =====
-Adventurer at (18,26)
-Output: 0
-Goal from q: (19,24)3
-Move to (19,26)
-===== TURN 142 =====
-Adventurer at (19,26)
-Output: 0
-Goal from q: (19,24)4
-Move to (20,26)
-===== TURN 143 =====
-Adventurer at (20,26)
-Output: 0
-Goal from q: (19,24)7
-Move to (20,25)
-===== TURN 144 =====
-Adventurer at (20,25)
 Output: placed
-Goal from q: (19,24)6
-Move to (21,25)
-===== TURN 145 =====
-Adventurer at (21,25)
+Goal from q: (19,24)4
+Move to (17,25)
+===== TURN 173 =====
+Adventurer at (17,25)
+Output: placed
+Goal from q: (19,24)3
+Move to (18,25)
+===== TURN 174 =====
+Adventurer at (18,25)
+Output: placed
+Goal from q: (19,24)2
+Move to (18,24)
+===== TURN 175 =====
+Adventurer at (18,24)
+Output: placed
+Goal from q: (23,26)9
+Move to (19,24)
+===== TURN 176 =====
+Adventurer at (19,24)
+Output: placed
+Goal from q: (23,26)8
+Move to (19,23)
+===== TURN 177 =====
+Adventurer at (19,23)
+Output: placed
+Goal from q: (23,26)9
+Move to (20,23)
+===== TURN 178 =====
+Adventurer at (20,23)
+Output: placed
+Goal from q: (23,26)8
+Move to (20,22)
+===== TURN 179 =====
+Adventurer at (20,22)
+Output: placed
+Goal from q: (23,26)9
+Move to (21,22)
+===== TURN 180 =====
+Adventurer at (21,22)
+Output: placed
+Goal from q: (23,26)8
+Move to (21,21)
+===== TURN 181 =====
+Adventurer at (21,21)
 Output: 0
-Goal from q: (19,24)7
+Goal from q: (23,26)9
+Move to (21,20)
+===== TURN 182 =====
+Adventurer at (21,20)
+Output: placed
+Goal from q: (23,26)8
+Move to (22,20)
+===== TURN 183 =====
+Adventurer at (22,20)
+Output: 0
+Goal from q: (23,26)7
+Move to (23,20)
+===== TURN 184 =====
+Adventurer at (23,20)
+Output: placed
+Goal from q: (23,26)8
+Move to (23,21)
+===== TURN 185 =====
+Adventurer at (23,21)
+Output: 0
+Goal from q: (23,26)7
+Move to (24,21)
+===== TURN 186 =====
+Adventurer at (24,21)
+Output: 0
+Goal from q: (23,26)8
+Move to (23,21)
+===== TURN 187 =====
+Adventurer at (23,21)
+Output: 0
+Goal from q: (23,26)7
+Move to (23,22)
+===== TURN 188 =====
+Adventurer at (23,22)
+Output: 0
+Goal from q: (23,26)6
+Move to (23,23)
+===== TURN 189 =====
+Adventurer at (23,23)
+Output: placed
+Goal from q: (23,26)5
+Move to (22,23)
+===== TURN 190 =====
+Adventurer at (22,23)
+Output: 0
+Goal from q: (23,26)4
+Move to (22,24)
+===== TURN 191 =====
+Adventurer at (22,24)
+Output: 0
+Goal from q: (23,26)3
 Move to (22,25)
-===== TURN 146 =====
+===== TURN 192 =====
 Adventurer at (22,25)
 Output: placed
-Goal from q: (19,24)8
+Goal from q: (23,26)2
 Move to (23,25)
-===== TURN 147 =====
+===== TURN 193 =====
 Adventurer at (23,25)
-Output: placed
-Goal from q: (19,24)11
-Move to (23,24)
-===== TURN 148 =====
-Adventurer at (23,24)
-Output: placed
-Goal from q: (19,24)10
+Output: 0
+Goal from q: (26,20)8
+Move to (24,25)
+===== TURN 194 =====
+Adventurer at (24,25)
+Output: 0
+Goal from q: (26,20)7
 Move to (24,24)
-===== TURN 149 =====
+===== TURN 195 =====
 Adventurer at (24,24)
 Output: 0
-Goal from q: (19,24)13
+Goal from q: (26,20)6
 Move to (25,24)
-===== TURN 150 =====
+===== TURN 196 =====
 Adventurer at (25,24)
-Output: placed
-Goal from q: (19,24)16
+Output: 0
+Goal from q: (26,20)5
+Move to (26,24)
+===== TURN 197 =====
+Adventurer at (26,24)
+Output: 0
+Goal from q: (26,20)6
+Move to (25,24)
+===== TURN 198 =====
+Adventurer at (25,24)
+Output: 0
+Goal from q: (26,20)5
 Move to (25,23)
-===== TURN 151 =====
+===== TURN 199 =====
 Adventurer at (25,23)
 Output: 0
-Goal from q: (19,24)15
+Goal from q: (26,20)4
 Move to (25,22)
-===== TURN 152 =====
+===== TURN 200 =====
 Adventurer at (25,22)
 Output: 0
-Goal from q: (19,24)14
+Goal from q: (26,20)3
 Move to (26,22)
-===== TURN 153 =====
+===== TURN 201 =====
 Adventurer at (26,22)
 Output: placed
-Goal from q: (19,24)13
+Goal from q: (4,5)55
 Move to (26,21)
-===== TURN 154 =====
+===== TURN 202 =====
 Adventurer at (26,21)
 Output: 0
-Goal from q: (19,24)12
+Goal from q: (4,5)54
 Move to (26,20)
-===== TURN 155 =====
+===== TURN 203 =====
 Adventurer at (26,20)
 Output: 0
-Goal from q: (19,24)13
+Goal from q: (4,5)53
 Move to (26,19)
-===== TURN 156 =====
+===== TURN 204 =====
 Adventurer at (26,19)
 Output: 0
-Goal from q: (19,24)12
+Goal from q: (4,5)52
 Move to (25,19)
-===== TURN 157 =====
+===== TURN 205 =====
 Adventurer at (25,19)
 Output: 0
-Goal from q: (19,24)11
+Goal from q: (4,5)51
 Move to (24,19)
-===== TURN 158 =====
+===== TURN 206 =====
 Adventurer at (24,19)
 Output: 0
-Goal from q: (19,24)12
+Goal from q: (4,5)50
 Move to (24,18)
-===== TURN 159 =====
+===== TURN 207 =====
 Adventurer at (24,18)
 Output: 0
-Goal from q: (19,24)13
+Goal from q: (4,5)49
 Move to (24,17)
-===== TURN 160 =====
+===== TURN 208 =====
 Adventurer at (24,17)
 Output: 0
-Goal from q: (19,24)14
+Goal from q: (4,5)48
 Move to (24,16)
-===== TURN 161 =====
+===== TURN 209 =====
 Adventurer at (24,16)
 Output: 0
-Goal from q: (19,24)15
+Goal from q: (4,5)47
 Move to (24,15)
-===== TURN 162 =====
+===== TURN 210 =====
 Adventurer at (24,15)
 Output: placed
-Goal from q: (19,24)16
+Goal from q: (4,5)46
 Move to (24,14)
-===== TURN 163 =====
+===== TURN 211 =====
 Adventurer at (24,14)
 Output: 0
-Goal from q: (19,24)17
+Goal from q: (4,5)45
 Move to (24,13)
-===== TURN 164 =====
+===== TURN 212 =====
 Adventurer at (24,13)
 Output: 0
-Goal from q: (19,24)18
+Goal from q: (4,5)44
 Move to (24,12)
-===== TURN 165 =====
+===== TURN 213 =====
 Adventurer at (24,12)
 Output: placed
 Goal=flower
 Move to (23,12)
-===== TURN 166 =====
+===== TURN 214 =====
 Adventurer at (23,12)
 Reached flower -> finish

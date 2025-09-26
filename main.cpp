@@ -215,6 +215,63 @@ int main(){
             return false;
         }
     };
+
+    auto tryPlaceTrent4=[&](int x,int y,Pos adv)->bool{
+        if(!inb(x,y)) return false;
+        if(cell[x][y]!='.') return false;
+        if(hasTrent[x][y]) return false;
+        if(confirmed[x][y]) return false;
+        if(x==adv.x&&y==adv.y) return false;
+        if(!hasPathTrue(entrance,{ti,tj},x,y)) return false;
+        if(!hasPathTrue(adv,{ti,tj},x,y)) return false;
+
+        //周りに三マス以上Tがあるなら置かない
+        int aroundT=0;
+        for(int dd=0;dd<4;dd++){
+            int ax=x+dxs[dd], ay=y+dys[dd];
+            if(inb(ax,ay) && cell[ax][ay]=='T') aroundT++;
+        }
+        if(aroundT>=3) return false;
+        //周りに(1,0),(1,-1),(1,1)の3マスにTがあるなら置かない。
+        for(int dd=0;dd<4;dd++){
+            //x,yを基準として、(適切に回転させたうえで、)(1,0),(1,-1),(1,1)の3マスにTがあるなら置かない。
+            int ax=x+dxs[dd], ay=y+dys[dd];
+            int bx=x+dxs[dd]+dxs[(dd+2)%4], by=y+dys[dd]+dys[(dd+2)%4];
+            int cx=x+dxs[dd]+dxs[(dd+3)%4], cy=y+dys[dd]+dys[(dd+3)%4];
+            if(inb(ax,ay) && cell[ax][ay]=='T' && inb(bx,by) && cell[bx][by]=='T' && inb(cx,cy) && cell[cx][cy]=='T') return false;
+        }
+        
+        // 仮置き
+        cell[x][y] = 'T';
+        hasTrent[x][y] = true;
+
+        // --- 追加チェック: 未確認かつ空き ('.') の全マスが到達可能か (bfsTrue を使用) ---
+        bool ok = true;
+        {
+            auto dist = bfsTrue(adv, {-1,-1}); // 仮置き状態を反映した真の地形での距離
+            for (int i = 0; i < N && ok; ++i) {
+                for (int j = 0; j < N; ++j) {
+                    // 「未確認マスのうち、木のない (= 真の地形で '.' ) マス」
+                    if (!confirmed[i][j] && cell[i][j] == '.') {
+                        if (dist[i][j] >= INF) { // 到達不能
+                            ok = false;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (ok) {
+            toPlace.push_back({x,y}); // 確定
+            return true;
+        } else {
+            // 撤回
+            cell[x][y] = '.';
+            hasTrent[x][y] = false;
+            return false;
+        }
+    };
     auto flowerToNearestCornerDist = [&](Pos block) {
     // block = {bx,by} が (-1,-1) なら「ブロックなし」
     auto dist = bfsTrue({ti,tj}, block);
@@ -651,6 +708,43 @@ int main(){
                         cerr << "DEBUG: no P from X to finalEndpoint\n";
                     }
                 }
+                // Z の決定：角から距離が N//3 かつ「終点とは異なる壁」にある境界上のマスを1個選ぶ
+                Pos Z = {-1,-1};
+                // 探索方針：全境界セルを走査して条件を満たすものを選ぶ（安定的に同じものを選ぶためソート的に選ぶ）
+                vector<Pos> candZ;
+                for(int x=0;x<N;++x){
+                    for(int y=0;y<N;++y){
+                        if(!(x==0 || x==N-1 || y==0 || y==N-1)) continue;
+                        if(x==finalEndpoint.x && y==finalEndpoint.y) continue; // 終点と異なること
+                        // この境界セルについて「最も近い角」を見つけ、その角からの距離が N//3 か？
+                        int bestCd = INT_MAX; Pos bestC = corners[0];
+                        for(auto &c0 : corners){
+                            int d0 = abs(x - c0.x) + abs(y - c0.y);
+                            if(d0 < bestCd){ bestCd = d0; bestC = c0; }
+                        }
+                        if(bestCd == N/3){
+                            // さらに「終点とは異なる壁沿い」にあるか：壁を表す side idx
+                            auto sideOf = [&](Pos P)->int{
+                                if(P.x==0) return 0; // top
+                                if(P.x==N-1) return 1; // bottom
+                                if(P.y==0) return 2; // left
+                                if(P.y==N-1) return 3; // right
+                                return -1;
+                            };
+                            int dCorner = abs(x - bestCorner.x) + abs(y - bestCorner.y);
+                            if(dCorner == N/3 && sideOf({x,y}) != sideOf(finalEndpoint)){
+                                candZ.push_back({x,y});
+                            }
+                        }
+                    }
+                }
+                if(!candZ.empty()){
+                    // 安定的に先頭を選ぶ（例えば lexicographic）
+                    sort(candZ.begin(), candZ.end(), [](const Pos &a, const Pos &b){
+                        if(a.x != b.x) return a.x < b.x; return a.y < b.y;
+                    });
+                    Z = candZ.front();
+                }
 
                 // ④ P を花に近い順に並べた sorted_P を作る（花に近い＝(ti,tj) へのマンハッタン距離 小）
                 vector<Pos> sorted_P;
@@ -659,12 +753,29 @@ int main(){
                     sort(sorted_P.begin(), sorted_P.end(), [&](const Pos &a, const Pos &b){
                         int da = abs(a.x - ti) + abs(a.y - tj);
                         int db = abs(b.x - ti) + abs(b.y - tj);
+
+                        // case1: どちらも花から距離5以下なら Z優先
+                        if(da <= 5 && db <= 5){
+                            int za = (Z.x == -1 ? INT_MAX : abs(a.x - Z.x) + abs(a.y - Z.y));
+                            int zb = (Z.x == -1 ? INT_MAX : abs(b.x - Z.x) + abs(b.y - Z.y));
+                            if(za != zb) return za < zb;
+                        }
+
+                        // case2: 通常は花への距離優先
                         if(da != db) return da < db;
-                        // tie-breaker: shorter index in lastP (preserve order along path)
+
+                        // tie-breaker: lastPでの順序を維持
                         auto ita = find(lastP.begin(), lastP.end(), a);
                         auto itb = find(lastP.begin(), lastP.end(), b);
                         return (ita < itb);
                     });
+                }
+
+                // debug 出力
+                if(!sorted_P.empty()){
+                    cerr << "DEBUG: sorted_P: ";
+                    for(auto &p:sorted_P) cerr << "("<<p.x<<","<<p.y<<") ";
+                    cerr << "\n";
                 }
 
                 // ユーティリティ: Pに含まれるか？
@@ -689,13 +800,6 @@ int main(){
                     }
                     // tryPlaceTrent for each candidate (order: as collected)
                     for(auto &c : cand){
-                        //三方に木がある場合は置かない
-                        int woodCount = 0;
-                        for(int d=0;d<4;d++){
-                            int ax = c.x + dxs[d], ay = c.y + dys[d];
-                            if(inb(ax,ay) && cell[ax][ay]=='T') woodCount++;
-                        }
-                        if (woodCount >= 3) continue;
                         bool ok = tryPlaceTrent(c.x, c.y, adventurer);
                         if(ok){
                             // ④全体で最初にトレントを置いたマスについての special 操作を行う
@@ -705,43 +809,6 @@ int main(){
                                 cerr << "DEBUG: first placement at ("<<c.x<<","<<c.y<<")\n";
 
                                 // ------------------ 【操作】ここから ------------------
-                                // Z の決定：角から距離が N//3 かつ「終点とは異なる壁」にある境界上のマスを1個選ぶ
-                                Pos Z = {-1,-1};
-                                // 探索方針：全境界セルを走査して条件を満たすものを選ぶ（安定的に同じものを選ぶためソート的に選ぶ）
-                                vector<Pos> candZ;
-                                for(int x=0;x<N;++x){
-                                    for(int y=0;y<N;++y){
-                                        if(!(x==0 || x==N-1 || y==0 || y==N-1)) continue;
-                                        if(x==finalEndpoint.x && y==finalEndpoint.y) continue; // 終点と異なること
-                                        // この境界セルについて「最も近い角」を見つけ、その角からの距離が N//3 か？
-                                        int bestCd = INT_MAX; Pos bestC = corners[0];
-                                        for(auto &c0 : corners){
-                                            int d0 = abs(x - c0.x) + abs(y - c0.y);
-                                            if(d0 < bestCd){ bestCd = d0; bestC = c0; }
-                                        }
-                                        if(bestCd == N/3){
-                                            // さらに「終点とは異なる壁沿い」にあるか：壁を表す side idx
-                                            auto sideOf = [&](Pos P)->int{
-                                                if(P.x==0) return 0; // top
-                                                if(P.x==N-1) return 1; // bottom
-                                                if(P.y==0) return 2; // left
-                                                if(P.y==N-1) return 3; // right
-                                                return -1;
-                                            };
-                                            int dCorner = abs(x - bestCorner.x) + abs(y - bestCorner.y);
-                                            if(dCorner == N/3 && sideOf({x,y}) != sideOf(finalEndpoint)){
-                                                candZ.push_back({x,y});
-                                            }
-                                        }
-                                    }
-                                }
-                                if(!candZ.empty()){
-                                    // 安定的に先頭を選ぶ（例えば lexicographic）
-                                    sort(candZ.begin(), candZ.end(), [](const Pos &a, const Pos &b){
-                                        if(a.x != b.x) return a.x < b.x; return a.y < b.y;
-                                    });
-                                    Z = candZ.front();
-                                }
                                 if(Z.x == -1){
                                     cerr << "DEBUG: no Z found (skip special op)\n";
                                 } else {
@@ -773,7 +840,7 @@ int main(){
                                         bool placedThisRound = false;
                                         for(auto &pr : around){
                                             Pos cand = pr.second;
-                                            if(tryPlaceTrent(cand.x, cand.y, adventurer) || cell[cand.x][cand.y]=='T'){
+                                            if(tryPlaceTrent4(cand.x, cand.y, adventurer) || cell[cand.x][cand.y]=='T'){
                                                 // 成功したら lastPlacedTrent を更新
                                                 lastPlacedTrent = cand;
                                                 placedThisRound = true;

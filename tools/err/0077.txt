@@ -5,6 +5,7 @@ DEBUG: finalEndpoint = (2,0)
 DEBUG: bestCorner = (0,0) dist=2
 DEBUG: X_cell = (3,0)
 DEBUG: P length = 2
+DEBUG: sorted_P: (2,0) (3,0) 
 DEBUG: first placement at (3,1)
 DEBUG: chosen Z = (0,6)
 DEBUG: placed during op at (2,2)
@@ -15,8 +16,6 @@ DEBUG: placed during op at (1,6)
 DEBUG: placed during op at (1,7)
 DEBUG: placed during op at (1,6)
 DEBUG: placed during op at (2,6)
-DEBUG: placed during op at (1,6)
-DEBUG: placed during op at (2,7)
 DEBUG: placed during op at (1,6)
 DEBUG: op ended without reaching wall
 Output: placed
@@ -34,7 +33,7 @@ Goal from q: (11,5)14
 Move to (2,9)
 ===== TURN 3 =====
 Adventurer at (2,9)
-Output: 0
+Output: placed
 Goal from q: (11,5)13
 Move to (2,8)
 ===== TURN 4 =====

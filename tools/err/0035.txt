@@ -5,6 +5,7 @@ DEBUG: finalEndpoint = (19,15)
 DEBUG: bestCorner = (19,19) dist=4
 DEBUG: X_cell = (19,13)
 DEBUG: P length = 13
+DEBUG: sorted_P: (16,13) (17,14) (18,15) (16,12) (17,13) (18,14) (16,11) (17,11) (18,12) (19,13) (18,11) (19,12) (19,15) 
 DEBUG: first placement at (18,10)
 DEBUG: chosen Z = (13,19)
 DEBUG: placed during op at (17,9)
@@ -17,8 +18,6 @@ DEBUG: placed during op at (13,11)
 DEBUG: placed during op at (13,10)
 DEBUG: placed during op at (13,11)
 DEBUG: placed during op at (12,10)
-DEBUG: placed during op at (13,11)
-DEBUG: placed during op at (14,10)
 DEBUG: placed during op at (13,11)
 DEBUG: op ended without reaching wall
 Output: placed
