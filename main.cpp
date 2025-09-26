@@ -359,8 +359,8 @@ int main(){
                                     int cd = abs(nx - corners[ci].x) + abs(ny - corners[ci].y);
                                     if(cd < bestCdist){ bestCdist = cd; bestCorner = corners[ci]; }
                                 }
-                                // 角からの距離条件 (N/4 を保持)
-                                if(bestCdist <= N/4){
+                                // 角からの距離条件 (N/3 を保持)
+                                if(bestCdist <= N/5 + 1){
                                     // 終点から角へ一歩・二歩進めるかチェック (角に近づく方向)
                                     int sx = (bestCorner.x > nx ? 1 : (bestCorner.x < nx ? -1 : 0));
                                     int sy = (bestCorner.y > ny ? 1 : (bestCorner.y < ny ? -1 : 0));
