@@ -164,6 +164,57 @@ int main(){
             return false;
         }
     };
+
+    auto tryPlaceTrent3=[&](int x,int y,Pos adv)->bool{
+        if(!inb(x,y)) return false;
+        if(cell[x][y]!='.') return false;
+        if(hasTrent[x][y]) return false;
+        if(confirmed[x][y]) return false;
+        if(x==adv.x&&y==adv.y) return false;
+        if(!hasPathTrue(entrance,{ti,tj},x,y)) return false;
+        if(!hasPathTrue(adv,{ti,tj},x,y)) return false;
+
+        //花からのマンハッタン距離が4以下で、かつ、周りに三マス以上Tがあるなら置かない
+        if(abs(x-ti)+abs(y-tj)<=4){
+            int aroundT=0;
+            for(int dd=0;dd<4;dd++){
+                int ax=x+dxs[dd], ay=y+dys[dd];
+                if(inb(ax,ay) && cell[ax][ay]=='T') aroundT++;
+            }
+            if(aroundT>=3) return false;
+        }
+
+        // 仮置き
+        cell[x][y] = 'T';
+        hasTrent[x][y] = true;
+
+        // --- 追加チェック: 未確認かつ空き ('.') の全マスが到達可能か (bfsTrue を使用) ---
+        bool ok = true;
+        {
+            auto dist = bfsTrue(adv, {-1,-1}); // 仮置き状態を反映した真の地形での距離
+            for (int i = 0; i < N && ok; ++i) {
+                for (int j = 0; j < N; ++j) {
+                    // 「未確認マスのうち、木のない (= 真の地形で '.' ) マス」
+                    if (!confirmed[i][j] && cell[i][j] == '.') {
+                        if (dist[i][j] >= INF) { // 到達不能
+                            ok = false;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (ok) {
+            toPlace.push_back({x,y}); // 確定
+            return true;
+        } else {
+            // 撤回
+            cell[x][y] = '.';
+            hasTrent[x][y] = false;
+            return false;
+        }
+    };
     auto flowerToNearestCornerDist = [&](Pos block) {
     // block = {bx,by} が (-1,-1) なら「ブロックなし」
     auto dist = bfsTrue({ti,tj}, block);
@@ -763,7 +814,7 @@ int main(){
         bool placedThisTurn=false;
         // turn0では、必ず、冒険者の真下にトレントを置く
         if (turn == 0) {
-            tryPlaceTrent(adventurer.x, adventurer.y, adventurer);
+            tryPlaceTrent3(adventurer.x, adventurer.y, adventurer);
         }
         //直近の2ターンで同じ方向に動いているなら、冒険者から見て両脇にトレントを置く
         if (adventurerPrevPrev.x != -1 && adventurerPrev.x != -1) {
@@ -774,19 +825,19 @@ int main(){
             if (dx1 == dx2 && dy1 == dy2 && adventurerPrevPrev.x != 0 && adventurerPrevPrev.x != N-1 && adventurerPrevPrev.y != 0 && adventurerPrevPrev.y != N-1) { // 同じ方向に動いている
                 if (dx1 != 0) { // 縦移動
                     if ((adventurer.x + adventurer.y) % 3 != 0) { // チェッカーボード配置
-                        tryPlaceTrent(adventurer.x, adventurer.y + 1, adventurer);
-                        tryPlaceTrent(adventurer.x, adventurer.y - 1, adventurer);
+                        tryPlaceTrent3(adventurer.x, adventurer.y + 1, adventurer);
+                        tryPlaceTrent3(adventurer.x, adventurer.y - 1, adventurer);
                     } else {
-                        tryPlaceTrent(adventurer.x, adventurer.y + 3, adventurer);
-                        tryPlaceTrent(adventurer.x, adventurer.y - 3, adventurer);
+                        tryPlaceTrent3(adventurer.x, adventurer.y + 3, adventurer);
+                        tryPlaceTrent3(adventurer.x, adventurer.y - 3, adventurer);
                     }
                 } else if (dy1 != 0) { // 横移動
                     if ((adventurer.x + adventurer.y) % 3 != 0) { // チェッカーボード配置
-                        tryPlaceTrent(adventurer.x + 1, adventurer.y, adventurer);
-                        tryPlaceTrent(adventurer.x - 1, adventurer.y, adventurer);
+                        tryPlaceTrent3(adventurer.x + 1, adventurer.y, adventurer);
+                        tryPlaceTrent3(adventurer.x - 1, adventurer.y, adventurer);
                     } else {
-                        tryPlaceTrent(adventurer.x + 3, adventurer.y, adventurer);
-                        tryPlaceTrent(adventurer.x - 3, adventurer.y, adventurer);
+                        tryPlaceTrent3(adventurer.x + 3, adventurer.y, adventurer);
+                        tryPlaceTrent3(adventurer.x - 3, adventurer.y, adventurer);
                     }
                 }
                 placedThisTurn = true;
@@ -800,7 +851,7 @@ int main(){
                 if(cell[nx][ny]=='T') continue; // トレントがあるなら置けない
                 if(cell[nx][ny]=='#') continue; // 木があるなら置けない
                 int nnx=nx+dxs[d], nny=ny+dys[d];
-                tryPlaceTrent(nnx,nny,adventurer);
+                tryPlaceTrent3(nnx,nny,adventurer);
             }
         }
         
@@ -816,16 +867,8 @@ int main(){
                 if(cell[tx][ty]=='#') break; // 木があるなら置けない
                 if(cell[tx][ty]=='T') break; // トレントがあるなら置けない
                 // 花からのマンハッタン距離が4以下で、かつ、周りに三マス以上Tがあるなら置かない
-                if(abs(tx-ti)+abs(ty-tj)<=4){
-                    int aroundT=0;
-                    for(int dd=0;dd<4;dd++){
-                        int ax=tx+dxs[dd], ay=ty+dys[dd];
-                        if(inb(ax,ay) && cell[ax][ay]=='T') aroundT++;
-                    }
-                    if(aroundT>=3) break;
-                }
                 if(!confirmed[tx][ty]){
-                    bool ok = tryPlaceTrent(tx,ty,adventurer);
+                    bool ok = tryPlaceTrent3(tx,ty,adventurer);
                     if(ok) break; // 置けたらそこで終了
                 }
                 step++;
